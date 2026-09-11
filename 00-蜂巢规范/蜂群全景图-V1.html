@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SWARM OS · 蜂群指挥系统 V1.0</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/press-start-2p/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/silkscreen/index.css">
+<style>
+:root{
+  --bg:#05070f; --panel:#0a0f1e; --panel2:#0d1426; --line:rgba(0,240,255,.22);
+  --cyan:#00f0ff; --magenta:#ff2bd6; --yellow:#f9f871; --green:#3ef2a0;
+  --red:#ff4d6d; --dim:#5a6a8a; --text:#cfe8f5; --mute:#7f93b3;
+  --pixel:'Press Start 2P','Silkscreen',monospace;
+  --micro:'Silkscreen',monospace;
+  --cn:"HarmonyOS Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--text); font-family:var(--cn);
+  line-height:1.65; padding:28px 20px 60px; position:relative; overflow-x:hidden;
+  background-image:
+    linear-gradient(rgba(0,240,255,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,240,255,.045) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+body::after{
+  content:''; position:fixed; left:0; right:0; height:2px; top:0; pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent); opacity:.35;
+  animation:scan 7s linear infinite;
+}
+@keyframes scan{0%{transform:translateY(0)}100%{transform:translateY(100vh)}}
+@media (prefers-reduced-motion:reduce){body::after{animation:none}}
+.wrap{max-width:1180px;margin:0 auto}
+
+.hdr{border:1px solid var(--line);background:var(--panel);padding:20px 24px;position:relative;
+  clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px))}
+.hdr h1{font-family:var(--pixel);font-size:17px;letter-spacing:1px;color:var(--cyan);
+  text-shadow:0 0 12px rgba(0,240,255,.55);line-height:1.6}
+.hdr .sub{font-family:var(--cn);font-size:14px;color:var(--mute);margin-top:10px;letter-spacing:2px}
+.hdr .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-family:var(--micro);font-size:11px;padding:5px 10px;border:1px solid var(--line);
+  color:var(--cyan);background:rgba(0,240,255,.05);letter-spacing:1px}
+.chip.m{border-color:rgba(255,43,214,.35);color:var(--magenta);background:rgba(255,43,214,.06)}
+.chip.y{border-color:rgba(249,248,113,.35);color:var(--yellow);background:rgba(249,248,113,.06)}
+.chip.g{border-color:rgba(62,242,160,.35);color:var(--green);background:rgba(62,242,160,.06)}
+.dot{display:inline-block;width:7px;height:7px;background:var(--green);margin-right:7px;
+  box-shadow:0 0 8px var(--green);vertical-align:middle}
+
+section{margin-top:26px}
+.stitle{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.stitle .no{font-family:var(--pixel);font-size:11px;color:var(--magenta);text-shadow:0 0 10px rgba(255,43,214,.5)}
+.stitle h2{font-size:16px;font-weight:700;letter-spacing:2px;color:#eaf6ff}
+.stitle .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.stitle .en{font-family:var(--micro);font-size:10px;color:var(--dim);letter-spacing:1px}
+
+.card{border:1px solid var(--line);background:var(--panel);padding:18px;position:relative;
+  transition:border-color .2s,box-shadow .2s,transform .2s}
+.card:hover{border-color:rgba(0,240,255,.55);box-shadow:0 0 18px rgba(0,240,255,.16);transform:translateY(-2px)}
+.card .tag{font-family:var(--micro);font-size:10px;letter-spacing:1px;color:var(--dim)}
+.card h3{font-size:15px;font-weight:700;letter-spacing:1px;margin:6px 0 8px;color:#eaf6ff}
+.card p{font-size:13px;color:var(--mute);line-height:1.75}
+.card ul{list-style:none;margin-top:10px}
+.card li{font-size:12.5px;color:var(--mute);padding-left:14px;position:relative;line-height:1.9}
+.card li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;background:var(--dim)}
+.card .tools{margin-top:12px;font-family:var(--micro);font-size:10px;color:var(--cyan);
+  background:rgba(0,240,255,.05);border-left:2px solid var(--cyan);padding:7px 9px;line-height:1.8;word-break:break-all}
+
+.queen{border-color:rgba(249,248,113,.45);background:linear-gradient(180deg,rgba(249,248,113,.07),var(--panel));
+  box-shadow:0 0 26px rgba(249,248,113,.09);max-width:860px;margin:0 auto}
+.queen .tag{color:var(--yellow)} .queen h3{color:var(--yellow);font-size:17px}
+.queen:hover{border-color:rgba(249,248,113,.8);box-shadow:0 0 26px rgba(249,248,113,.22)}
+.queen .tools{border-left-color:var(--yellow);color:var(--yellow);background:rgba(249,248,113,.06)}
+.steps6{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.step{font-family:var(--cn);font-size:12px;padding:7px 11px;border:1px solid rgba(249,248,113,.3);
+  color:var(--yellow);background:rgba(249,248,113,.05);letter-spacing:1px}
+.arrowline{display:flex;justify-content:center;margin:14px 0 12px}
+.arrowline svg{width:100%;max-width:900px;height:44px}
+.workers{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:14px}
+.w1{border-color:rgba(0,240,255,.4)} .w1 h3,.w1 .tag{color:var(--cyan)}
+.w2{border-color:rgba(62,242,160,.4)} .w2 h3,.w2 .tag{color:var(--green)}
+.w3{border-color:rgba(255,43,214,.4)} .w3 h3,.w3 .tag{color:var(--magenta)}
+.w4{border-color:rgba(255,77,109,.4)} .w4 h3,.w4 .tag{color:var(--red)}
+.w1 .tools{border-left-color:var(--cyan);color:var(--cyan)}
+.w2 .tools{border-left-color:var(--green);color:var(--green)}
+.w3 .tools{border-left-color:var(--magenta);color:var(--magenta)}
+.w4 .tools{border-left-color:var(--red);color:var(--red)}
+
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.gate{border-left:3px solid var(--cyan)}
+.gate.g2{border-left-color:var(--yellow)} .gate.g2 h3{color:var(--yellow)}
+.gate.g3{border-left-color:var(--magenta)} .gate.g3 h3{color:var(--magenta)}
+.gate h3{color:var(--cyan)}
+
+.six{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-top:12px}
+.six div{font-size:12.5px;padding:9px 10px;border:1px solid var(--line);background:var(--panel2);
+  color:var(--text);text-align:center;letter-spacing:1px}
+.levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}
+.lv{border:1px solid var(--line);background:var(--panel2);padding:13px 15px;position:relative}
+.lv.b{border-color:rgba(0,240,255,.55);box-shadow:0 0 16px rgba(0,240,255,.12)}
+.lv .nm{font-size:13.5px;font-weight:700;letter-spacing:1px}
+.lv.a .nm{color:var(--dim)} .lv.b .nm{color:var(--cyan)} .lv.c .nm{color:var(--magenta)}
+.lv .use{font-size:12px;color:var(--mute);margin-top:6px}
+.bar{height:6px;background:rgba(255,255,255,.07);margin-top:11px;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;display:block}
+.lv.a .bar i{width:33%;background:var(--dim)}
+.lv.b .bar i{width:66%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.lv.c .bar i{width:100%;background:var(--magenta);box-shadow:0 0 10px var(--magenta)}
+.mark{position:absolute;right:12px;top:11px;font-family:var(--micro);font-size:10px;color:var(--cyan)}
+
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:14px}
+@media(max-width:820px){.split{grid-template-columns:1fr}}
+pre{background:#04060d;border:1px solid var(--line);padding:15px;overflow-x:auto;
+  font-family:var(--micro);font-size:11.5px;line-height:2;color:var(--mute)}
+pre b{color:var(--cyan);font-weight:400} pre i{color:var(--yellow);font-style:normal}
+pre s{color:var(--magenta);text-decoration:none}
+.tri{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.tri div{flex:1;min-width:130px;font-size:12.5px;padding:11px 12px;border:1px solid var(--line);
+  background:var(--panel2);color:var(--text)}
+.tri div span{display:block;font-family:var(--micro);font-size:10px;color:var(--magenta);margin-bottom:5px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:12px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid rgba(0,240,255,.12)}
+th{font-family:var(--micro);font-size:10px;color:var(--cyan);letter-spacing:1px;font-weight:400}
+td:first-child{color:var(--text)} td{color:var(--mute)}
+.ok{color:var(--green)} .warn{color:var(--yellow)} .no{color:var(--red)}
+.ft{margin-top:30px;border-top:1px solid var(--line);padding-top:16px;display:flex;
+  flex-wrap:wrap;gap:10px;justify-content:space-between;font-family:var(--micro);font-size:10.5px;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hdr">
+  <h1>SWARM COMMAND SYSTEM</h1>
+  <div class="sub">蜂群指挥系统 · V1.0 · 一脑四手 · 章程即代码</div>
+  <div class="meta">
+    <span class="chip"><span class="dot"></span>在线 · 待接单</span>
+    <span class="chip m">MAIN BRANCH</span>
+    <span class="chip y">验收默认 标准档</span>
+    <span class="chip g">3 COMMITS</span>
+    <span class="chip">编制 1 + 4</span>
+  </div>
+</header>
+
+<section>
+  <div class="stitle"><span class="no">01</span><h2>指挥层 · 蜂王</h2><span class="ln"></span><span class="en">QUEEN</span></div>
+  <div class="card queen">
+    <div class="tag">唯一大脑 · 不抢活 · 能委派的绝不自己干</div>
+    <h3>蜂王 QUEEN</h3>
+    <p>只做六件事：理解 · 拆解 · 路由 · 调度 · 验收 · 聚合。成功标准不是"自己干了多少"，而是<strong style="color:var(--yellow)">这单任务在最少打扰主人的前提下高质量交付</strong>。</p>
+    <div class="steps6">
+      <span class="step">① 接单复述</span><span class="step">② 拆 DAG</span><span class="step">③ 能力路由</span>
+      <span class="step">④ 派发跟踪</span><span class="step">⑤ 验收把关</span><span class="step">⑥ 聚合复盘</span>
+    </div>
+    <div class="tools">READ · WRITE · BASH · WEBSEARCH · SKILL · AGENT · TASK-CREATE</div>
+  </div>
+  <div class="arrowline">
+    <svg viewBox="0 0 900 44" preserveAspectRatio="none">
+      <defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M2 1L8 5L2 9" fill="none" stroke="#00f0ff" stroke-width="1.5"/></marker></defs>
+      <path d="M450 2 L450 22" fill="none" stroke="#00f0ff" stroke-width="1.5" opacity=".6"/>
+      <path d="M110 22 L790 22" fill="none" stroke="#00f0ff" stroke-width="1.5" opacity=".6"/>
+      <path d="M110 22 L110 40" fill="none" stroke="#00f0ff" stroke-width="1.5" marker-end="url(#a)"/>
+      <path d="M340 22 L340 40" fill="none" stroke="#00f0ff" stroke-width="1.5" marker-end="url(#a)"/>
+      <path d="M560 22 L560 40" fill="none" stroke="#00f0ff" stroke-width="1.5" marker-end="url(#a)"/>
+      <path d="M790 22 L790 40" fill="none" stroke="#00f0ff" stroke-width="1.5" marker-end="url(#a)"/>
+    </svg>
+  </div>
+  <div class="workers">
+    <div class="card w1">
+      <div class="tag">W1 · SCOUT</div><h3>资料侦查蜂</h3>
+      <p>找东西。凡是需要采集、核实、汇总的事实性工作，都归它。产出的是原料，不是成品。</p>
+      <ul><li>联网检索 / 竞品调研 / 资料汇总</li><li>网页抓取 · 公众号批量采集</li><li>事实核实 · 本地文件梳理</li></ul>
+      <div class="tools">WEBSEARCH · WEBFETCH · AGENT-BROWSER</div>
+      <p style="margin-top:10px;font-size:12.5px;color:var(--yellow)">出厂铁律：每条结论必须带来源，时效必标，存疑不许藏</p>
+    </div>
+    <div class="card w2">
+      <div class="tag">W2 · BUILDER</div><h3>提案筑巢蜂</h3>
+      <p>造结构化成品的。PPT 提案 / Word 文档 / Excel 表格 / 网页 Demo，默认语境是餐饮品牌全案。</p>
+      <ul><li>提案册 · 汇报材料 · 方案文档</li><li>数据表 · 看板 · 清单生成</li><li>Logo 视觉解构提案</li></ul>
+      <div class="tools">TENCENT-PPTX · DOCX · SHEETAGENT</div>
+      <p style="margin-top:10px;font-size:12.5px;color:var(--yellow)">出厂铁律：零占位符 · 数据有出处 · 字体可商用</p>
+    </div>
+    <div class="card w3">
+      <div class="tag">W3 · IMAGE</div><h3>图片施工蜂</h3>
+      <p>管所有像素活。生图 / 视频 / 3D / 修图 / 品牌延展 / 表情包 GIF。</p>
+      <ul><li>文生图 · 图生图 · 主视觉</li><li>去水印 · 抠图 · 修复 · 增强</li><li>包装周边 mockup · 九宫格动图</li></ul>
+      <div class="tools">IMAGEGEN · VIDEOGEN · BRAND-EXTENSION</div>
+      <p style="margin-top:10px;font-size:12.5px;color:var(--magenta)">出厂铁律：零水印 · 零 Logo · 零文字（逐张肉眼过）</p>
+    </div>
+    <div class="card w4">
+      <div class="tag">W4 · GUARD</div><h3>守卫蜂</h3>
+      <p>对抗性角色，不产出内容，专职挑刺。价值在于敢说"这个不行"。</p>
+      <ul><li>六项清单审查 · 事实复核</li><li>引入开源前的安全许可审计</li><li>对外发布前的合规检查</li></ul>
+      <div class="tools">六项清单 · 反查 · READ</div>
+      <p style="margin-top:10px;font-size:12.5px;color:var(--red)">审查铁律：每个问题必须标具体位置｜写明未查范围</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="stitle"><span class="no">02</span><h2>质量关卡 · 三道闸门</h2><span class="ln"></span><span class="en">QUALITY GATES</span></div>
+  <div class="grid3">
+    <div class="card gate">
+      <div class="tag">GATE 01 · 进场</div><h3>G1 进场验收</h3>
+      <p>把关对象是<strong style="color:var(--cyan)">派工单本身</strong>。目标、输入、产出路径、验收标准、边界——任一项虚，任务不许下发。</p>
+      <ul><li>目标一句话说得清吗</li><li>验收标准可勾选吗</li><li>边界划了吗</li></ul>
+      <p style="margin-top:10px;font-size:12.5px;color:var(--yellow)">不通过 → 退回重写工单，不许带着含糊开干</p>
+    </div>
+    <div class="card gate g2">
+      <div class="tag">GATE 02 · 过程</div><h3>G2 过程抽检</h3>
+      <p>只用于长任务。第一个子产物出来就抽检一次，跑完一半里程碑再抽一次。</p>
+      <ul><li>方向对不对</li><li>风格跑没跑偏</li><li>上一棒的产出够下一棒用吗</li></ul>
+      <p style="margin-top:10px;font-size:12.5px;color:var(--yellow)">宁可早点毁掉重来，不可拖到最后交一堆废品</p>
+    </div>
+    <div class="card gate g3">
+      <div class="tag">GATE 03 · 出厂</div><h3>G3 出厂验收</h3>
+      <p>交付前的最后一道闸。<strong style="color:var(--magenta)">没过 G3 的东西不许交付</strong>，返工到过为止。</p>
+      <div class="six">
+        <div>完整性</div><div>准确性</div><div>格式</div><div>合规</div><div>可用性</div><div>一致性</div>
+      </div>
+      <p style="margin-top:12px;font-size:12.5px">评级：<span class="ok">A 放行</span> ｜ <span class="warn">B 小修</span> ｜ <span class="no">C 重做</span></p>
+    </div>
+  </div>
+  <div class="levels">
+    <div class="lv a"><span class="nm">速查 LIGHT</span><span class="mark">2 项</span>
+      <div class="use">内部草稿 · 过程稿 · 给自己看的东西</div><div class="bar"><i></i></div></div>
+    <div class="lv b"><span class="nm">标准 STANDARD</span><span class="mark">默认</span>
+      <div class="use">日常交付 · 完整性 + 格式 + 合规 + 准确性抽查</div><div class="bar"><i></i></div></div>
+    <div class="lv c"><span class="nm">严查 STRICT</span><span class="mark">6 项 + 专项</span>
+      <div class="use">对外交付 · 客户提案 · 公开发布 · 付费成果</div><div class="bar"><i></i></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="stitle"><span class="no">03</span><h2>沟通协议 · 静默准则</h2><span class="ln"></span><span class="en">COMMS PROTOCOL</span></div>
+  <div class="card">
+    <p>蜂王<strong style="color:var(--cyan)">默认静默执行</strong>。中途进度、思考过程、调用了什么工具，统统不报。只有三种情况才允许出声：</p>
+    <div class="tri">
+      <div><span>TRIGGER 01</span>需要主人拍板 —— 歧义、多方案取舍、方向性决策。一次性问清，≤3 个问题，每个带推荐项。</div>
+      <div><span>TRIGGER 02</span>有风险 —— 不可逆删除 / 外部发布 / 付费 / 账号操作。先警告后果并列清单，拿到授权才动手。</div>
+      <div><span>TRIGGER 03</span>要交付 —— 整单完成或被卡死。出结论先行的报告，含产物路径与遗留问题。</div>
+    </div>
+    <p style="margin-top:14px;font-size:12.5px;color:var(--mute)">例外：长任务可在关键节点贴<strong style="color:var(--yellow)">一行卡片</strong>（如 <span style="font-family:var(--micro);color:var(--cyan)">▸ 资料已采完，正在写提案</span>），不许长篇。</p>
+  </div>
+</section>
+
+<section>
+  <div class="stitle"><span class="no">04</span><h2>蜂巢 · 记忆与留痕</h2><span class="ln"></span><span class="en">HIVE FILESYSTEM</span></div>
+  <div class="split">
+    <pre><b>蜂王/</b>
+├── <i>00-蜂巢规范/</i>    公约 · 架构 · Git 工作流
+├── <i>01-蜂王/</i>        角色卡 · 派工单 · 验收清单
+├── <i>02-工蜂/</i>        四只工蜂角色卡
+├── <i>03-任务档案/</i>    每单任务的完整留痕
+└── <i>04-知识沉淀/</i>    能力注册表 · 踩坑库
+
+<b>每单任务三件套</b>
+└── <s>20260911-任务名/</s>
+    ├── 00-任务图.md      ← 蜂王写
+    ├── 01-工蜂产出/      ← 工蜂写（按工单命名）
+    └── 02-验收单.md      ← 蜂王写</pre>
+    <div class="card">
+      <div class="tag">GIT · 单主干</div><h3>一单任务 = 一次提交</h3>
+      <table>
+        <tr><th>类型</th><th>用在哪</th></tr>
+        <tr><td>task</td><td>一单任务的完整产出与验收</td></tr>
+        <tr><td>wip</td><td>进行中的中间存档</td></tr>
+        <tr><td>doc</td><td>章程 / 角色卡 / 清单更新</td></tr>
+        <tr><td>asset</td><td>新增素材与产出物</td></tr>
+        <tr><td>chore</td><td>整理 · 清理 · 结构调整</td></tr>
+      </table>
+      <p style="margin-top:12px;font-size:12.5px">单文件 &gt; 50MB 不入库，改在同目录维护资产清单。密钥一律不进仓库。</p>
+      <div class="tools">BRANCH: MAIN ONLY · QUOTEPATH OFF</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="stitle"><span class="no">05</span><h2>平台边界 · 认清跑道</h2><span class="ln"></span><span class="en">ENVIRONMENT</span></div>
+  <div class="card">
+    <p>整个架构的地基是这一条：<strong style="color:var(--magenta)">本环境未开放多 agent 独立团队</strong>。所以蜂群不是常驻进程群，而是<strong style="color:var(--cyan)">长在磁盘上的组织形态</strong>——蜂王与工蜂是临时附身的角色剧本，蜂巢文件 + Git 才是唯一永续的东西。</p>
+    <table>
+      <tr><th>能力</th><th>状态</th><th>说明</th></tr>
+      <tr><td>Skill 机制</td><td class="ok">可用</td><td>全部技能可被蜂王直接调度</td></tr>
+      <tr><td>任务跟踪</td><td class="ok">可用</td><td>状态：待办 / 进行中 / 完成 / 阻塞</td></tr>
+      <tr><td>派发子 agent</td><td class="ok">有限可用</td><td>仅内置若干类型，重活才用</td></tr>
+      <tr><td>领域专家</td><td class="warn">需手动</td><td>蜂王不能自动拉起，需主人切换</td></tr>
+      <tr><td>自由组队</td><td class="no">不可用</td><td>改用「角色卡 + 文件总线」替代</td></tr>
+      <tr><td>工蜂长驻</td><td class="no">不可用</td><td>跑完即散，靠文件延续记忆</td></tr>
+    </table>
+  </div>
+</section>
+
+<div class="ft">
+  <span>HIVE: D:\WORK——Vie\沃克巴蒂\蜂群\蜂王</span>
+  <span>GEN 2026-09-11 · 旺财 🐶 BUILT FOR 最帅气的主人</span>
+</div>
+
+</div>
+</body>
+</html>
