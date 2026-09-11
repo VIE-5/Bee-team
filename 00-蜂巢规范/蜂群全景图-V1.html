@@ -81,10 +81,12 @@ section{margin-top:26px}
 .w2{border-color:rgba(62,242,160,.4)} .w2 h3,.w2 .tag{color:var(--green)}
 .w3{border-color:rgba(255,43,214,.4)} .w3 h3,.w3 .tag{color:var(--magenta)}
 .w4{border-color:rgba(255,77,109,.4)} .w4 h3,.w4 .tag{color:var(--red)}
+.w5{border-color:rgba(249,248,113,.45)} .w5 h3,.w5 .tag{color:var(--yellow)}
 .w1 .tools{border-left-color:var(--cyan);color:var(--cyan)}
 .w2 .tools{border-left-color:var(--green);color:var(--green)}
 .w3 .tools{border-left-color:var(--magenta);color:var(--magenta)}
 .w4 .tools{border-left-color:var(--red);color:var(--red)}
+.w5 .tools{border-left-color:var(--yellow);color:var(--yellow)}
 
 .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
 .gate{border-left:3px solid var(--cyan)}
@@ -132,13 +134,13 @@ td:first-child{color:var(--text)} td{color:var(--mute)}
 
 <header class="hdr">
   <h1>SWARM COMMAND SYSTEM</h1>
-  <div class="sub">蜂群指挥系统 · V1.0 · 一脑四手 · 章程即代码</div>
+  <div class="sub">蜂群指挥系统 · V1.1 · 一脑五手 · 章程即代码</div>
   <div class="meta">
     <span class="chip"><span class="dot"></span>在线 · 待接单</span>
     <span class="chip m">MAIN BRANCH</span>
     <span class="chip y">验收默认 标准档</span>
-    <span class="chip g">3 COMMITS</span>
-    <span class="chip">编制 1 + 4</span>
+    <span class="chip g">GIT TRACKED</span>
+    <span class="chip">编制 1 + 5</span>
   </div>
 </header>
 
@@ -161,8 +163,9 @@ td:first-child{color:var(--text)} td{color:var(--mute)}
       <path d="M450 2 L450 22" fill="none" stroke="#00f0ff" stroke-width="1.5" opacity=".6"/>
       <path d="M110 22 L790 22" fill="none" stroke="#00f0ff" stroke-width="1.5" opacity=".6"/>
       <path d="M110 22 L110 40" fill="none" stroke="#00f0ff" stroke-width="1.5" marker-end="url(#a)"/>
-      <path d="M340 22 L340 40" fill="none" stroke="#00f0ff" stroke-width="1.5" marker-end="url(#a)"/>
-      <path d="M560 22 L560 40" fill="none" stroke="#00f0ff" stroke-width="1.5" marker-end="url(#a)"/>
+      <path d="M280 22 L280 40" fill="none" stroke="#00f0ff" stroke-width="1.5" marker-end="url(#a)"/>
+      <path d="M450 22 L450 40" fill="none" stroke="#00f0ff" stroke-width="1.5" marker-end="url(#a)"/>
+      <path d="M620 22 L620 40" fill="none" stroke="#00f0ff" stroke-width="1.5" marker-end="url(#a)"/>
       <path d="M790 22 L790 40" fill="none" stroke="#00f0ff" stroke-width="1.5" marker-end="url(#a)"/>
     </svg>
   </div>
@@ -194,6 +197,13 @@ td:first-child{color:var(--text)} td{color:var(--mute)}
       <ul><li>六项清单审查 · 事实复核</li><li>引入开源前的安全许可审计</li><li>对外发布前的合规检查</li></ul>
       <div class="tools">六项清单 · 反查 · READ</div>
       <p style="margin-top:10px;font-size:12.5px;color:var(--red)">审查铁律：每个问题必须标具体位置｜写明未查范围</p>
+    </div>
+    <div class="card w5">
+      <div class="tag">W5 · PROMPTER</div><h3>设计提词蜂</h3>
+      <p>只写词，不按快门。把「想要什么」翻译成可执行的 prompt——策略与执行之间的<strong style="color:var(--yellow)">翻译层</strong>。</p>
+      <ul><li>生图 · 生视频 prompt 撰写与调优</li><li>模糊风格词解构（"要高级"→ 可观测属性）</li><li>设计 brief · 风格锚 · 提词模板沉淀</li></ul>
+      <div class="tools">九字段结构 · 提词库 · 负向铁律清单</div>
+      <p style="margin-top:10px;font-size:12.5px;color:var(--yellow)">出厂铁律：零空词 · 九字段完整 · 铁律清单必挂</p>
     </div>
   </div>
 </section>
@@ -251,7 +261,7 @@ td:first-child{color:var(--text)} td{color:var(--mute)}
     <pre><b>蜂王/</b>
 ├── <i>00-蜂巢规范/</i>    公约 · 架构 · Git 工作流
 ├── <i>01-蜂王/</i>        角色卡 · 派工单 · 验收清单
-├── <i>02-工蜂/</i>        四只工蜂角色卡
+├── <i>02-工蜂/</i>        五只工蜂角色卡
 ├── <i>03-任务档案/</i>    每单任务的完整留痕
 └── <i>04-知识沉淀/</i>    能力注册表 · 踩坑库
 
