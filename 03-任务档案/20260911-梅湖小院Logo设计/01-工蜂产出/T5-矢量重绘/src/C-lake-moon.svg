@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <clipPath id="clipC"><circle cx="256" cy="256" r="232"/></clipPath>
+    <mask id="moonC">
+      <rect width="512" height="512" fill="#000000"/>
+      <circle cx="250" cy="232" r="100" fill="#ffffff"/>
+      <circle cx="298" cy="196" r="96" fill="#000000"/>
+    </mask>
+  </defs>
+  <circle cx="256" cy="256" r="232" fill="#24505A"/>
+  <g clip-path="url(#clipC)">
+    <rect width="512" height="512" fill="#F7F2E7" mask="url(#moonC)"/>
+    <g fill="none" stroke="#F7F2E7" stroke-linecap="round">
+      <path d="M 28 366 Q 256 332 484 366" stroke-width="16"/>
+      <path d="M 74 406 Q 256 380 438 406" stroke-width="11"/>
+      <path d="M 120 442 Q 256 424 392 442" stroke-width="8"/>
+    </g>
+  </g>
+</svg>

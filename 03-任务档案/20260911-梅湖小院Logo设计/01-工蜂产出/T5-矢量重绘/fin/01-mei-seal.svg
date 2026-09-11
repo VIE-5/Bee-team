@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <mask id="hA">
+      <rect width="512" height="512" fill="#ffffff"/>
+      <circle cx="256" cy="256" r="62" fill="#000000"/>
+    </mask>
+  </defs>
+  <circle cx="256" cy="256" r="214" fill="none" stroke="#1F4E4A" stroke-width="24"/>
+  <g fill="#1F4E4A" mask="url(#hA)">
+    <g transform="translate(256 256)">
+      <path d="M 0 -10 C 48 -32 56 -108 0 -150 C -56 -108 -48 -32 0 -10 Z"/>
+      <path d="M 0 -10 C 48 -32 56 -108 0 -150 C -56 -108 -48 -32 0 -10 Z" transform="rotate(72)"/>
+      <path d="M 0 -10 C 48 -32 56 -108 0 -150 C -56 -108 -48 -32 0 -10 Z" transform="rotate(144)"/>
+      <path d="M 0 -10 C 48 -32 56 -108 0 -150 C -56 -108 -48 -32 0 -10 Z" transform="rotate(216)"/>
+      <path d="M 0 -10 C 48 -32 56 -108 0 -150 C -56 -108 -48 -32 0 -10 Z" transform="rotate(288)"/>
+    </g>
+  </g>
+  <circle cx="256" cy="256" r="30" fill="#C0392B"/>
+</svg>

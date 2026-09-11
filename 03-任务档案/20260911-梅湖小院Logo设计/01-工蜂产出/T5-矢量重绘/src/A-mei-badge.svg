@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <mask id="holeA">
+      <rect x="0" y="0" width="512" height="512" fill="#ffffff"/>
+      <circle cx="256" cy="256" r="54" fill="#000000"/>
+    </mask>
+  </defs>
+  <circle cx="256" cy="256" r="213" fill="none" stroke="#1F4E4A" stroke-width="26"/>
+  <g fill="#1F4E4A" mask="url(#holeA)">
+    <g transform="translate(256 256)">
+      <path d="M 0 -12 C 44 -38 50 -106 0 -146 C -50 -106 -44 -38 0 -12 Z"/>
+      <path d="M 0 -12 C 44 -38 50 -106 0 -146 C -50 -106 -44 -38 0 -12 Z" transform="rotate(72)"/>
+      <path d="M 0 -12 C 44 -38 50 -106 0 -146 C -50 -106 -44 -38 0 -12 Z" transform="rotate(144)"/>
+      <path d="M 0 -12 C 44 -38 50 -106 0 -146 C -50 -106 -44 -38 0 -12 Z" transform="rotate(216)"/>
+      <path d="M 0 -12 C 44 -38 50 -106 0 -146 C -50 -106 -44 -38 0 -12 Z" transform="rotate(288)"/>
+    </g>
+  </g>
+  <circle cx="256" cy="256" r="28" fill="#C0392B"/>
+</svg>

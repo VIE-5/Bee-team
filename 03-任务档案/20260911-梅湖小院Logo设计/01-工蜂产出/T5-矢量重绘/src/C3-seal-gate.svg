@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <mask id="gate">
+      <rect width="512" height="512" fill="#ffffff"/>
+      <circle cx="256" cy="238" r="148" fill="#000000"/>
+    </mask>
+  </defs>
+  <rect x="46" y="46" width="420" height="420" rx="78" fill="#1F4E4A" mask="url(#gate)"/>
+  <g fill="#1F4E4A">
+    <path d="M 175 238 C 228 199 300 201 336 228 C 349 237 349 249 336 258 C 300 285 228 287 175 238 Z"/>
+    <path d="M 186 238 Q 152 216 128 182 Q 141 212 144 238 Q 141 264 128 294 Q 152 260 186 238 Z"/>
+    <path d="M 272 218 L 294 174 Q 275 210 268 222 Z"/>
+  </g>
+  <circle cx="310" cy="226" r="7" fill="#F7F2E7"/>
+</svg>

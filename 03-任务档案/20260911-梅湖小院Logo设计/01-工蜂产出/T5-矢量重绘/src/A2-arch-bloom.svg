@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <mask id="bloomA2">
+      <rect x="0" y="0" width="512" height="512" fill="#ffffff"/>
+      <g transform="translate(256 268)">
+        <path d="M 0 -6 C 34 -24 40 -78 0 -110 C -40 -78 -34 -24 0 -6 Z" fill="#000000"/>
+        <path d="M 0 -6 C 34 -24 40 -78 0 -110 C -40 -78 -34 -24 0 -6 Z" fill="#000000" transform="rotate(72)"/>
+        <path d="M 0 -6 C 34 -24 40 -78 0 -110 C -40 -78 -34 -24 0 -6 Z" fill="#000000" transform="rotate(144)"/>
+        <path d="M 0 -6 C 34 -24 40 -78 0 -110 C -40 -78 -34 -24 0 -6 Z" fill="#000000" transform="rotate(216)"/>
+        <path d="M 0 -6 C 34 -24 40 -78 0 -110 C -40 -78 -34 -24 0 -6 Z" fill="#000000" transform="rotate(288)"/>
+      </g>
+    </mask>
+  </defs>
+  <path d="M 100 466 L 100 250 A 156 156 0 0 1 412 250 L 412 466 Z" fill="#1F4E4A" mask="url(#bloomA2)"/>
+  <circle cx="256" cy="268" r="22" fill="#C0392B"/>
+</svg>
