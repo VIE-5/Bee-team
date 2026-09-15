@@ -22,7 +22,9 @@
 | 生图水印坑 | 生图通道默认右下角加「AI生成」水印，prompt/footnote 都关不掉 → 走 `04-知识沉淀/工具/clean_logo.py` 裁切补偿（检测要用「行内最大色差」） |
 | 中文字标 | 不给 AI 直出（必出伪字），只出图形标 + 开源字体排版建议由人工排 |
 | PPT 产线 | **图片素材 → 排版封装** 走 `html-ppt`（html-ppt-studio，MIT，装在 `~/.workbuddy/skills/html-ppt`）。铁律：`image-*` 版式只承载氛围图/空间照/物料图，**Logo/标识仍必须走 `vector-logo-maker` 矢量精绘** |
-| Windows 渲染 | 原版 `render.sh` 是 mac 专用 → 用 `04-知识沉淀/工具/render-win.bat`（出 PNG / PDF）；Chrome headless **必须带 `--user-data-dir`**，否则静默失败 |
+| Windows 渲染 | 原版 `render.sh` 是 mac 专用 → 用 `04-知识沉淀/工具/render-win.bat`（出 PNG / PDF）；Chrome headless **必须带 `--user-data-dir`**，否则静默失败；**中文路径下截图不自动编码，须走 `Path.as_uri()`** |
+| PPT 导出三坑 | ① 导出 PDF 必须在主题写 `@page{size:1920px 1080px;margin:0}`，否则落 Letter 白边；② 满版页**禁止**给 `.slide` 覆写 `position`（它本身已是 `absolute;inset:0`，改写会让内容层高度归零成空白）；③ 固定画布下用**固定 px 限高**，别用 `aspect-ratio` 算高度（会撑破版心） |
+| deck 归档 | 归档要**自包含**：拷 `assets/` 到 deck 旁 + 把 `../../assets/` 改写为 `assets/`，否则脱离 skill 目录即失效 |
 
 ## 已验证流程
 
