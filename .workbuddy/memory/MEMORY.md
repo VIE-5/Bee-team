@@ -23,6 +23,8 @@
 | 中文字标 | 不给 AI 直出（必出伪字），只出图形标 + 开源字体排版建议由人工排 |
 | PPT 产线 | **图片素材 → 排版封装** 走 `html-ppt`（html-ppt-studio，MIT，装在 `~/.workbuddy/skills/html-ppt`）。铁律：`image-*` 版式只承载氛围图/空间照/物料图，**Logo/标识仍必须走 `vector-logo-maker` 矢量精绘** |
 | Windows 渲染 | 原版 `render.sh` 是 mac 专用 → 用 `04-知识沉淀/工具/render-win.bat`（出 PNG / PDF）；Chrome headless **必须带 `--user-data-dir`**，否则静默失败；**中文路径下截图不自动编码，须走 `Path.as_uri()`** |
+| **外部程序传路径** | Git Bash **只对纯 ASCII 路径**做 Unix→Windows 转换；蜂巢路径含 `——` 与中文 → 转换被跳过 → 外部程序（Chrome / LibreOffice / Node…）收到 `/d/WORK——Vie/...` 非法路径 → **静默零产出（退出码仍为 0）**、进程僵死占锁。**铁律：调外部程序一律传 Windows 风格路径 `C:/...`；`-env:UserInstallation` 指向纯 ASCII 临时目录** |
+| **产物核对** | 「命令退出码 0」≠「任务成功」。Chrome / LibreOffice headless 都有「退出码 0 但零文件」的失败模式 → **跑外部程序产出文件的命令，收尾必 `ls` 数数量 + 看体积** |
 | PPT 导出三坑 | ① 导出 PDF 必须在主题写 `@page{size:1920px 1080px;margin:0}`，否则落 Letter 白边；② 满版页**禁止**给 `.slide` 覆写 `position`（它本身已是 `absolute;inset:0`，改写会让内容层高度归零成空白）；③ 固定画布下用**固定 px 限高**，别用 `aspect-ratio` 算高度（会撑破版心） |
 | deck 归档 | 归档要**自包含**：拷 `assets/` 到 deck 旁 + 把 `../../assets/` 改写为 `assets/`，否则脱离 skill 目录即失效 |
 | VI 提案母版 | 已从 231 页真实案例反推出母版：`04-知识沉淀/母版/VI-Proposal-Master/`（master.css + index.html）。**换品牌只改 2 个色值 + 换 `images/`**。几何铁律：画布 **16:10**、页眉分隔线 **12.9%**、左右边距 **11%**、内容自 15% 起且**垂直居中不撑满**、**不设页码** |

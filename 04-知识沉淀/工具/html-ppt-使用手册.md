@@ -36,7 +36,12 @@
 | 3–6 张 | `image-gallery.html` | 统一网格 + 每张说明 |
 | 前后对比 | `image-compare.html` | 左右等大 |
 
-## ⚠️ Windows 上的三个坑（原版未覆盖）
+## ⚠️ Windows 上的四个坑（原版未覆盖）
+
+> **前置铁律（比下面四条都重要）**：在 Git Bash 里调用**任何外部 Windows 程序**（Chrome / LibreOffice / Node…），
+> 传路径**必须用 Windows 风格**（`C:/...`）。Git Bash 只对**纯 ASCII 路径**做 Unix→Windows 转换，
+> 蜂巢路径含 `——`（em dash）和中文 → **转换被跳过** → 外部程序收到 `/d/WORK——Vie/...` 这种非法路径，
+> **静默零产出（退出码还是 0）**，甚至进程僵死。详见 `04-知识沉淀/踩坑库.md`（2026-09-15 条）。
 
 ### 坑 1：`scripts/render.sh` 是 macOS 专用
 Chrome 路径写死 `/Applications/Google Chrome.app/...`，Windows 直接报 `Chrome not found`。
@@ -52,6 +57,11 @@ Chrome 路径写死 `/Applications/Google Chrome.app/...`，Windows 直接报 `C
 
 ### 附加坑：README 承诺的部分文件不存在
 README 提到 `scripts/export-pdf.sh`，**仓库里实际没有**。PDF 得自己用 Chrome `--print-to-pdf` 出。
+
+### 坑 4：批量渲染/导出后**必须核对产物**，别信退出码
+Chrome headless 与 LibreOffice headless 都有「**退出码 0 但零文件**」的失败模式（见坑 2、以及踩坑库
+2026-09-15 的 LibreOffice 案例）。渲染/导出命令跑完，**收尾一定 `ls` 数数量、看体积**——
+只看「任务完成」会把废品当成品往下传。
 
 ## 标准工作流
 
