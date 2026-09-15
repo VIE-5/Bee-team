@@ -1,0 +1,22 @@
+/* theme: brand-meihu — 梅湖小院品牌 VI（从 Logo 源提取）
+ * 主色 #1F4E4A 墨绿 / 点缀 #C0392B 朱红 / 宣纸底 #F7F5F0
+ * 只需改这一个文件，整个 deck 换肤。
+ */
+:root{
+  --bg:#F7F5F0;--bg-soft:#EFEBE3;--surface:#FFFFFF;--surface-2:#F2EFE8;
+  --border:#D8D2C6;--border-strong:#1F4E4A;
+  --text-1:#1A2422;--text-2:#4A5450;--text-3:#8A928E;
+  --accent:#1F4E4A;--accent-2:#C0392B;--accent-3:#8A928E;
+  --accent-ink:#FFFFFF;  /* 墨绿底上的文字 */
+  --good:#1F4E4A;--warn:#C08A2B;--bad:#C0392B;
+  --grad:linear-gradient(135deg,#1F4E4A,#2E6B65);
+  --grad-soft:linear-gradient(135deg,#F2EFE8,#FFFFFF);
+  --radius:2px;--radius-sm:2px;--radius-lg:4px;
+  --shadow:0 1px 3px rgba(31,78,74,.08);
+  --shadow-lg:0 6px 24px rgba(31,78,74,.10);
+  --font-sans:'Noto Sans SC','Inter','Helvetica Neue',sans-serif;
+  --font-display:'Noto Serif SC','Songti SC','Georgia',serif;
+  --letter-tight:-.02em;
+}
+.card{border-top:2px solid #1F4E4A;border-bottom:1px solid #D8D2C6;border-left:none;border-right:none;box-shadow:none;background:#fff}
+.slide{background-image:none}

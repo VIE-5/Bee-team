@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="brand-meihu">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>梅湖小院 · 品牌 VI 提案（链路验证）</title>
+<link rel="stylesheet" href="../../assets/fonts.css">
+<link rel="stylesheet" href="../../assets/base.css">
+<link rel="stylesheet" href="theme-brand.css">
+<link rel="stylesheet" href="../../assets/animations/animations.css">
+<style>
+/* 本页专用：把 grid 行高交给剩余空间，避免 caption 被挤出画布 */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:18px;
+     flex:1;min-height:0;grid-template-rows:1fr}
+.gal > div{display:flex;flex-direction:column;min-height:0}
+.gal .img-frame{aspect-ratio:auto;flex:1;min-height:0}
+.gal figcaption{margin:10px 2px 0;font-size:14px;color:var(--text-3)}
+.logo-card{display:flex;flex-direction:column;align-items:center;justify-content:center;
+     background:var(--surface);border-top:2px solid var(--accent);padding:20px;min-height:0}
+.logo-card .img-frame{aspect-ratio:1/1;width:min(100%,190px);flex:0 0 auto}
+</style>
+</head>
+<body data-themes="brand-meihu,minimal-white,editorial-serif,swiss-grid,midcentury,xiaohongshu-white"
+      data-theme-base="../../assets/themes/"
+      data-logo="images/logo.svg" data-logo-position="bottom-right" data-logo-size="34px">
+<div class="deck">
+
+  <!-- 1. 封面 -->
+  <section class="slide" data-title="封面" data-no-logo>
+    <p class="kicker">品牌视觉识别系统 · VI Proposal</p>
+    <h1 class="h1 anim-fade-up" data-anim="fade-up">梅湖小院<br><span class="gradient-text">品牌 VI 全案</span></h1>
+    <p class="lede">标识系统 · 色彩规范 · 应用延展</p>
+    <div class="deck-footer"><span class="dim2">链路验证版</span><span class="slide-number" data-current="1" data-total="5"></span></div>
+    <div class="notes">本 deck 用于验证 html-ppt-studio 的「图片入槽 + 品牌色换肤 + 导出」链路。</div>
+  </section>
+
+  <!-- 2. 图片网格：三套标识方案 -->
+  <section class="slide" data-title="标识方案">
+    <p class="kicker">Logo System · 01</p>
+    <h2 class="h2">三套标识方案</h2>
+    <div class="gal anim-stagger-list" data-anim-target>
+      <div>
+        <figure class="img-frame contain"><img src="images/01-mei-seal_512.png" alt="梅印方案"></figure>
+        <figcaption>01 · 梅印</figcaption>
+      </div>
+      <div>
+        <figure class="img-frame contain"><img src="images/02-fish-moon_512.png" alt="鱼月方案"></figure>
+        <figcaption>02 · 鱼月</figcaption>
+      </div>
+      <div>
+        <figure class="img-frame contain"><img src="images/03-seal-fish_512.png" alt="印鱼方案"></figure>
+        <figcaption>03 · 印鱼</figcaption>
+      </div>
+    </div>
+    <div class="notes">验证点：三张图原始比例一致，用 .contain 保证标识完整不被裁切。</div>
+  </section>
+
+  <!-- 3. 左图右文：单个标识详解 -->
+  <section class="slide" data-title="标识详解">
+    <p class="kicker">Logo Detail · 02</p>
+    <h2 class="h2">梅印 · 图形释义</h2>
+    <div class="grid g2 mt-l" style="align-items:center">
+      <figure class="img-frame contain" style="--img-ratio:1/1"><img src="images/01-mei-seal_512.png" alt="梅印标识"></figure>
+      <div>
+        <div class="card"><h4>五瓣梅花</h4><p class="dim">以五点放射构成梅瓣，取「五福临门」的吉祥意象。</p></div>
+        <div class="card" style="margin-top:14px"><h4>月洞门环</h4><p class="dim">外圈取江南园林月洞门的圆形轮廓，框住院中天地。</p></div>
+        <div class="card" style="margin-top:14px"><h4>朱红圆心</h4><p class="dim">中心朱红取自印章之色，是整套视觉的唯一高饱和锚点。</p></div>
+      </div>
+    </div>
+    <div class="notes">验证点：左图右文版式，图片与文字卡片的垂直对齐。</div>
+  </section>
+
+  <!-- 4. 多图并列：单色 / 反白 / 展板 -->
+  <section class="slide" data-title="延展应用">
+    <p class="kicker">Application · 03</p>
+    <h2 class="h2">标识延展与单色规范</h2>
+    <div class="gal anim-stagger-list" data-anim-target>
+      <div>
+        <figure class="img-frame contain"><img src="images/mono.png" alt="单色版"></figure>
+        <figcaption>单色版 · 可单色印刷</figcaption>
+      </div>
+      <div>
+        <figure class="img-frame contain"><img src="images/reverse.png" alt="反白版"></figure>
+        <figcaption>反白版 · 深底应用</figcaption>
+      </div>
+      <div>
+        <figure class="img-frame contain"><img src="images/board.png" alt="提案展板"></figure>
+        <figcaption>提案展板 · 综合呈现</figcaption>
+      </div>
+    </div>
+    <div class="notes">验证点：三张图比例差异极大（方版/方版/竖版长图），靠 .img-frame 统一。</div>
+  </section>
+
+  <!-- 5. 色彩规范 -->
+  <section class="slide" data-title="色彩规范">
+    <p class="kicker">Color System · 04</p>
+    <h2 class="h2">品牌色彩规范</h2>
+    <div class="grid g3 mt-l">
+      <div class="card" style="background:#1F4E4A;border-top-color:#1F4E4A">
+        <h4 style="color:#fff">主色 · 墨绿</h4>
+        <p style="color:rgba(255,255,255,.8)">#1F4E4A<br>品牌基调，承载 60% 视觉权重</p>
+      </div>
+      <div class="card" style="background:#C0392B;border-top-color:#C0392B">
+        <h4 style="color:#fff">点缀 · 朱红</h4>
+        <p style="color:rgba(255,255,255,.85)">#C0392B<br>印章之色，10% 强调用量</p>
+      </div>
+      <div class="card">
+        <h4>底色 · 宣纸</h4>
+        <p class="dim">#F7F5F0<br>留白基调，30% 呼吸空间</p>
+      </div>
+    </div>
+    <div class="notes">验证点：主题变量驱动 —— 这三个色块的颜色直接来自 theme-brand.css。</div>
+  </section>
+
+</div>
+<script src="../../assets/runtime.js"></script>
+</body></html>
