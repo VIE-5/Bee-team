@@ -1,0 +1,294 @@
+/* ============================================================
+   VI 全案提案母版 · master.css
+   几何常量来自 231 页真实案例的像素级实测
+   —— 换品牌只需改 :root 里的 6 个变量
+   ============================================================ */
+
+:root{
+  /* ===== 品牌色（唯二需要改的色） ===== */
+  --brand:      #405C38;   /* 品牌主色：封面 / 章节页 / 尾页 */
+  --brand-2:    #C6492E;   /* 点缀色：强调、标签、印章 */
+
+  /* ===== 中性色（一般不动） ===== */
+  --ink:        #1C1C16;   /* 正文 */
+  --ink-2:      #6E6A5C;   /* 次级文字 */
+  --paper:      #FFFFFF;   /* 内容页默认底 */
+  --paper-warm: #F3EFE4;   /* 物料展示底（暖白） */
+  --paper-2:    #F7F4EF;   /* 图片托底 */
+  --dark:       #1D191A;   /* 氛围页底 */
+  --line:       rgba(28,28,22,.30);
+
+  /* ===== 画布与栅格（实测常量，建议锁死） ===== */
+  --pw: 1360px;            /* 16:10 画布 */
+  --ph: 850px;
+  --mx: 11%;               /* 左右边距  实测 11.0% / 10.8% */
+  --hdr: 15%;              /* 页眉带高 实测内容自 15% 起 */
+
+  --font-cn: "Source Han Sans SC","Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif;
+  --font-serif: "Source Han Serif SC","Songti SC","SimSun",Georgia,serif;
+  --font-mono: ui-monospace,"JetBrains Mono",Consolas,monospace;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+body{
+  background:#8A8A8A;
+  font-family:var(--font-cn);
+  display:flex; flex-direction:column; align-items:center;
+  gap:26px; padding:34px 0 60px;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ============ 画布 ============ */
+.slide{
+  position:relative;
+  width:var(--pw); height:var(--ph);
+  background:var(--paper); color:var(--ink);
+  overflow:hidden; flex:none;
+  box-shadow:0 10px 34px rgba(0,0,0,.34);
+}
+
+/* ============ 页眉（母版核心件） ============ */
+.hd{
+  position:absolute; left:var(--mx); right:var(--mx); top:0;
+  height:var(--hdr);
+  display:flex; align-items:center; gap:30px;
+  font-size:23px; font-weight:800; letter-spacing:.01em;
+  color:var(--ink); z-index:5;
+}
+.hd .hl{ white-space:nowrap; }
+.hd i{ flex:1; height:1.5px; background:currentColor; opacity:.82; }   /* 两端留隙由 gap 保证 */
+.hd .hr{ white-space:nowrap; font-weight:800; }
+
+/* 模板 B：线贯穿到右边缘 */
+.slide.hd-b .hd{ right:0; }
+.slide.hd-b .hd i{ margin-right:0; }
+
+/* ============ 页脚（仅模板 B） ============ */
+.ft{
+  position:absolute; left:var(--mx); right:var(--mx); bottom:3.4%;
+  display:flex; align-items:flex-end; justify-content:space-between;
+  font-size:13px; color:var(--ink-2); z-index:5;
+}
+.ft .badge{
+  border:1.6px solid currentColor; border-radius:50%/50%;
+  padding:5px 15px; font-weight:800; letter-spacing:.14em; font-size:12px;
+}
+.ft .note{ text-align:right; line-height:1.5; font-style:italic; max-width:46%; }
+
+/* ============ 内容区（页眉以下，垂直居中） ============ */
+.bd{
+  position:absolute; left:var(--mx); right:var(--mx);
+  top:var(--hdr); bottom:0;
+  display:flex; flex-direction:column; justify-content:center;
+  align-items:center; gap:26px; z-index:3;
+}
+.bd.top{ justify-content:flex-start; padding-top:22px; }
+.bd.fill{ bottom:4%; }
+
+/* ============ 通用文字件 ============ */
+.t-kicker{ font-size:15px; font-weight:700; letter-spacing:.34em; color:var(--brand-2); text-transform:uppercase; }
+.t-h1{ font-size:62px; font-weight:900; line-height:1.16; letter-spacing:.01em; }
+.t-h2{ font-size:40px; font-weight:800; line-height:1.24; }
+.t-h3{ font-size:25px; font-weight:800; }
+.t-p{  font-size:17px; line-height:1.95; color:var(--ink-2); }
+.t-cap{ font-size:14px; line-height:1.7; color:var(--ink-2); }
+.center{ text-align:center; }
+
+/* 标签条（卡片挂标） */
+.tag{
+  display:inline-block; background:var(--brand-2); color:#fff;
+  font-size:14px; font-weight:800; letter-spacing:.06em;
+  padding:6px 14px;
+}
+.tag.g{ background:var(--brand); }
+.tag.o{ background:transparent; color:var(--brand-2); border:1.6px solid var(--brand-2); }
+
+/* 细线分隔 */
+.rule{ width:56px; height:3px; background:var(--brand-2); flex:none; }
+
+/* ============ 图片槽（永不裁切 · 底色透明，避免"框套框"） ============ */
+.img{ display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.img img{ max-width:100%; max-height:100%; display:block; }
+.img.plain{ background:transparent; }
+.img.bleed{ position:absolute; inset:0; background:var(--dark); }
+.img.bleed img{ width:100%; height:100%; object-fit:cover; }
+
+/* ============================================================
+   页型 1 · 封面 cover
+   ============================================================ */
+.slide.cover{ background:var(--brand); color:#fff; }
+.slide.cover .in{
+  position:absolute; inset:0; padding:0 var(--mx);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px;
+}
+.slide.cover .cn{ font-size:88px; font-weight:900; letter-spacing:.10em; }
+.slide.cover .sub{ font-size:34px; font-weight:800; letter-spacing:.06em; }
+.slide.cover .en{ font-size:15px; font-weight:700; letter-spacing:.38em; opacity:.85; margin-top:6px; }
+.slide.cover .meta{
+  display:flex; gap:52px; font-size:16px; font-weight:700; letter-spacing:.10em;
+  opacity:.95; margin-top:4px;
+}
+.slide.cover .cat{
+  background:#fff; color:var(--brand);
+  font-size:24px; font-weight:900; letter-spacing:.16em;
+  padding:11px 30px; margin-top:16px;
+}
+.slide.cover .logo{ position:absolute; bottom:5.2%; left:50%; transform:translateX(-50%); height:62px; }
+.slide.cover .logo img{ height:100%; display:block; mix-blend-mode:screen; }
+
+/* 封面 · 左对齐变体 */
+.slide.cover.left .in{ align-items:flex-start; }
+.slide.cover.left .cat{ position:absolute; right:var(--mx); top:33%; }
+
+/* ============================================================
+   页型 2 · 序言 preface
+   ============================================================ */
+.slide.preface .bd{ justify-content:center; gap:30px; }
+.pre-hz{
+  width:64px; height:64px; border:2px solid var(--brand); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-serif); font-size:30px; font-weight:700; color:var(--brand);
+}
+.pre-body{ max-width:66%; font-size:17px; line-height:2.15; color:var(--ink-2); text-align:justify; }
+.pre-foot{
+  position:absolute; left:var(--mx); right:var(--mx); bottom:8%;
+  border-top:1px solid var(--line); padding-top:16px;
+  display:flex; justify-content:space-between;
+  font-size:14px; color:var(--ink-2); letter-spacing:.06em;
+}
+
+/* ============================================================
+   页型 3 · 宣言 manifesto（满版主色 · 双句标语）
+   ============================================================ */
+.slide.manifesto{ background:var(--brand); color:#fff; }
+.slide.manifesto .bd{ flex-direction:row; gap:80px; }
+.slide.manifesto .ln{ font-size:54px; font-weight:900; letter-spacing:.14em; }
+
+/* ============================================================
+   页型 4 · 品牌速览 overview（左图 + 右信息表）
+   ============================================================ */
+.ov-list{ width:100%; display:flex; flex-direction:column; }
+.ov-list div{
+  display:flex; gap:18px; padding:12px 0; border-bottom:1px solid var(--line);
+  font-size:15.5px; line-height:1.5;
+}
+.ov-list div:last-child{ border-bottom:none; }
+.ov-list b{ min-width:94px; font-weight:800; letter-spacing:.04em; color:var(--ink); }
+.ov-list span{ color:var(--ink-2); }
+.ov-t{ font-size:27px; font-weight:900; letter-spacing:.16em; }
+.ov-en{ font-size:13px; letter-spacing:.3em; color:var(--ink-2); }
+
+/* ============================================================
+   页型 5 · 章节隔断 section（母版核心件：双线圆徽章）
+   ============================================================ */
+.slide.section{ background:var(--brand); color:#fff; }
+.slide.section .bd{ justify-content:center; }
+.emblem{ position:relative; display:flex; align-items:center; justify-content:center; }
+.em-ring{
+  width:292px; height:292px; border:1.6px solid rgba(255,255,255,.92); border-radius:50%;
+  display:flex; flex-direction:column; align-items:center; justify-content:space-between;
+  padding:44px 0;
+}
+.em-ring span{
+  font-family:var(--font-serif); font-size:20px; font-weight:600;
+  letter-spacing:.42em; text-indent:.42em;
+}
+.em-pill{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  background:#fff; color:var(--brand);
+  font-size:37px; font-weight:900; letter-spacing:.10em;
+  padding:13px 30px; white-space:nowrap;
+}
+.em-side{
+  position:absolute; left:0; right:0; top:50%; transform:translateY(-50%);
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:var(--font-serif); font-style:italic; font-size:20px;
+  letter-spacing:.06em; pointer-events:none;
+}
+.em-side span{ width:calc(50% - 180px); }
+.em-side span:first-child{ text-align:right; padding-right:36px; }
+.em-side span:last-child{ padding-left:36px; }
+
+/* ============================================================
+   页型 6 · 内容页公共：单件居中
+   ============================================================ */
+.c-single{ display:flex; flex-direction:column; align-items:center; gap:20px; max-height:100%; }
+.c-single .img{ height:auto; }
+.c-single img{ max-height:560px; }
+
+/* 页型 7 · 网格 grid */
+.c-grid{ display:grid; gap:22px; width:100%; align-items:start; }
+.c-grid.c2{ grid-template-columns:repeat(2,1fr); }
+.c-grid.c3{ grid-template-columns:repeat(3,1fr); }
+.c-grid.c4{ grid-template-columns:repeat(4,1fr); }
+.c-grid .cell{ display:flex; flex-direction:column; gap:11px; min-width:0; }
+/* 宽度铺满栏目、高度按比例自适应 —— 图更大且永不裁切 */
+.c-grid .img{ height:auto; }
+.c-grid .img img{ max-height:430px; }
+.c-grid.tall .img img{ max-height:600px; }
+.c-grid.short .img img{ max-height:170px; }
+
+/* 页型 8 · 左右分栏 split */
+.c-split{ display:grid; grid-template-columns:1fr 1fr; gap:52px; width:100%; align-items:center; }
+.c-split.w64{ grid-template-columns:1.55fr 1fr; }
+.c-split .side{ display:flex; flex-direction:column; gap:18px; }
+.c-split .img{ height:auto; }
+.c-split .img img{ max-height:470px; }
+
+/* 页型 9 · 满幅大图 bleed */
+.slide.bleed-slide{ background:var(--dark); color:#fff; }
+.slide.bleed-slide .img.bleed::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,0) 62%);
+}
+.slide.bleed-slide .bd{ align-items:flex-start; z-index:4; }
+
+/* 页型 10 · 数据 stats */
+.c-stats{ display:flex; gap:0; width:100%; justify-content:center; align-items:flex-end; }
+.c-stats .st{ flex:1; text-align:center; padding:0 14px; position:relative; }
+.c-stats .st .n{ font-size:56px; font-weight:900; color:var(--brand); line-height:1; }
+.c-stats .st .n em{ font-size:23px; font-style:normal; font-weight:800; }
+.c-stats .st .k{ font-size:15px; font-weight:800; margin-top:12px; letter-spacing:.08em; }
+.c-stats .st .d{ font-size:13px; color:var(--ink-2); margin-top:7px; line-height:1.6; }
+.c-stats .st + .st::before{
+  content:''; position:absolute; left:0; top:6%; bottom:6%; width:1px; background:var(--line);
+}
+
+/* 页型 11 · 色彩规范 swatch */
+.c-swatch{ display:grid; grid-template-columns:repeat(5,1fr); width:100%; border:1px solid var(--line); }
+.c-swatch .sw{ min-height:285px; display:flex; flex-direction:column; justify-content:flex-end;
+  padding:18px 16px; border-right:1px solid var(--line); }
+.c-swatch .sw:last-child{ border-right:none; }
+.c-swatch .nm{ font-size:17px; font-weight:800; }
+.c-swatch .hex{ font-family:var(--font-mono); font-size:13px; opacity:.8; margin-top:4px; }
+.c-swatch .role{ font-size:12.5px; opacity:.66; margin-top:10px; line-height:1.6; }
+
+/* 页型 12 · 暗底内容 */
+.slide.dark{ background:var(--dark); color:#fff; }
+.slide.dark .hd{ color:#fff; }
+.slide.dark .t-p, .slide.dark .t-cap{ color:rgba(255,255,255,.72); }
+.slide.dark .img{ background:#26211F; }
+
+/* ============================================================
+   页型 13 · 尾页 end
+   ============================================================ */
+.slide.end{ background:var(--brand); color:#fff; }
+.slide.end .sign{
+  position:absolute; left:var(--mx); top:6.2%;
+  font-size:13px; font-weight:700; letter-spacing:.22em; line-height:1.65; opacity:.95;
+}
+.slide.end .thanks{
+  position:absolute; left:var(--mx); top:50%; transform:translateY(-50%);
+  font-family:var(--font-serif); font-size:112px; font-weight:400; letter-spacing:.01em;
+}
+
+/* ============================================================
+   打印：锁 16:10 画布，一页一张
+   ============================================================ */
+@page{ size:1360px 850px; margin:0; }
+@media print{
+  body{ background:#fff; gap:0; padding:0; }
+  .slide{ box-shadow:none; break-after:page; page-break-after:always; }
+  .slide:last-child{ break-after:auto; page-break-after:auto; }
+}

@@ -1,0 +1,3022 @@
+{
+ "file": "小耕班.三菜一汤品牌VI系统.pptx",
+ "name": "小耕班.三菜一汤品牌VI系统",
+ "slide_size_emu": [
+  10907395,
+  6858000
+ ],
+ "slide_size_pt": [
+  858.9,
+  540.0
+ ],
+ "slide_ratio": 1.5905,
+ "page_count": 51,
+ "master_count": 1,
+ "layout_count": 12,
+ "palette": [
+  [
+   "#44546A",
+   1
+  ],
+  [
+   "#E7E6E6",
+   1
+  ],
+  [
+   "#4874CB",
+   1
+  ],
+  [
+   "#EE822F",
+   1
+  ],
+  [
+   "#F2BA02",
+   1
+  ],
+  [
+   "#75BD42",
+   1
+  ],
+  [
+   "#30C0B4",
+   1
+  ],
+  [
+   "#E54C5E",
+   1
+  ],
+  [
+   "#0026E5",
+   1
+  ],
+  [
+   "#7E1FAD",
+   1
+  ],
+  [
+   "#000000",
+   1
+  ]
+ ],
+ "pages": [
+  {
+   "index": 1,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "ctrTitle",
+     "标题 1"
+    ],
+    [
+     "subTitle",
+     "副标题 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "ctrTitle",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "副标题 2",
+     "ph": "subTitle",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image1.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image2.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image3.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image4.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image5.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image6.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image7.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image8.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image9.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image10.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image11.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image12.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image13.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image14.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image15.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image16.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image17.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image18.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image19.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image20.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image21.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image22.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image23.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image24.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image25.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image26.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image27.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image28.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image29.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image30.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image31.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image32.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image33.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image34.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image35.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image36.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image37.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image38.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image39.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image40.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856095
+     ],
+     "rel": "rId1",
+     "target": "../media/image41.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856095
+     ],
+     "rel": "rId1",
+     "target": "../media/image42.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image43.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image44.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image45.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image46.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      1905,
+      0,
+      10903585,
+      6858000
+     ],
+     "rel": "rId1",
+     "target": "../media/image47.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image48.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image49.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      1905,
+      10906760,
+      6853555
+     ],
+     "rel": "rId1",
+     "target": "../media/image50.jpeg",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "shapes_total": 3,
+   "img_count": 1,
+   "text_count": 0,
+   "ph": [
+    [
+     "title",
+     "标题 1"
+    ],
+    [
+     "body",
+     "文本占位符 2"
+    ]
+   ],
+   "shapes": [
+    {
+     "kind": "shape",
+     "name": "标题 1",
+     "ph": "title",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "shape",
+     "name": "文本占位符 2",
+     "ph": "body",
+     "geom": null,
+     "fill": null,
+     "bbox": null,
+     "text": "",
+     "text_len": 0,
+     "sizes": {},
+     "colors": {},
+     "depth": 0
+    },
+    {
+     "kind": "pic",
+     "name": "图片 3",
+     "ph": null,
+     "bbox": [
+      0,
+      635,
+      10906760,
+      6856730
+     ],
+     "rel": "rId1",
+     "target": "../media/image51.jpeg",
+     "depth": 0
+    }
+   ]
+  }
+ ]
+}

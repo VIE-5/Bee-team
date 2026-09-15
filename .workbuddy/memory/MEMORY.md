@@ -25,12 +25,22 @@
 | Windows 渲染 | 原版 `render.sh` 是 mac 专用 → 用 `04-知识沉淀/工具/render-win.bat`（出 PNG / PDF）；Chrome headless **必须带 `--user-data-dir`**，否则静默失败；**中文路径下截图不自动编码，须走 `Path.as_uri()`** |
 | PPT 导出三坑 | ① 导出 PDF 必须在主题写 `@page{size:1920px 1080px;margin:0}`，否则落 Letter 白边；② 满版页**禁止**给 `.slide` 覆写 `position`（它本身已是 `absolute;inset:0`，改写会让内容层高度归零成空白）；③ 固定画布下用**固定 px 限高**，别用 `aspect-ratio` 算高度（会撑破版心） |
 | deck 归档 | 归档要**自包含**：拷 `assets/` 到 deck 旁 + 把 `../../assets/` 改写为 `assets/`，否则脱离 skill 目录即失效 |
+| VI 提案母版 | 已从 231 页真实案例反推出母版：`04-知识沉淀/母版/VI-Proposal-Master/`（master.css + index.html）。**换品牌只改 2 个色值 + 换 `images/`**。几何铁律：画布 **16:10**、页眉分隔线 **12.9%**、左右边距 **11%**、内容自 15% 起且**垂直居中不撑满**、**不设页码** |
+| 例册判读 | 拿到他人 VI 提案 PPTX 先看是否「一页一图」图册型（若是，XML 无排版信息，只能走像素度量）。五本册子页眉线全落 12.3%–13.1% → 同源母版的判据 |
 
 ## 已验证流程
 
 **图片素材 → PPT 提案封装**（2026-09-15 跑通）：
 主人出图 → 放 `images/` → 自建 `theme-brand.css`（从 Logo 源 SVG grep 色值）→ 写 `index.html`（`img-frame contain` 防裁切 + `data-logo` 自动落位）→ `render-win.bat` 出 PNG 逐张验收 → 出 PDF 交付。
 详见 `04-知识沉淀/工具/html-ppt-使用手册.md`。
+
+
+**VI 全案提案母版**（2026-09-15 从 231 页真实案例反推）：
+案例 PPTX 每页仅一张满幅图 → XML 无排版信息，必须走**像素度量** → 提取原图 → 联系表通读 →
+`layout_metrics.py` 量出页眉线与边距 → 套 `04-知识沉淀/母版/VI-Proposal-Master/`。
+工具链四个零依赖脚本在 `03-任务档案/20260915-VI案例母版拆解/01-结构解析/`
+（parse_pptx / extract_media / contact_sheet / layout_metrics）。
+详见 `04-知识沉淀/VI提案母版规范.md`。
 
 
 **品牌 logo 设计落地**（2026-09-11 梅湖小院首单跑通）：
