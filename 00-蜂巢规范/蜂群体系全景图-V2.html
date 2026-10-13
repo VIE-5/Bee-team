@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SWARM OS · 蜂群体系全景图 V2.0</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/press-start-2p/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/silkscreen/index.css">
+<style>
+:root{
+  --bg:#05070f; --panel:#0a0f1e; --panel2:#0d1426; --line:rgba(0,240,255,.22);
+  --cyan:#00f0ff; --magenta:#ff2bd6; --yellow:#f9f871; --green:#3ef2a0;
+  --red:#ff4d6d; --dim:#5a6a8a; --text:#cfe8f5; --mute:#7f93b3;
+  --pixel:'Press Start 2P','Silkscreen',monospace;
+  --micro:'Silkscreen',monospace;
+  --cn:"HarmonyOS Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--text); font-family:var(--cn);
+  line-height:1.65; padding:28px 20px 60px; position:relative; overflow-x:hidden;
+  background-image:
+    linear-gradient(rgba(0,240,255,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,240,255,.045) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+body::after{
+  content:''; position:fixed; left:0; right:0; height:2px; top:0; pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent); opacity:.3;
+  animation:scan 8s linear infinite;
+}
+@keyframes scan{0%{transform:translateY(0)}100%{transform:translateY(100vh)}}
+@media (prefers-reduced-motion:reduce){body::after{animation:none}}
+.wrap{max-width:1240px;margin:0 auto}
+
+.hdr{border:1px solid var(--line);background:var(--panel);padding:20px 24px;position:relative;
+  clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px))}
+.hdr h1{font-family:var(--pixel);font-size:17px;letter-spacing:1px;color:var(--cyan);
+  text-shadow:0 0 12px rgba(0,240,255,.55);line-height:1.6}
+.hdr .sub{font-family:var(--cn);font-size:14px;color:var(--mute);margin-top:10px;letter-spacing:2px}
+.hdr .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-family:var(--micro);font-size:11px;padding:5px 10px;border:1px solid var(--line);
+  color:var(--cyan);background:rgba(0,240,255,.05);letter-spacing:1px}
+.chip.m{border-color:rgba(255,43,214,.35);color:var(--magenta);background:rgba(255,43,214,.06)}
+.chip.y{border-color:rgba(249,248,113,.35);color:var(--yellow);background:rgba(249,248,113,.06)}
+.chip.g{border-color:rgba(62,242,160,.35);color:var(--green);background:rgba(62,242,160,.06)}
+.chip.r{border-color:rgba(255,77,109,.35);color:var(--red);background:rgba(255,77,109,.06)}
+.dot{display:inline-block;width:7px;height:7px;background:var(--green);margin-right:7px;
+  box-shadow:0 0 8px var(--green);vertical-align:middle}
+
+section{margin-top:30px}
+.stitle{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.stitle .no{font-family:var(--pixel);font-size:11px;color:var(--magenta);text-shadow:0 0 10px rgba(255,43,214,.5)}
+.stitle h2{font-size:16px;font-weight:700;letter-spacing:2px;color:#eaf6ff}
+.stitle .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.stitle .en{font-family:var(--micro);font-size:10px;color:var(--dim);letter-spacing:1px}
+.lead{font-size:13px;color:var(--mute);margin:-4px 0 14px;line-height:1.8}
+.lead b{color:var(--cyan);font-weight:400}
+
+.card{border:1px solid var(--line);background:var(--panel);padding:18px;position:relative}
+.card .tag{font-family:var(--micro);font-size:10px;letter-spacing:1px;color:var(--dim)}
+.card h3{font-size:15px;font-weight:700;letter-spacing:1px;margin:6px 0 8px;color:#eaf6ff}
+.card p{font-size:13px;color:var(--mute);line-height:1.75}
+.card ul{list-style:none;margin-top:10px}
+.card li{font-size:12.5px;color:var(--mute);padding-left:14px;position:relative;line-height:1.85}
+.card li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;background:var(--dim)}
+
+/* ==== 图版容器 ==== */
+.figbox{border:1px solid var(--line);background:#04060d;padding:14px;overflow-x:auto}
+.figbox svg{display:block;width:100%;height:auto;min-width:900px}
+.figcap{font-family:var(--micro);font-size:10.5px;color:var(--dim);margin-top:10px;letter-spacing:1px;line-height:1.9}
+.figcap b{color:var(--cyan);font-weight:400}
+
+/* ==== 架构分层栈 ==== */
+.stack{display:flex;flex-direction:column;gap:0}
+.layer{display:grid;grid-template-columns:170px 1fr;border:1px solid var(--line);background:var(--panel);
+  margin-bottom:0;position:relative}
+.layer .lay-tag{padding:14px 16px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;
+  background:rgba(255,255,255,.015)}
+.layer .lay-tag .lno{font-family:var(--micro);font-size:10px;letter-spacing:1px;color:var(--dim)}
+.layer .lay-tag .lnm{font-size:14px;font-weight:700;letter-spacing:1px;margin-top:5px}
+.layer .lay-body{padding:13px 16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.node{font-size:12.5px;padding:6px 11px;border:1px solid var(--line);background:var(--panel2);color:var(--text);letter-spacing:.5px}
+.node.k{font-weight:700}
+.layer.l5{border-color:rgba(0,240,255,.4)} .layer.l5 .lnm{color:var(--cyan)}
+.layer.l4{border-color:rgba(249,248,113,.45)} .layer.l4 .lnm{color:var(--yellow)}
+.layer.l3{border-color:rgba(255,43,214,.4)} .layer.l3 .lnm{color:var(--magenta)}
+.layer.l2{border-color:rgba(255,77,109,.42)} .layer.l2 .lnm{color:var(--red)}
+.layer.l1{border-color:rgba(62,242,160,.4)} .layer.l1 .lnm{color:var(--green)}
+.layer.l0{border-color:rgba(90,106,138,.6)} .layer.l0 .lnm{color:#9fb0cc}
+.lay-note{flex-basis:100%;font-size:11.5px;color:var(--dim);margin-top:2px;line-height:1.8}
+.stack-arrow{display:flex;justify-content:center;align-items:center;gap:26px;padding:6px 0;font-family:var(--micro);
+  font-size:10px;color:var(--dim);letter-spacing:1px}
+.stack-arrow span{color:var(--mute)}
+.up{color:var(--green)} .down{color:var(--cyan)}
+
+/* ==== 通用网格 ==== */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+
+/* 工蜂卡 */
+.workers{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:14px}
+.wk{border:1px solid var(--line);background:var(--panel);padding:16px}
+.wk .tag{font-family:var(--micro);font-size:10px;letter-spacing:1px}
+.wk h3{font-size:15px;font-weight:700;letter-spacing:1px;margin:6px 0 8px}
+.wk p{font-size:12.5px;color:var(--mute);line-height:1.75}
+.wk .tools{margin-top:11px;font-family:var(--micro);font-size:10px;background:rgba(0,240,255,.05);
+  border-left:2px solid var(--cyan);padding:7px 9px;line-height:1.8;word-break:break-all;color:var(--cyan)}
+.wk .rule{margin-top:9px;font-size:12px;line-height:1.7}
+.w1{border-color:rgba(0,240,255,.4)} .w1 h3,.w1 .tag{color:var(--cyan)} .w1 .tools{border-left-color:var(--cyan);color:var(--cyan)} .w1 .rule{color:var(--cyan)}
+.w2{border-color:rgba(62,242,160,.4)} .w2 h3,.w2 .tag{color:var(--green)} .w2 .tools{border-left-color:var(--green);color:var(--green)} .w2 .rule{color:var(--green)}
+.w3{border-color:rgba(255,43,214,.4)} .w3 h3,.w3 .tag{color:var(--magenta)} .w3 .tools{border-left-color:var(--magenta);color:var(--magenta)} .w3 .rule{color:var(--magenta)}
+.w4{border-color:rgba(255,77,109,.45)} .w4 h3,.w4 .tag{color:var(--red)} .w4 .tools{border-left-color:var(--red);color:var(--red)} .w4 .rule{color:var(--red)}
+.w5{border-color:rgba(249,248,113,.45)} .w5 h3,.w5 .tag{color:var(--yellow)} .w5 .tools{border-left-color:var(--yellow);color:var(--yellow)} .w5 .rule{color:var(--yellow)}
+.queen{border-color:rgba(249,248,113,.45);background:linear-gradient(180deg,rgba(249,248,113,.07),var(--panel));
+  box-shadow:0 0 26px rgba(249,248,113,.09)}
+.queen .tag{color:var(--yellow)} .queen h3{color:var(--yellow);font-size:17px}
+.queen .tools{border-left-color:var(--yellow);color:var(--yellow);background:rgba(249,248,113,.06)}
+.steps6{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+.step{font-size:12px;padding:7px 11px;border:1px solid rgba(249,248,113,.3);color:var(--yellow);
+  background:rgba(249,248,113,.05);letter-spacing:1px}
+
+/* 质量三关 */
+.gate{border-left:3px solid var(--cyan)}
+.gate.g2{border-left-color:var(--yellow)} .gate.g2 h3{color:var(--yellow)}
+.gate.g3{border-left-color:var(--magenta)} .gate.g3 h3{color:var(--magenta)}
+.gate h3{color:var(--cyan)}
+.six{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;margin-top:12px}
+.six div{font-size:12.5px;padding:9px 8px;border:1px solid var(--line);background:var(--panel2);
+  color:var(--text);text-align:center;letter-spacing:1px}
+.levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}
+.lv{border:1px solid var(--line);background:var(--panel2);padding:13px 15px;position:relative}
+.lv.b{border-color:rgba(0,240,255,.55);box-shadow:0 0 16px rgba(0,240,255,.12)}
+.lv .nm{font-size:13.5px;font-weight:700;letter-spacing:1px}
+.lv.a .nm{color:var(--dim)} .lv.b .nm{color:var(--cyan)} .lv.c .nm{color:var(--magenta)}
+.lv .use{font-size:12px;color:var(--mute);margin-top:6px;line-height:1.7}
+.bar{height:6px;background:rgba(255,255,255,.07);margin-top:11px;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;display:block}
+.lv.a .bar i{width:33%;background:var(--dim)}
+.lv.b .bar i{width:66%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.lv.c .bar i{width:100%;background:var(--magenta);box-shadow:0 0 10px var(--magenta)}
+.mark{position:absolute;right:12px;top:11px;font-family:var(--micro);font-size:10px;color:var(--cyan)}
+
+/* 产线 */
+.lines{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.line-box{border:1px solid var(--line);background:var(--panel2);padding:14px 15px;border-top-width:3px}
+.line-box.a{border-top-color:var(--magenta)} .line-box.b{border-top-color:var(--yellow)}
+.line-box.c{border-top-color:var(--cyan)} .line-box.d{border-top-color:var(--green)}
+.line-box .lid{font-family:var(--micro);font-size:10.5px;letter-spacing:1px}
+.line-box.a .lid{color:var(--magenta)} .line-box.b .lid{color:var(--yellow)}
+.line-box.c .lid{color:var(--cyan)} .line-box.d .lid{color:var(--green)}
+.line-box h4{font-size:13.5px;margin:7px 0 7px;color:#eaf6ff;letter-spacing:.5px}
+.line-box p{font-size:12px;color:var(--mute);line-height:1.7}
+.line-box .warn2{margin-top:8px;font-size:11.5px;color:var(--yellow);line-height:1.7}
+.line-box .warn3{margin-top:8px;font-size:11.5px;color:var(--red);line-height:1.7}
+
+/* 铁律表 */
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:8px}
+.ru{display:grid;grid-template-columns:44px 1fr;gap:10px;border:1px solid var(--line);background:var(--panel2);padding:9px 11px}
+.ru .rc{font-family:var(--micro);font-size:11px;color:var(--magenta);letter-spacing:1px}
+.ru .rt{font-size:12px;color:var(--mute);line-height:1.65}
+.ru .rt b{color:var(--text);font-weight:400}
+
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:12px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid rgba(0,240,255,.12);vertical-align:top}
+th{font-family:var(--micro);font-size:10px;color:var(--cyan);letter-spacing:1px;font-weight:400}
+td:first-child{color:var(--text)} td{color:var(--mute)}
+.ok{color:var(--green)} .warn{color:var(--yellow)} .no{color:var(--red)}
+
+/* 时间线 */
+.tl{border-left:2px solid rgba(0,240,255,.25);margin-left:8px;padding-left:20px}
+.tl .ev{position:relative;padding-bottom:16px}
+.tl .ev::before{content:'';position:absolute;left:-27px;top:5px;width:11px;height:11px;background:var(--bg);
+  border:2px solid var(--cyan);box-shadow:0 0 8px rgba(0,240,255,.5)}
+.tl .ev.now::before{border-color:var(--magenta);box-shadow:0 0 10px rgba(255,43,214,.6)}
+.tl .dt{font-family:var(--micro);font-size:10px;color:var(--dim);letter-spacing:1px}
+.tl .tt{font-size:13.5px;color:#eaf6ff;font-weight:700;margin:3px 0 4px;letter-spacing:.5px}
+.tl .ds{font-size:12.5px;color:var(--mute);line-height:1.75}
+.tl .ds em{font-style:normal;color:var(--cyan)}
+
+.ft{margin-top:34px;border-top:1px solid var(--line);padding-top:16px;display:flex;
+  flex-wrap:wrap;gap:10px;justify-content:space-between;font-family:var(--micro);font-size:10.5px;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hdr">
+  <h1>SWARM COMMUNITY SYSTEM</h1>
+  <div class="sub">蜂群体系全景图 · V2.0 · 一脑五手 · 四产线 · 十六铁律 · 章程即代码</div>
+  <div class="meta">
+    <span class="chip"><span class="dot"></span>在线 · 待接单</span>
+    <span class="chip m">MASTER BRANCH · VIE-5/Bee-team</span>
+    <span class="chip y">验收默认 标准档</span>
+    <span class="chip g">编制 1 + 5</span>
+    <span class="chip r">W4 四模式</span>
+    <span class="chip">已跑通 14 单</span>
+  </div>
+</header>
+
+<!-- ============ 01 能力交互图 ============ -->
+<section>
+  <div class="stitle"><span class="no">01</span><h2>能力交互图</h2><span class="ln"></span><span class="en">CAPABILITY INTERACTION MAP</span></div>
+  <p class="lead">一张图看清 <b>指令怎么进来、活儿怎么流转、产物怎么回流、闸门卡在哪一步</b>。
+  主干是纵向流水线（主人 → 蜂王 → 派工单 → 四只生产者 → G3 闸 → 交付 → 知识沉淀），
+  两条侧翼通道分别是<b>复盘回写（左）</b>与<b>结论文付（右）</b>。</p>
+
+  <div class="figbox">
+  <svg viewBox="0 0 1200 1150" role="img" aria-label="蜂群能力交互图">
+    <defs>
+      <marker id="mCy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M1 1 L8 5 L1 9" fill="none" stroke="#00f0ff" stroke-width="1.6"/></marker>
+      <marker id="mGr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M1 1 L8 5 L1 9" fill="none" stroke="#3ef2a0" stroke-width="1.6"/></marker>
+      <marker id="mMg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M1 1 L8 5 L1 9" fill="none" stroke="#ff2bd6" stroke-width="1.6"/></marker>
+      <marker id="mRd" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M1 1 L8 5 L1 9" fill="none" stroke="#ff4d6d" stroke-width="1.6"/></marker>
+      <marker id="mYe" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M1 1 L8 5 L1 9" fill="none" stroke="#f9f871" stroke-width="1.6"/></marker>
+      <marker id="mDm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M1 1 L8 5 L1 9" fill="none" stroke="#5a6a8a" stroke-width="1.6"/></marker>
+    </defs>
+
+    <!-- ===== 主人 ===== -->
+    <rect x="430" y="30" width="340" height="96" rx="6" fill="#0a0f1e" stroke="#5a6a8a" stroke-width="1.2"/>
+    <text x="600" y="56" text-anchor="middle" font-size="12" fill="#7f93b3" font-family="'Silkscreen',monospace" letter-spacing="1">HUMAN</text>
+    <text x="600" y="82" text-anchor="middle" font-size="17" fill="#eaf6ff" font-weight="700">主人 · 最帅气的主人</text>
+    <text x="600" y="106" text-anchor="middle" font-size="11.5" fill="#7f93b3">自然语言指令 · 可含糊 · 常反转方向</text>
+
+    <!-- 主人 -> 蜂王 -->
+    <path d="M600 126 L600 158" fill="none" stroke="#00f0ff" stroke-width="1.6" marker-end="url(#mCy)"/>
+    <text x="612" y="150" font-size="11" fill="#9ff4ff">① 指令输入</text>
+
+    <!-- ===== 蜂王 ===== -->
+    <rect x="380" y="158" width="440" height="130" rx="6" fill="rgba(249,248,113,.06)" stroke="#f9f871" stroke-width="1.6"/>
+    <text x="600" y="186" text-anchor="middle" font-size="17" fill="#f9f871" font-weight="700">蜂王 QUEEN · 唯一大脑</text>
+    <text x="600" y="208" text-anchor="middle" font-size="12" fill="#e8e6a8">不抢活 · 能委派的绝不自己干 · 只做只有大脑能做的事</text>
+    <text x="600" y="236" text-anchor="middle" font-size="11.5" fill="#cfe8f5">① 接单复述　② 拆 DAG　③ 能力路由　④ 派发跟踪　⑤ 验收把关　⑥ 聚合复盘</text>
+    <text x="600" y="262" text-anchor="middle" font-size="11.5" fill="#7f93b3">沟通准则：默认静默 · 只在「需拍板 / 有风险 / 交付或卡死」三种情况出声</text>
+    <text x="600" y="280" text-anchor="middle" font-size="11" fill="#7f93b3">硬规矩：能委派的不自己干 · 不可逆先问 · 一切留痕 · 无工单不派活</text>
+
+    <!-- 蜂王 -> BUS -->
+    <path d="M600 288 L600 320" fill="none" stroke="#f9f871" stroke-width="1.6" marker-end="url(#mYe)"/>
+    <text x="612" y="308" font-size="11" fill="#f9f871">派单</text>
+
+    <!-- ===== 派工单 BUS ===== -->
+    <rect x="60" y="320" width="1080" height="58" rx="4" fill="rgba(0,240,255,.04)" stroke="#00f0ff" stroke-width="1.2" stroke-dasharray="7 5"/>
+    <text x="80" y="345" font-size="12" fill="#00f0ff" font-family="'Silkscreen',monospace" letter-spacing="1">派工单 BUS</text>
+    <text x="80" y="366" font-size="11.5" fill="#cfe8f5">无工单不派活 —— 目标 / 输入 / 产出路径 / 验收标准 / 边界，五件齐；判产线写错 = 整单退回</text>
+
+    <!-- BUS -> 四生产者 -->
+    <path d="M180 378 L180 414" fill="none" stroke="#00f0ff" stroke-width="1.3" marker-end="url(#mCy)"/>
+    <path d="M460 378 L460 414" fill="none" stroke="#00f0ff" stroke-width="1.3" marker-end="url(#mCy)"/>
+    <path d="M740 378 L740 414" fill="none" stroke="#00f0ff" stroke-width="1.3" marker-end="url(#mCy)"/>
+    <path d="M1020 378 L1020 414" fill="none" stroke="#00f0ff" stroke-width="1.3" marker-end="url(#mCy)"/>
+
+    <!-- ===== 生产者 W1 / W2 / W3 / W5 ===== -->
+    <!-- W1 -->
+    <rect x="70" y="414" width="220" height="184" rx="5" fill="rgba(0,240,255,.05)" stroke="rgba(0,240,255,.5)" stroke-width="1.3"/>
+    <text x="86" y="438" font-size="11" fill="#00f0ff" font-family="'Silkscreen',monospace" letter-spacing="1">W1 · SCOUT</text>
+    <text x="86" y="464" font-size="15" fill="#bff2ff" font-weight="700">资料侦查蜂</text>
+    <text x="86" y="488" font-size="11.5" fill="#7f93b3">找东西：检索 · 抓取</text>
+    <text x="86" y="506" font-size="11.5" fill="#7f93b3">采集 · 事实核实</text>
+    <text x="86" y="534" font-size="10" fill="#00f0ff" font-family="'Silkscreen',monospace">WEBSEARCH · WEBFETCH</text>
+    <text x="86" y="550" font-size="10" fill="#00f0ff" font-family="'Silkscreen',monospace">AGENT-BROWSER</text>
+    <text x="86" y="580" font-size="11" fill="#f9f871">铁律：来源可溯源 · 时效必标</text>
+
+    <!-- W2 -->
+    <rect x="350" y="414" width="220" height="184" rx="5" fill="rgba(62,242,160,.05)" stroke="rgba(62,242,160,.5)" stroke-width="1.3"/>
+    <text x="366" y="438" font-size="11" fill="#3ef2a0" font-family="'Silkscreen',monospace" letter-spacing="1">W2 · BUILDER</text>
+    <text x="366" y="464" font-size="15" fill="#9dffd0" font-weight="700">提案筑巢蜂</text>
+    <text x="366" y="488" font-size="11.5" fill="#7f93b3">造成品：PPT · Word</text>
+    <text x="366" y="506" font-size="11.5" fill="#7f93b3">Excel · 网页 · 提案册</text>
+    <text x="366" y="534" font-size="10" fill="#3ef2a0" font-family="'Silkscreen',monospace">TENCENT-PPTX / DOCX</text>
+    <text x="366" y="550" font-size="10" fill="#3ef2a0" font-family="'Silkscreen',monospace">SHEETAGENT</text>
+    <text x="366" y="580" font-size="11" fill="#f9f871">铁律：零占位符 · 数据有出处</text>
+
+    <!-- W3 -->
+    <rect x="630" y="414" width="220" height="184" rx="5" fill="rgba(255,43,214,.05)" stroke="rgba(255,43,214,.5)" stroke-width="1.3"/>
+    <text x="646" y="438" font-size="11" fill="#ff2bd6" font-family="'Silkscreen',monospace" letter-spacing="1">W3 · IMAGE</text>
+    <text x="646" y="464" font-size="15" fill="#ffa8ea" font-weight="700">图片施工蜂</text>
+    <text x="646" y="488" font-size="11.5" fill="#7f93b3">造像素：四条产线</text>
+    <text x="646" y="506" font-size="11.5" fill="#7f93b3">A 生图 · B 矢量 · C 排版 · D pptx</text>
+    <text x="646" y="534" font-size="10" fill="#ff2bd6" font-family="'Silkscreen',monospace">IMAGEGEN · SVG · HTML-PPT</text>
+    <text x="646" y="550" font-size="10" fill="#ff2bd6" font-family="'Silkscreen',monospace">DECK2PPTX</text>
+    <text x="646" y="580" font-size="11" fill="#f9f871">铁律：零水印 · 零Logo · 零文字</text>
+
+    <!-- W5 -->
+    <rect x="910" y="414" width="220" height="184" rx="5" fill="rgba(249,248,113,.05)" stroke="rgba(249,248,113,.5)" stroke-width="1.3"/>
+    <text x="926" y="438" font-size="11" fill="#f9f871" font-family="'Silkscreen',monospace" letter-spacing="1">W5 · PROMPTER</text>
+    <text x="926" y="464" font-size="15" fill="#fffbaf" font-weight="700">设计提词蜂</text>
+    <text x="926" y="488" font-size="11.5" fill="#7f93b3">写词：翻译层</text>
+    <text x="926" y="506" font-size="11.5" fill="#7f93b3">只出指令 · 不做成品</text>
+    <text x="926" y="534" font-size="10" fill="#f9f871" font-family="'Silkscreen',monospace">九字段 · 提词库</text>
+    <text x="926" y="550" font-size="10" fill="#f9f871" font-family="'Silkscreen',monospace">负向铁律清单</text>
+    <text x="926" y="580" font-size="11" fill="#f9f871">铁律：零空词 · 九字段完整</text>
+
+    <!-- 横向接力：W1 -> W2 资料包 -->
+    <path d="M290 500 L344 500" fill="none" stroke="#3ef2a0" stroke-width="1.4" marker-end="url(#mGr)"/>
+    <text x="317" y="490" text-anchor="middle" font-size="10" fill="#3ef2a0">资料包</text>
+    <!-- 横向接力：W5 -> W3 提词包 -->
+    <path d="M910 500 L856 500" fill="none" stroke="#ff2bd6" stroke-width="1.4" marker-end="url(#mMg)"/>
+    <text x="883" y="490" text-anchor="middle" font-size="10" fill="#ff2bd6">提词包</text>
+
+    <!-- 生产者 -> G3 闸 -->
+    <path d="M180 598 L180 688" fill="none" stroke="#5a6a8a" stroke-width="1.2" marker-end="url(#mDm)"/>
+    <path d="M460 598 L460 688" fill="none" stroke="#5a6a8a" stroke-width="1.2" marker-end="url(#mDm)"/>
+    <path d="M740 598 L740 688" fill="none" stroke="#5a6a8a" stroke-width="1.2" marker-end="url(#mDm)"/>
+    <path d="M1020 598 L1020 688" fill="none" stroke="#5a6a8a" stroke-width="1.2" marker-end="url(#mDm)"/>
+    <text x="600" y="648" text-anchor="middle" font-size="11.5" fill="#7f93b3">送审 · 产物回流蜂王 · 过 G2 抽检 / G3 出厂</text>
+
+    <!-- 返工回路 -->
+    <path d="M92 688 L92 604" fill="none" stroke="#ff4d6d" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#mRd)"/>
+    <text x="104" y="654" font-size="10" fill="#ff4d6d">打回返工</text>
+
+    <!-- ===== W4 闸 ===== -->
+    <rect x="60" y="688" width="1080" height="120" rx="4" fill="rgba(255,77,109,.06)" stroke="#ff4d6d" stroke-width="1.6"/>
+    <text x="80" y="716" font-size="15" fill="#ffa1b3" font-weight="700">W4 守卫蜂 · G3 出厂闸</text>
+    <text x="80" y="740" font-size="11.5" fill="#cfe8f5">四模式：A 产出审查 ｜ B 引入审查（安全 / 许可 / 维护 / 成本 / 替代）｜ C 发布审 ｜ D 排版专项验法</text>
+    <text x="80" y="764" font-size="11.5" fill="#7f93b3">六项：完整性 · 准确性 · 格式 · 合规 · 可用性 · 一致性　＋ 4b 保全项 · 4c 跳过关卡申报</text>
+    <text x="80" y="788" font-size="11.5" fill="#7f93b3">三档：速查 2 项 ／ 标准 4 项（默认）／ 严查 6 项 + 专项　　评级：A 放行 · B 小修 · C 重做</text>
+
+    <!-- 闸 -> 交付 -->
+    <path d="M600 808 L600 842" fill="none" stroke="#3ef2a0" stroke-width="1.6" marker-end="url(#mGr)"/>
+    <text x="612" y="830" font-size="11" fill="#3ef2a0">放行（未过 G3 不许交付）</text>
+
+    <!-- ===== 交付 ===== -->
+    <rect x="60" y="842" width="1080" height="76" rx="4" fill="rgba(62,242,160,.05)" stroke="#3ef2a0" stroke-width="1.3"/>
+    <text x="80" y="870" font-size="15" fill="#7dffc4" font-weight="700">交付 · DELIVERY</text>
+    <text x="80" y="894" font-size="11.5" fill="#cfe8f5">由蜂王聚合：结论先行报告 + 产物路径 + 遗留问题　｜　归档三件套：任务图 / 工蜂产出 / 验收单</text>
+
+    <!-- 交付 -> 知识沉淀 -->
+    <path d="M600 918 L600 952" fill="none" stroke="#00f0ff" stroke-width="1.4" marker-end="url(#mCy)"/>
+
+    <!-- ===== 知识沉淀 ===== -->
+    <rect x="60" y="952" width="1080" height="98" rx="4" fill="rgba(0,240,255,.045)" stroke="rgba(0,240,255,.4)" stroke-width="1.3"/>
+    <text x="80" y="980" font-size="15" fill="#9ff4ff" font-weight="700">知识沉淀 · KNOWLEDGE BASE</text>
+    <text x="80" y="1004" font-size="11.5" fill="#cfe8f5">制度总纲 · 踩坑库 · 能力注册表 · 已验证组合 1–8 · 母版（VI 提案 / Logo 方案展示）· 工具链</text>
+    <text x="80" y="1028" font-size="11.5" fill="#7f93b3">每次复盘回写 —— 团队越用越强，这才是唯一永续的资产</text>
+
+    <!-- 左翼：知识沉淀 -> 蜂王（复盘回写） -->
+    <path d="M60 1002 L26 1002 L26 224 L372 224" fill="none" stroke="#00f0ff" stroke-width="1.3" stroke-dasharray="6 5" marker-end="url(#mCy)"/>
+    <text x="16" y="613" font-size="11" fill="#9ff4ff" transform="rotate(-90 16 613)" text-anchor="middle">复盘回写 · 下一单更聪明</text>
+
+    <!-- 右翼：交付 -> 主人（结论先行） -->
+    <path d="M1140 880 L1176 880 L1176 82 L778 82" fill="none" stroke="#3ef2a0" stroke-width="1.3" stroke-dasharray="6 5" marker-end="url(#mGr)"/>
+    <text x="1190" y="500" font-size="11" fill="#7dffc4" transform="rotate(-90 1190 500)" text-anchor="middle">交付报告 · 结论先行</text>
+  </svg>
+  </div>
+  <div class="figcap">
+    <b>读图要点：</b>纵向主干 = 单任务的完整生命周期；<b>横向绿箭头</b> = 工蜂间「接力」（W1→W2 资料包）；
+    <b>横向品红箭头</b> = 翻译层到执行层（W5→W3 提词包）；<b>红色虚线</b> = 守卫蜂打回返工；
+    <b>左翼青色虚线</b> = 复盘回写知识沉淀；<b>右翼绿色虚线</b> = 蜂王聚合后的交付报告。
+  </div>
+</section>
+
+<!-- ============ 02 架构图 ============ -->
+<section>
+  <div class="stitle"><span class="no">02</span><h2>体系架构图</h2><span class="ln"></span><span class="en">SYSTEM ARCHITECTURE</span></div>
+  <p class="lead">六层栈：上三层是「活的」（交互 / 指挥 / 执行），下三层是「死的但永续」（质量闸 / 能力池 / 承载层）。
+  <b>平台层是地基</b>——没有 TeamCreate，就没有常驻工蜂，整套设计由此定型。</p>
+
+  <div class="stack">
+    <div class="layer l5">
+      <div class="lay-tag"><span class="lno">LAYER 05</span><span class="lnm">交互层</span></div>
+      <div class="lay-body">
+        <span class="node k">主人（Human）</span><span class="node">自然语言指令</span><span class="node">极简指令 / 常反转</span><span class="node">口头切验收档位</span>
+        <div class="lay-note">唯一入口与唯一出口：指令进来，交付报告出去。蜂王默认静默，不刷屏。</div>
+      </div>
+    </div>
+    <div class="stack-arrow"><span class="down">▼ 指令 / 需求</span><span class="up">▲ 交付报告 / 需拍板项</span></div>
+
+    <div class="layer l4">
+      <div class="lay-tag"><span class="lno">LAYER 04</span><span class="lnm">指挥层</span></div>
+      <div class="lay-body">
+        <span class="node k">蜂王 QUEEN</span><span class="node">六步工作流</span><span class="node">拆 DAG</span><span class="node">能力路由</span>
+        <span class="node">派工单机制</span><span class="node">风险分级</span><span class="node">沟通准则</span><span class="node">硬规矩</span>
+        <div class="lay-note">成功标准不是「自己干了多少」，而是<b>在最少打扰主人的前提下高质量交付</b>。</div>
+      </div>
+    </div>
+    <div class="stack-arrow"><span class="down">▼ 派工单（目标/输入/产出/验收/边界）</span><span class="up">▲ 产物回流 / 阻塞上报</span></div>
+
+    <div class="layer l3">
+      <div class="lay-tag"><span class="lno">LAYER 03</span><span class="lnm">执行层</span></div>
+      <div class="lay-body">
+        <span class="node">W1 资料侦查蜂</span><span class="node">W2 提案筑巢蜂</span><span class="node">W3 图片施工蜂</span>
+        <span class="node">W4 守卫蜂</span><span class="node">W5 设计提词蜂</span>
+        <div class="lay-note">五只工蜂不决策：遇方向性歧义上报蜂王，每只都带「上报红线」。工蜂<b>非常驻进程</b>，是角色卡 + 文件。</div>
+      </div>
+    </div>
+    <div class="stack-arrow"><span class="down">▼ 成品送审</span><span class="up">▲ 返工指令（B 小修 / C 重做）</span></div>
+
+    <div class="layer l2">
+      <div class="lay-tag"><span class="lno">LAYER 02</span><span class="lnm">质量层</span></div>
+      <div class="lay-body">
+        <span class="node">G1 进场验收</span><span class="node">G2 过程抽检</span><span class="node">G3 出厂验收</span>
+        <span class="node">严格度三档</span><span class="node">六项清单</span><span class="node">工种专项条款</span><span class="node">W4 四模式</span>
+        <div class="lay-note">这是「蜂王」与「一个会说漂亮话的模型」的真正区别：<b>没过 G3 不许交付</b>，返工到过为止。</div>
+      </div>
+    </div>
+    <div class="stack-arrow"><span class="down">▼ 调用</span><span class="up">▲ 产出</span></div>
+
+    <div class="layer l1">
+      <div class="lay-tag"><span class="lno">LAYER 01</span><span class="lnm">能力层</span></div>
+      <div class="lay-body">
+        <span class="node">Office 全家桶</span><span class="node">生图 / 生视频</span><span class="node">矢量精绘</span><span class="node">HTML 排版册</span>
+        <span class="node">PPTX 原生构建</span><span class="node">浏览器自动化</span><span class="node">图像处理</span><span class="node">品牌延展</span>
+        <span class="node">母版 ×2</span><span class="node">工具链（render-deck / probe-* / geo-budget / deck-audit）</span>
+        <div class="lay-note">技能池由 `能力注册表` 统一索引；母版是<b>唯一维护点</b>，各单脚本是它的派生物。</div>
+      </div>
+    </div>
+    <div class="stack-arrow"><span class="down">▼ 读写</span><span class="up">▲ 留痕</span></div>
+
+    <div class="layer l0">
+      <div class="lay-tag"><span class="lno">LAYER 00</span><span class="lnm">承载层</span></div>
+      <div class="lay-body">
+        <span class="node k">蜂巢文件系统</span><span class="node">00-蜂巢规范</span><span class="node">01-蜂王</span><span class="node">02-工蜂</span>
+        <span class="node">03-任务档案</span><span class="node">04-知识沉淀</span><span class="node">归档三件套</span><span class="node">Git 单主干 master</span>
+        <div class="lay-note">全部以 Markdown 承载；一单任务 = 一次提交（`task:` 前缀）。<b>蜂王临时附身，蜂巢才是永续的。</b>换机器换模型，只要蜂巢在，团队就在。</div>
+      </div>
+    </div>
+  </div>
+  <div class="figcap"><b>地基条款：</b>平台未开放 TeamCreate → 工蜂不是常驻进程，而是「角色卡 + 文件总线」。这一条决定了上面所有层的形态。</div>
+</section>
+
+<!-- ============ 03 编制 ============ -->
+<section>
+  <div class="stitle"><span class="no">03</span><h2>编制 · 一脑五手</h2><span class="ln"></span><span class="en">ROSTER</span></div>
+
+  <div class="card queen" style="margin-bottom:14px">
+    <div class="tag">LAYER 04 · 唯一大脑 · 不抢活 · 能委派的绝不自己干</div>
+    <h3>蜂王 QUEEN</h3>
+    <p>只做六件事：<b style="color:var(--yellow)">理解 · 拆解 · 路由 · 调度 · 验收 · 聚合</b>。成功标准是「这单任务在最少打扰主人的前提下高质量交付」，而不是自己干了多少。</p>
+    <div class="steps6">
+      <span class="step">① 接单复述</span><span class="step">② 拆 DAG</span><span class="step">③ 能力路由</span>
+      <span class="step">④ 派发跟踪</span><span class="step">⑤ 验收把关</span><span class="step">⑥ 聚合复盘</span>
+    </div>
+    <div class="tools" style="margin-top:12px;font-family:var(--micro);font-size:10px;color:var(--yellow);background:rgba(249,248,113,.06);border-left:2px solid var(--yellow);padding:7px 9px;line-height:1.8">
+      READ · WRITE · BASH · WEBSEARCH · SKILL · AGENT · TASK-CREATE　｜　入口技能 swarm-queen
+    </div>
+    <p style="margin-top:11px;font-size:12.5px;color:var(--yellow)">硬规矩：能委派的不自己干 · 不可逆动作先问 · 一切留痕 · 无工单不派活 · 验收严格度听主人的</p>
+  </div>
+
+  <div class="workers">
+    <div class="wk w1">
+      <div class="tag">W1 · SCOUT</div><h3>资料侦查蜂</h3>
+      <p>找东西。凡是需要从外部世界或本地资料采集、核实、汇总的事实性工作，都归它。产出的是原料，不是成品。</p>
+      <ul class="card-ul" style="list-style:none;font-size:12px;color:var(--mute);line-height:1.95;margin-top:9px">
+        <li>联网检索 / 竞品调研 / 资料汇总</li><li>网页抓取 · 公众号批量采集</li><li>事实核实 · 本地文件梳理</li>
+      </ul>
+      <div class="tools">WEBSEARCH · WEBFETCH · AGENT-BROWSER</div>
+      <div class="rule">出厂铁律：每条结论带来源 · 时效必标 · 存疑不许藏 ｜ <b>零命中先试拼写近似</b></div>
+    </div>
+    <div class="wk w2">
+      <div class="tag">W2 · BUILDER</div><h3>提案筑巢蜂</h3>
+      <p>造结构化成品。PPT 提案 / Word 文档 / Excel 表格 / 网页 Demo，默认语境是餐饮品牌全案设计提案。</p>
+      <ul style="list-style:none;font-size:12px;color:var(--mute);line-height:1.95;margin-top:9px">
+        <li>提案册 · 汇报材料 · 方案文档</li><li>数据表 · 看板 · 清单生成</li><li>Logo 视觉解构提案</li>
+      </ul>
+      <div class="tools">TENCENT-PPTX · DOCX · SHEETAGENT · LOCAL-OFFICE-EDIT</div>
+      <div class="rule">出厂铁律：零占位符 · 数据有出处 · 字体可商用 ｜ 先大纲后动工</div>
+    </div>
+    <div class="wk w3">
+      <div class="tag">W3 · IMAGE</div><h3>图片施工蜂</h3>
+      <p>管所有像素活，但手上是<b style="color:var(--magenta)">四条完全不同的产线</b>，开错产线整单退回。</p>
+      <div style="margin-top:9px;font-size:11.5px;line-height:1.95;color:var(--mute)">
+        <div><b style="color:var(--magenta)">A 生图</b>：氛围图 / 插画 / KV</div>
+        <div><b style="color:var(--yellow)">B 矢量精绘</b>：标识 / Logo / 字标（禁生图）</div>
+        <div><b style="color:var(--cyan)">C 排版封装</b>：图片 → 提案册 + PDF</div>
+        <div><b style="color:var(--green)">D PPTX 原生</b>：客户要可编辑 .ppt</div>
+      </div>
+      <div class="tools">IMAGEGEN · 手写SVG · HTML-PPT · DECK2PPTX · VIDEOGEN</div>
+      <div class="rule">出厂铁律：零水印 · 零Logo · 零文字 ｜ 标识类禁生图</div>
+    </div>
+    <div class="wk w4">
+      <div class="tag">W4 · GUARD</div><h3>守卫蜂</h3>
+      <p>对抗性角色，不产出内容，专职挑刺。价值在于<b style="color:var(--red)">敢说「这个不行」</b>。</p>
+      <div style="margin-top:9px;font-size:11.5px;line-height:1.95;color:var(--mute)">
+        <div><b style="color:var(--red)">模式 A</b> 产出审查（G3 六项）</div>
+        <div><b style="color:var(--red)">模式 B</b> 引入审查（五问）</div>
+        <div><b style="color:var(--red)">模式 C</b> 发布审（合规）</div>
+        <div><b style="color:var(--red)">模式 D</b> 排版专项验法</div>
+      </div>
+      <div class="tools">六项清单 · 反查 · PIL 像素扫描 · probe-box</div>
+      <div class="rule">审查铁律：每个问题标具体位置 · 写明未查范围 · 结论不骑墙</div>
+    </div>
+    <div class="wk w5">
+      <div class="tag">W5 · PROMPTER</div><h3>设计提词蜂</h3>
+      <p>只写词，不按快门。把「想要什么」翻译成可执行的 prompt——策略层与执行层之间的<b style="color:var(--yellow)">翻译层</b>。</p>
+      <ul style="list-style:none;font-size:12px;color:var(--mute);line-height:1.95;margin-top:9px">
+        <li>生图 / 生视频 prompt 撰写与调优</li><li>模糊风格词解构（"要高级"→可观测属性）</li><li>设计 brief · 风格锚 · 提词模板沉淀</li>
+      </ul>
+      <div class="tools">九字段结构 · 提词库 · 负向铁律清单</div>
+      <div class="rule">出厂铁律：零空词 · 九字段完整 · 铁律清单必挂 ｜ 只出指令不做成品</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 产线路由 ============ -->
+<section>
+  <div class="stitle"><span class="no">04</span><h2>产线路由 · W3 四条线</h2><span class="ln"></span><span class="en">PIPELINE ROUTING</span></div>
+  <p class="lead">四产线是<b>多重任务优化</b>最硬的沉淀：像素活看起来是一件事，实际是四条互不相通的链路。<b>判错产线 = 整单退回</b>。</p>
+  <div class="lines">
+    <div class="line-box a">
+      <div class="lid">LINE A · GENERATE</div>
+      <h4>生图产线</h4>
+      <p>氛围图 · 插画 · KV · 配图 · 情绪板 · 特效</p>
+      <p style="margin-top:8px">兵器：<span style="color:var(--magenta)">ImageGen / VideoGen / 3D 特效</span></p>
+      <div class="warn2">铁律：零水印 · 零 Logo · 零文字（逐张肉眼确认）</div>
+      <div class="warn3">已知坑：本环境生图通道默认叠「AI生成」水印 → 固定走裁切补偿</div>
+    </div>
+    <div class="line-box b">
+      <div class="lid">LINE B · VECTOR</div>
+      <h4>矢量精绘产线</h4>
+      <p>标识 · Logo · 图标 · 字标 · 印章 · 辅助图形</p>
+      <p style="margin-top:8px">兵器：<span style="color:var(--yellow)">手写 SVG + resvg 光栅化</span></p>
+      <div class="warn2">四硬指标：纯平涂零渐变 · 可单色 · 32px 可辨 · 真矢量</div>
+      <div class="warn3">⛔ 标识类禁用 AI 生图 —— 生图产出「渲染插画」= 整单退回</div>
+    </div>
+    <div class="line-box c">
+      <div class="lid">LINE C · LAYOUT</div>
+      <h4>排版封装产线</h4>
+      <p>图片素材 → 提案 deck（页眉页脚 · 版式 · 导出 PDF）</p>
+      <p style="margin-top:8px">兵器：<span style="color:var(--cyan)">html-ppt + 自建主题 + render-deck.py</span></p>
+      <div class="warn2">必过 R1–R16 十六条铁律；出口统一走 render-deck.py</div>
+      <div class="warn3">已知坑：满幅层缺 height:100% → 整页塌成 144px 近空白</div>
+    </div>
+    <div class="line-box d">
+      <div class="lid">LINE D · NATIVE PPTX</div>
+      <h4>PPTX 原生构建产线</h4>
+      <p>主人点名要 .ppt / .pptx，或要求成品「客户能改」</p>
+      <p style="margin-top:8px">兵器：<span style="color:var(--green)">deck2pptx.py + PPTX原生构建规范</span></p>
+      <div class="warn2">换算三式：EMU=px×9525 ｜ pt=px×0.75 ｜ lh=css_lh/1.2</div>
+      <div class="warn3">⛔ 禁止「HTML 渲染成图再塞 pptx」= 死图，pptx 的立身之本是可编辑</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 质量体系 ============ -->
+<section>
+  <div class="stitle"><span class="no">05</span><h2>质量体系 · 三道闸门</h2><span class="ln"></span><span class="en">QUALITY GATES</span></div>
+  <div class="grid3">
+    <div class="card gate">
+      <div class="tag">GATE 01 · 进场</div><h3>G1 进场验收</h3>
+      <p>把关对象是<b style="color:var(--cyan)">派工单本身</b>。目标、输入、产出路径、验收标准、边界——任一项虚，任务不许下发。</p>
+      <p style="margin-top:10px;font-size:12.5px;color:var(--yellow)">不通过 → 退回重写工单，不许带着含糊开干</p>
+    </div>
+    <div class="card gate g2">
+      <div class="tag">GATE 02 · 过程</div><h3>G2 过程抽检</h3>
+      <p>只用于长任务。第一个子产物出来抽检一次，跑完一半里程碑再抽一次。</p>
+      <p style="margin-top:10px;font-size:12.5px;color:var(--yellow)">宁可早点毁掉重来，不可拖到最后交一堆废品</p>
+    </div>
+    <div class="card gate g3">
+      <div class="tag">GATE 03 · 出厂</div><h3>G3 出厂验收</h3>
+      <p>交付前最后一道闸。<b style="color:var(--magenta)">没过 G3 的东西不许交付</b>，返工到过为止。</p>
+      <div class="six"><div>完整性</div><div>准确性</div><div>格式</div><div>合规</div><div>可用性</div><div>一致性</div></div>
+      <p style="margin-top:12px;font-size:12.5px">评级：<span class="ok">A 放行</span> ｜ <span class="warn">B 小修</span> ｜ <span class="no">C 重做</span></p>
+    </div>
+  </div>
+
+  <div class="levels">
+    <div class="lv a"><span class="nm">速查 LIGHT</span><span class="mark">2 项</span>
+      <div class="use">内部草稿 · 过程稿 · 给自己看的东西</div><div class="bar"><i></i></div></div>
+    <div class="lv b"><span class="nm">标准 STANDARD</span><span class="mark">默认</span>
+      <div class="use">日常交付 · 完整性 + 格式 + 合规 + 准确性抽查</div><div class="bar"><i></i></div></div>
+    <div class="lv c"><span class="nm">严查 STRICT</span><span class="mark">6 项 + 专项</span>
+      <div class="use">对外交付 · 客户提案 · 公开发布 · 付费成果</div><div class="bar"><i></i></div></div>
+  </div>
+
+  <div class="grid3" style="margin-top:14px">
+    <div class="card"><div class="tag">4b · PRESERVE</div><h3>保全项</h3>
+      <p>返工 / 修正类任务必查：是否明确写出「什么不许动」。修正稿必须显式列出 PRESERVE 清单，否则「修 A 坏 B」无从追责。</p></div>
+    <div class="card"><div class="tag">4c · SKIPPED GATES</div><h3>跳过关卡申报</h3>
+      <p>本轮跳过了哪些关卡？为何跳？必须写明。<b style="color:var(--cyan)">跳过 ≠ 违规，隐瞒跳过 = 违规。</b></p></div>
+    <div class="card"><div class="tag">W4 · 四模式</div><h3>守卫蜂审查模式</h3>
+      <p><b style="color:var(--red)">A</b> 产出审查 · <b style="color:var(--red)">B</b> 引入审查（安全/许可/维护/成本/替代）· <b style="color:var(--red)">C</b> 发布审 · <b style="color:var(--red)">D</b> 排版专项验法。</p></div>
+  </div>
+</section>
+
+<!-- ============ 06 排版铁律 ============ -->
+<section>
+  <div class="stitle"><span class="no">06</span><h2>排版铁律 R1–R16</h2><span class="ln"></span><span class="en">LAYOUT LAWS</span></div>
+  <p class="lead">从 R1–R6 起步，经碗香 / 土蚝 / 蒸馏册多轮实战扩到 <b>R16</b>。每一条都对应一次真实事故，不是纸上规范。</p>
+  <div class="rules">
+    <div class="ru"><span class="rc">R1</span><span class="rt">满幅层写死 <b>height:100%</b>，绝不只靠 inset:0（transform 祖先会让拉伸解析失效）</span></div>
+    <div class="ru"><span class="rc">R2</span><span class="rt">内容容器必须显式 <b>left/right:var(--mx)</b>，否则继承 padding 压住边款</span></div>
+    <div class="ru"><span class="rc">R3</span><span class="rt">不给 <b>.slide 写 padding:0</b>；满幅请用负 margin</span></div>
+    <div class="ru"><span class="rc">R4</span><span class="rt">锁 <b>@page{size:Wpx Hpx;margin:0}</b>，导出后核对 MediaBox</span></div>
+    <div class="ru"><span class="rc">R5</span><span class="rt">疑难上探针（probe-box.js），<b>别读 CSS 猜</b></span></div>
+    <div class="ru"><span class="rc">R6</span><span class="rt">小体积 PNG <b>≠ 空白页</b>（墨底满幅 20–40KB 属正常）</span></div>
+    <div class="ru"><span class="rc">R7</span><span class="rt">固定画布下尺寸一律<b>硬编码 px</b>，百分比在 flex 推导高度里会被拒解</span></div>
+    <div class="ru"><span class="rc">R8</span><span class="rt">print 里补 <b>overflow:hidden</b>，否则 PDF 页数 = slide 数 + 1</span></div>
+    <div class="ru"><span class="rc">R9</span><span class="rt">「看起来不对」也<b>先量再改</b>，且先确认读的图有没有被缩放</span></div>
+    <div class="ru"><span class="rc">R10</span><span class="rt">批量替换脚本收尾<b>双向复核</b>（数新标记 + 数旧标记）</span></div>
+    <div class="ru"><span class="rc">R11</span><span class="rt">量 DOM 前先摘祖先 <b>transform</b>，否则测量值偏大</span></div>
+    <div class="ru"><span class="rc">R12</span><span class="rt">页面容器 class 必须独立命名空间 <b>pg-*</b>（撞车 → 打印多一页 / 截图全同）</span></div>
+    <div class="ru"><span class="rc">R13</span><span class="rt">「一对多」登记表键<b>必须带归属维度</b>（如 (篇,节号)）</span></div>
+    <div class="ru"><span class="rc">R14</span><span class="rt">目录 / 索引类交付<b>必做逐行回验</b>，输出「错行数 / 总行数」</span></div>
+    <div class="ru"><span class="rc">R15</span><span class="rt">版式一改，<b>实测尺寸缓存立即作废</b> → 必重跑 --measure 再重建</span></div>
+    <div class="ru"><span class="rc">R16</span><span class="rt">删页 / 改名 / 调序后，<b>页码基准与署名落点同步重算并回验</b></span></div>
+  </div>
+  <div class="figcap"><b>贯穿全条的根因：</b>`overflow:hidden` 会<b>静默裁掉</b>超出内容——「内容是否完整」必须单独量，工具本身也要双向验证（正式产物 PASS + 坏样本 FAIL）。</div>
+</section>
+
+<!-- ============ 07 已验证组合 ============ -->
+<section>
+  <div class="stitle"><span class="no">07</span><h2>已验证产线组合 1–8</h2><span class="ln"></span><span class="en">PROVEN PLAYBOOKS</span></div>
+  <p class="lead">每一条都是<b>实跑过的完整链路</b>，含踩坑与关键经验。新任务先来这里找最接近的一条照做。</p>
+  <div class="grid4">
+    <div class="card"><div class="tag">组合 1</div><h3>品牌 Logo 设计落地</h3><p>策略 → 三方向 → <b>矢量精绘</b> → 三项检验 → 六项验收 → SVG 源文件 + 多尺寸 + 单色 + 反白。</p></div>
+    <div class="card"><div class="tag">组合 2</div><h3>交付册结构盘点</h3><p>存量素材 → 找原作者分类标签 → 建四列索引 → 脚本重算统计 → 守卫蜂复算抽查。</p></div>
+    <div class="card"><div class="tag">组合 3</div><h3>多源对撞法</h3><p>统一码本 → 按来源域切分并行侦查 → 脚本复算 → 守卫蜂联网核实 → 三源判定。</p></div>
+    <div class="card"><div class="tag">组合 4</div><h3>数据驱动清单生成器</h3><p>结构与数值分离 → 脚本从码表填充 → 守卫蜂查「依据出处」→ 详版 + 提案版双出。</p></div>
+    <div class="card"><div class="tag">组合 5</div><h3>图片素材 → VI 提案封装</h3><p>素材盘点 → 封装形态（必问主人）→ 页眉页脚二选一 → 采样品牌色 → 自建主题 → render-deck 出 PDF。</p></div>
+    <div class="card"><div class="tag">组合 6</div><h3>标志 → 原生 .pptx 基础系统册</h3><p>判产线 → 素材勘探 → 四角洪水填充去底 → 母版几何移植 → LibreOffice→PDF→像素扫描。</p></div>
+    <div class="card"><div class="tag">组合 7</div><h3>标志多方案展示册</h3><p>详页 + 并置页 + 载体应用页；⭐ 已固化为母版 Logo-Scheme-Show-Master，改配置跑两条命令即出册。</p></div>
+    <div class="card"><div class="tag">组合 8</div><h3>已交付册子二次改造</h3><p>留干净备份 → 先算几何预算 → 定密度（一物料一页）→ 从备份重建 → 定点渲染 → deck-audit 终检。⭐ 已固化为 skill deck-rework。</p></div>
+  </div>
+</section>
+
+<!-- ============ 08 技能与工具池 ============ -->
+<section>
+  <div class="stitle"><span class="no">08</span><h2>技能与工具池</h2><span class="ln"></span><span class="en">CAPABILITY REGISTRY</span></div>
+  <div class="split" style="display:grid;grid-template-columns:1.05fr .95fr;gap:14px">
+    <div class="card">
+      <div class="tag">LAYER 01 · 技能池</div><h3>按工种分组的可用能力</h3>
+      <table>
+        <tr><th>工种</th><th>技能 / 工具</th></tr>
+        <tr><td>W1 侦查</td><td>WebSearch · WebFetch · agent-browser · 采集脚本</td></tr>
+        <tr><td>W2 筑巢</td><td>tencent-pptx / docx / sheetagent / sheet-generation · local-office-edit · logo-analysis-ppt</td></tr>
+        <tr><td>W3 施工</td><td>ImageGen · VideoGen · vector-logo-maker · html-ppt · deck2pptx · deck-rework · deck-componentization · brand-extension · da-motion-sticker-skill · buddy-image-processing · 3D 特效</td></tr>
+        <tr><td>W4 守卫</td><td>验收清单 · 引入审查五问 · PIL 像素扫描 · geo-map-compliance-guard</td></tr>
+        <tr><td>W5 提词</td><td>设计提词库（九字段 + 负向清单 + 空词替换表）· logo-design-pro</td></tr>
+        <tr><td>蜂王</td><td>swarm-queen（本体入口）· 资料库 / 发布为应用 · expert-manager · skill-creator</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="tag">LAYER 01 · 工具链</div><h3>自建机检工具（收尾五步的底座）</h3>
+      <table>
+        <tr><th>工具</th><th>用途</th></tr>
+        <tr><td>render-deck.py</td><td>渲染 + PDF + 联系表 + 强制产物核对</td></tr>
+        <tr><td>probe-box.js</td><td>量盒子，「计算样式对、渲染不对」上它</td></tr>
+        <tr><td>probe-pptx.py</td><td>直接量 pptx 内宽高比失配数（= 0 才零变形）</td></tr>
+        <tr><td>probe_fit / probe_overflow</td><td>逐图量贴合（CROP/DISTORT/COLLAPSE）· 递归量溢出</td></tr>
+        <tr><td>geo-budget.py</td><td>换素材前先算几何预算，判断要不要「让位」</td></tr>
+        <tr><td>deck-audit.py</td><td>页数 / 页码 / 注释 / 图片引用 / 页型计数终检</td></tr>
+        <tr><td>deck-benchmark</td><td>册子五维对标（几何/页型/贯通度/机制/token）</td></tr>
+        <tr><td>矢量Logo工具链</td><td>svg2png.js · make-sheet.py 比稿 · make-board.py 展板</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 承接边界 ============ -->
+<section>
+  <div class="stitle"><span class="no">09</span><h2>承接边界 · 现在能接什么</h2><span class="ln"></span><span class="en">SERVICE SCOPE</span></div>
+  <div class="split" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div class="card">
+      <div class="tag">✅ 稳定接单</div><h3>有专属工蜂 + 技能已验证</h3>
+      <table>
+        <tr><th>任务类型</th><th>主责</th></tr>
+        <tr><td>资料调研 / 竞品分析</td><td class="ok">W1</td></tr>
+        <tr><td>网页抓取 / 公众号采集</td><td class="ok">W1</td></tr>
+        <tr><td>PPT 提案 / 方案册</td><td class="ok">W2</td></tr>
+        <tr><td>Word 文档 / 报告 / Excel</td><td class="ok">W2</td></tr>
+        <tr><td>带数据背书的标准化清单</td><td class="ok">W2 · 组合 4</td></tr>
+        <tr><td>生图 / 修图 / 去水印</td><td class="ok">W3</td></tr>
+        <tr><td>图片素材 → 提案 deck 封装</td><td class="ok">W3 · 组合 5</td></tr>
+        <tr><td>标志 → 基础系统册（可编辑 pptx）</td><td class="ok">W3 · 组合 6</td></tr>
+        <tr><td>标志多方案 → 展示册</td><td class="ok">W3 · 组合 7</td></tr>
+        <tr><td>已交付册子二次改造</td><td class="ok">W3 · 组合 8</td></tr>
+        <tr><td>设计 prompt / 风格解构 / brief</td><td class="ok">W5</td></tr>
+        <tr><td>质量审查 / 事实核查</td><td class="ok">W4</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:14px">
+        <div class="tag">⚠️ 有条件接单</div><h3>能做，但有前提或质量风险</h3>
+        <table>
+          <tr><td>视频 · 3D · 模板特效</td><td class="warn">时长 / 分辨率受限，先小样</td></tr>
+          <tr><td>代码 / 应用开发</td><td class="warn">无专属工蜂，暂由蜂王兼（待补 W6）</td></tr>
+          <tr><td>品牌延展 · 周边 mockup</td><td class="warn">依赖 brand-extension 连接器</td></tr>
+          <tr><td>图片内含精准文字</td><td class="warn">建议后期叠加，别直出</td></tr>
+          <tr><td>需登录 / 付费的系统</td><td class="warn">须主人提供凭据，蜂王不代持</td></tr>
+          <tr><td>对外发布 / 定时任务</td><td class="warn">发布须主人点头</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="tag">❌ 接不了</div><h3>硬边界</h3>
+        <ul style="list-style:none;font-size:12.5px;color:var(--mute);line-height:1.95">
+          <li>· 线下真实世界操作（跑腿 / 打电话 / 当面交付）</li>
+          <li>· 代持账号密码等敏感凭据</li>
+          <li>· 自动调起专家中心的领域专家（需主人手动切）</li>
+          <li>· 常驻后台持续监控（工蜂跑完即散）</li>
+        </ul>
+        <p style="margin-top:12px;font-size:12px;color:var(--dim)">规模上限：单任务 ≤ 8 节点 · 并行 ≤ 3–4 只蜂 · 单文件 &lt; 50MB 入库</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 知识沉淀层 ============ -->
+<section>
+  <div class="stitle"><span class="no">10</span><h2>知识沉淀层 · 永续资产</h2><span class="ln"></span><span class="en">KNOWLEDGE BASE</span></div>
+  <div class="split" style="display:grid;grid-template-columns:1.05fr .95fr;gap:14px">
+    <div class="card">
+      <div class="tag">LAYER 00 · 蜂巢目录</div><h3>文件即团队记忆</h3>
+      <pre style="background:#04060d;border:1px solid var(--line);padding:15px;overflow-x:auto;font-family:var(--micro);font-size:11px;line-height:2;color:var(--mute);margin-top:12px"><b style="color:var(--cyan);font-weight:400">蜂王/</b>
+├── <span style="color:var(--yellow)">00-蜂巢规范/</span>   公约 · 架构理解 · Git 工作流 · 全景图
+├── <span style="color:var(--yellow)">01-蜂王/</span>       角色卡 · 派工单模板 · 验收清单
+├── <span style="color:var(--yellow)">02-工蜂/</span>       W1–W5 角色卡
+├── <span style="color:var(--yellow)">03-任务档案/</span>   每单留痕（14 单）
+└── <span style="color:var(--yellow)">04-知识沉淀/</span>   制度总纲 · 踩坑库 · 能力注册表
+                   母版 ×2 · 设计提词库 · 工具链</pre>
+    </div>
+    <div class="card">
+      <div class="tag">每单归档三件套</div><h3>一单任务 = 一份完整档案</h3>
+      <table>
+        <tr><th>文件</th><th>谁写</th><th>内容</th></tr>
+        <tr><td>00-任务图.md</td><td class="warn">蜂王</td><td>指令原文 / 理解复述 / 假设 / DAG 任务表 / 执行日志</td></tr>
+        <tr><td>01-工蜂产出/</td><td class="ok">工蜂</td><td>各节点原始产物，不改不删，留痕可追溯</td></tr>
+        <tr><td>02-验收单.md</td><td class="warn">蜂王</td><td>G3 评分 + 返工记录 + 最终结论 + 学习项</td></tr>
+      </table>
+      <p style="margin-top:12px;font-size:12.5px;color:var(--mute)">闭环学习：好用的组合 → 能力注册表 · 踩过的坑 → 踩坑库 · 版式缺陷 → 回写母版。<b style="color:var(--cyan)">「套模板 ≠ 模板没问题」</b>——发现缺陷一律回写上游，只改本单 = 下一单原样再踩。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11 平台边界 ============ -->
+<section>
+  <div class="stitle"><span class="no">11</span><h2>平台边界 · 认清跑道</h2><span class="ln"></span><span class="en">ENVIRONMENT</span></div>
+  <div class="card">
+    <p>整个架构的地基是这一条：<b style="color:var(--magenta)">本环境未开放多 agent 独立团队（TeamCreate）</b>。所以蜂群不是常驻进程群，而是<b style="color:var(--cyan)">长在磁盘上的组织形态</b>——蜂王与工蜂是临时附身的角色剧本，蜂巢文件 + Git 才是唯一永续的东西。</p>
+    <table>
+      <tr><th>能力</th><th>状态</th><th>说明</th></tr>
+      <tr><td>Skill 机制</td><td class="ok">可用</td><td>全部技能可被蜂王直接调度</td></tr>
+      <tr><td>任务跟踪</td><td class="ok">可用</td><td>状态：待办 / 进行中 / 完成 / 阻塞</td></tr>
+      <tr><td>派发子 agent</td><td class="ok">有限可用</td><td>仅内置若干类型，重活才用（成本高，结果要「信任但核实」）</td></tr>
+      <tr><td>并行执行</td><td class="ok">可用</td><td>互不依赖的任务可同轮并行，但 ≤ 3–4 只以免互相污染</td></tr>
+      <tr><td>领域专家</td><td class="warn">需手动</td><td>蜂王不能自动拉起，需主人切换</td></tr>
+      <tr><td>自由组队</td><td class="no">不可用</td><td>改用「角色卡 + 文件总线」替代</td></tr>
+      <tr><td>工蜂长驻</td><td class="no">不可用</td><td>跑完即散，靠文件延续记忆</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 12 演进 ============ -->
+<section>
+  <div class="stitle"><span class="no">12</span><h2>演进 · 从 V1 到多重任务优化</h2><span class="ln"></span><span class="en">EVOLUTION</span></div>
+  <p class="lead">体系不是设计出来的，是<b>一单一单跑出来</b>的。下面每一条都是真实任务逼出来的增量。</p>
+  <div class="tl">
+    <div class="ev">
+      <div class="dt">2026-09-11</div><div class="tt">V1 · 骨架定型</div>
+      <div class="ds">架构理解 V1 + 四项决议：一脑五手编制（<em>后追加 W5 翻译层</em>）· G1/G2/G3 三关 · 三档严格度 · Git 单主干。首单：梅湖小院 Logo。</div>
+    </div>
+    <div class="ev">
+      <div class="dt">2026-09-15 → 09-17</div><div class="tt">优化 1 · 排版产线立起 + 组合 1–5</div>
+      <div class="ds">html-ppt 链路验证、VI 母版从 231 页反推；土蚝小院 29 页实跑踩出 <em>R1–R6</em>（满幅层塌成 144px / 10 页近空白）。资料类首单沉淀组合 2–4。</div>
+    </div>
+    <div class="ev">
+      <div class="dt">2026-09-18</div><div class="tt">优化 2 · D 线 pptx 原生构建 + 母版固化</div>
+      <div class="ds">碗香 Logo「一」14 页可编辑 pptx；组合 6/7 实跑并固化为 <em>Logo-Scheme-Show-Master</em> 母版；「套模板≠模板没问题」立规。</div>
+    </div>
+    <div class="ev">
+      <div class="dt">2026-09-21 → 09-22</div><div class="tt">优化 3 · 二次改造产线</div>
+      <div class="ds">土蚝全案 v2→v6 五轮连续迭代，沉淀组合 8 并固化为 skill <em>deck-rework</em>；扩出 R7–R11（图片裸奔 / 探针自坑）。</div>
+    </div>
+    <div class="ev">
+      <div class="dt">2026-09-27 → 10-10</div><div class="tt">优化 4 · 几何体检 + 铁律扩到 R16</div>
+      <div class="ds">碗香第 4–7 轮 + 蒸馏封册实跑；新增 probe_fit / probe_overflow / geo-budget / deck-audit / deck-benchmark；扩出 <em>R12–R16</em>（class 撞车 / 目录回验 / 尺寸缓存 / 页码互锁）。</div>
+    </div>
+    <div class="ev">
+      <div class="dt">2026-10-06</div><div class="tt">优化 5 · 引入治理三规</div>
+      <div class="ds">源自 brand-system-skill：<em>否决方向禁止增量修补</em> · <em>参考素材分权控制</em> · <em>Never Invent 清单</em>；验收清单增补 4b 保全项 / 4c 跳过关卡申报。</div>
+    </div>
+    <div class="ev now">
+      <div class="dt">2026-10-13 · NOW</div><div class="tt">V2 · 现状盘整</div>
+      <div class="ds">1 脑 + 5 蜂 · W3 四产线 · R1–R16 十六铁律 · 组合 1–8 · 验收 3 档 6 项 + 2 增补 · W4 四模式 · 母版 ×2 · 工具链 8 件 · 已跑通 14 单。</div>
+    </div>
+  </div>
+</section>
+
+<div class="ft">
+  <span>HIVE: D:\WORK——Vie\沃克巴蒂\蜂群\蜂王</span>
+  <span>V2.0 · GEN 2026-10-13 · 旺财 🐶 BUILT FOR 最帅气的主人</span>
+</div>
+
+</div>
+</body>
+</html>

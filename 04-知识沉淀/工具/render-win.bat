@@ -1,5 +1,13 @@
 @echo off
 REM ============================================================
+REM  ⚠️ 已降级为备用（2026-09-17）
+REM     首选请用：render-deck.py
+REM       - 全程 pathlib + as_uri()，中文路径 UTF-8 安全
+REM       - 内置产物核对（成功数 / 未生成页 / 体积偏小页）
+REM       - 支持拼联系表 --sheet、体检 --check
+REM     本 .bat 保留仅为「无 Python 环境」时应急。
+REM     已知问题：cmd 在中文路径下可能出编码问题。
+REM ============================================================
 REM  render-win.bat — html-ppt 在 Windows 上的渲染/导出脚本
 REM  替代原版 scripts/render.sh（Chrome 路径 mac 写死，Win 跑不了）
 REM

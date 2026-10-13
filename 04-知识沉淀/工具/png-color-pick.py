@@ -9,6 +9,7 @@ png-color-pick.py — 无依赖 PNG 取色器（纯标准库，无需 Pillow）
 用法：
     python png-color-pick.py <图片路径> <x,y> [<x,y> ...]
     python png-color-pick.py <图片路径> --grid 6x2          # 等分网格采样
+    python png-color-pick.py <图片路径> --hist 16           # 全图色彩直方图（抗锯齿抗干扰）
     python png-color-pick.py <图片路径> --r 8 120,300 ...   # 指定采样半径
 
 支持：PNG 8bit，color type 0/2/4/6（灰度/RGB/灰度A/RGBA），非隔行。
@@ -102,6 +103,24 @@ def main():
     w, h, ch, buf = read_png(path)
     print('image: %s' % path)
     print('size : %dx%d  channels=%d' % (w, h, ch))
+
+    if args and args[0] == '--hist':
+        n = int(args[1]) if len(args) > 1 else 12
+        step = max(1, int((w * h / 400000) ** 0.5))
+        cnt = {}
+        for y in range(0, h, step):
+            for x in range(0, w, step):
+                o = (y * w + x) * ch
+                if ch >= 3:
+                    k = (buf[o] & 0xF8, buf[o + 1] & 0xF8, buf[o + 2] & 0xF8)
+                else:
+                    v = buf[o] & 0xF8
+                    k = (v, v, v)
+                cnt[k] = cnt.get(k, 0) + 1
+        total = sum(cnt.values())
+        for k, v in sorted(cnt.items(), key=lambda kv: -kv[1])[:n]:
+            print('  %s  rgb%-16s %7d  %6.2f%%' % (hexof(k), k, v, v * 100.0 / total))
+        return
 
     if args and args[0] == '--grid':
         spec = args[1] if len(args) > 1 else '6x2'
