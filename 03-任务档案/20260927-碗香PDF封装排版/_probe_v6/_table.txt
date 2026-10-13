@@ -1,0 +1,60 @@
+| 01 | 封面 | 导航 |  |  |  | 2 |
+| 02 | 物料页 |  |  |  |  | 0 |
+| 03 | 章节页 | 导航 |  |  |  | 0 |
+| 04 | 物料页 | 壹品牌溯源 | 品牌速览 | Brand Overview | TUHAO XIAOYUAN | 1 |
+| 05 | 物料页 | 壹品牌溯源 | 品牌故事 | Brand Story | BRAND STORY | 1 |
+| 06 | 物料页 | 壹品牌溯源 |  | Brand Personality & Keywords | PERSONALITY | 0 |
+| 07 | 章节页 | 导航 |  |  |  | 0 |
+| 08 | 物料页 | 贰标志体系 | 标志创意说明 | Logo Concept | LOGO CONCEPT | 1 |
+| 09 | 物料页 | 贰标志体系 | 标志标准色 | Brand Colors | BRAND COLORS | 1 |
+| 10 | 物料页 | 贰标志体系 | 标志墨稿与使用说明 | Standard Logo & Usage | STANDARD LOGO | 1 |
+| 11 | 物料页 | 贰标志体系 | 标志变体对照 | Variant Comparison | VARIANTS | 3 |
+| 12 | 章节页 | 导航 |  |  |  | 0 |
+| 13 | 物料页 | 叁色彩与图形 | 主色彩规范 | Primary Palette | PRIMARY PALETTE | 0 |
+| 14 | 物料页 | 叁色彩与图形 | 辅助色与点睛色 | Secondary & Accent Colors | ACCENT COLORS | 0 |
+| 15 | 物料页 | 叁色彩与图形 | 主基调与色彩规范 | Brand Tone & Color Specification | COLOR SPEC | 1 |
+| 16 | 物料页 | 叁色彩与图形 | 辅助图形与版式基调 | Auxiliary Graphics & Layout | GRAPHIC SYSTEM | 1 |
+| 17 | 物料页 | 叁色彩与图形 | 辅助图形元素 | Graphic Elements | GRAPHIC ELEMENTS | 0 |
+| 18 | 章节页 | 导航 |  |  |  | 0 |
+| 19 | 物料页 | 肆空间与器物 | 客用餐具 | Dining Utensils | TABLEWARE | 1 |
+| 20 | 物料页 | 肆空间与器物 | 餐具更多系列 | Utensil Series | TABLEWARE | 1 |
+| 21 | 物料页 | 肆空间与器物 | 筷套 | Chopstick Sleeve | ACCESSORIES | 1 |
+| 22 | 物料页 | 肆空间与器物 | 牙签套 | Toothpick Sleeve | ACCESSORIES | 1 |
+| 23 | 物料页 | 肆空间与器物 | 餐巾纸盒 | Napkin Box | PAPER GOODS | 1 |
+| 24 | 物料页 | 肆空间与器物 | 湿巾纸 | Wet Wipe | PAPER GOODS | 1 |
+| 25 | 物料页 | 肆空间与器物 | 打火机 | Lighter | ACCESSORIES | 1 |
+| 26 | 物料页 | 肆空间与器物 | 外带杯 · 堂食杯 | Paper Cups | ACCESSORIES | 1 |
+| 27 | 物料页 | 肆空间与器物 | 优惠券 | Vouchers | MEMBERSHIP | 1 |
+| 28 | 物料页 | 肆空间与器物 | 会员卡 | Membership Card | MEMBERSHIP | 1 |
+| 29 | 物料页 | 肆空间与器物 | 订餐卡 | Reservation Card | PACKAGING | 1 |
+| 30 | 物料页 | 肆空间与器物 | 打包盒 | Takeaway Box | PACKAGING | 1 |
+| 31 | 物料页 | 肆空间与器物 | 打包袋 | Takeaway Bag | PACKAGING | 1 |
+| 32 | 物料页 | 肆空间与器物 | 礼品袋 | Gift Bag | PACKAGING | 1 |
+| 33 | 物料页 | 肆空间与器物 | 打包标签 | Sealing Labels | PACKAGING | 1 |
+| 34 | 物料页 | 肆空间与器物 | 筷套与餐具套装 | Chopstick Set | PACKAGING | 1 |
+| 35 | 物料页 | 肆空间与器物 | 台号牌 | Table Number Signs | TOUCHPOINTS | 1 |
+| 36 | 物料页 | 肆空间与器物 | 桌面立牌 | Table Tent | TOUCHPOINTS | 1 |
+| 37 | 物料页 | 肆空间与器物 | 员工工牌 | Staff Name Badge | TOUCHPOINTS | 1 |
+| 38 | 物料页 | 肆空间与器物 | 服务员服装 | Service Uniform | UNIFORM | 1 |
+| 39 | 物料页 | 肆空间与器物 | 厨师服装 | Chef Uniform | UNIFORM | 1 |
+| 40 | 物料页 | 伍空间应用 | 名片 | Business Card | ENTRANCE | 1 |
+| 41 | 物料页 | 伍空间应用 | 门头招牌 | Storefront Signage | ENTRANCE | 1 |
+| 42 | 物料页 | 伍空间应用 | 玻璃防撞贴 | Glass Decals | ENTRANCE | 1 |
+| 43 | 物料页 | 伍空间应用 | 门帘 | Door Curtain | ENTRANCE | 1 |
+| 44 | 物料页 | 伍空间应用 | 营业时间牌 | Opening Hours Sign | SIGNAGE | 1 |
+| 45 | 物料页 | 伍空间应用 | 区域牌 | Area Signs | SIGNAGE | 1 |
+| 46 | 物料页 | 伍空间应用 | 包间门牌 | Room Plaques | SIGNAGE | 1 |
+| 47 | 物料页 | 伍空间应用 | 温馨提示牌 | Notice Signs | SIGNAGE | 1 |
+| 48 | 物料页 | 伍空间应用 | 品牌文化墙规划 | Brand Culture Wall | CULTURE WALL | 1 |
+| 49 | 物料页 | 伍空间应用 | 品牌文化墙规范 | Brand Culture Wall Guidelines | WALL GUIDELINES | 1 |
+| 50 | 物料页 | 伍空间应用 | 插画 IP 规划与墙面展示 | Illustration IP & Wall Display | ILLUSTRATION IP | 1 |
+| 51 | 章节页 | 导航 |  |  |  | 0 |
+| 52 | 物料页 | 陆门头与灯箱 | KV 灯箱规范 | Key Visual Lightbox Guidelines | LIGHTBOX SPEC | 1 |
+| 53 | 满幅直出 | 陆门头与灯箱 |  | HORIZONTAL LIGHTBOX | HORIZONTAL LIGHTBOX | 1 |
+| 54 | 满幅直出 | 陆门头与灯箱 |  | KEY VISUAL | KEY VISUAL | 1 |
+| 55 | 满幅直出 | 陆门头与灯箱 |  | VERTICAL LIGHTBOX | VERTICAL LIGHTBOX | 1 |
+| 56 | 章节页 | 导航 |  |  |  | 0 |
+| 57 | 物料页 | 柒传播应用 | 广告语呈现 | Brand Slogan Presentation | BRAND SLOGAN | 1 |
+| 58 | 物料页 | 柒传播应用 |  | SLOGAN SYSTEM | SLOGAN SYSTEM | 0 |
+| 59 | 满幅直出 | 柒传播应用 |  | KEY VISUAL | KEY VISUAL | 1 |
+| 60 | 尾页 | 导航 |  |  |  | 1 |
