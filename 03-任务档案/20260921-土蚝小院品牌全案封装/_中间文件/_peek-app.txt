@@ -1,0 +1,485 @@
+############################################################################
+### P17   class=""   imgs=[]
+############################################################################
+<section class="slide">
+  <header class="hd">
+    <div class="brand">土蚝小院<em>TUHAO XIAOYUAN</em></div>
+    <i></i>
+    <div class="chap"><b>叁</b>色彩与图形</div>
+  </header>
+  <div class="bd top" style="justify-content:center;gap:22px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end">
+      <div>
+        <div class="sec-h">辅助图形元素</div>
+        <div class="sec-en">Graphic Elements</div>
+      </div>
+      <div class="t-cap" style="letter-spacing:var(--ls-wide)">源于岭南建筑与自然人文</div>
+    </div>
+    <div class="c-grid c4" style="gap:16px">
+      <div class="cell" style="border:1px solid var(--line);padding:18px 16px;background:var(--paper-2)">
+        <div style="font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:var(--ls-base);color:var(--darkblue)">月洞门</div>
+        <div class="t-cap" style="line-height:1.85">院内有院，步入人间烟火</div>
+      </div>
+      <div class="cell" style="border:1px solid var(--line);padding:18px 16px;background:var(--paper-2)">
+        <div style="font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:var(--ls-base);color:var(--darkblue)">飞檐屋檐线</div>
+        <div class="t-cap" style="line-height:1.85">岭南飞檐，古意新生</div>
+      </div>
+      <div class="cell" style="border:1px solid var(--line);padding:18px 16px;background:var(--paper-2)">
+        <div style="font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:var(--ls-base);color:var(--darkblue)">灯笼</div>
+        <div class="t-cap" style="line-height:1.85">一盏暖灯，人间烟火</div>
+      </div>
+      <div class="cell" style="border:1px solid var(--line);padding:18px 16px;background:var(--paper-2)">
+        <div style="font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:var(--ls-base);color:var(--darkblue)">山水线描</div>
+        <div class="t-cap" style="line-height:1.85">青山远影，水系时南</div>
+      </div>
+      <div class="cell" style="border:1px solid var(--line);padding:18px 16px;background:var(--paper-2)">
+        <div style="font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:var(--ls-base);color:var(--darkblue)">水纹</div>
+        <div class="t-cap" style="line-height:1.85">一池清波，映照生活</div>
+      </div>
+      <div class="cell" style="border:1px solid var(--line);padding:18px 16px;background:var(--paper-2)">
+        <div style="font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:var(--ls-base);color:var(--darkblue)">竹影亮叶</div>
+        <div class="t-cap" style="line-height:1.85">细节点缀，清雅悠然</div>
+      </div>
+      <div class="cell" style="border:1px solid var(--line);padding:18px 16px;background:var(--paper-2)">
+        <div style="font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:var(--ls-base);color:var(--darkblue)">鲜蚝线描</div>
+        <div class="t-cap" style="line-height:1.85">山海馈赠，鲜在当下</div>
+      </div>
+      <div class="cell" style="border:1px solid var(--line);padding:18px 16px;background:var(--paper-2);border-color:var(--cinnabar)">
+        <div style="font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:var(--ls-base);color:var(--cinnabar)">品牌印章</div>
+        <div class="t-cap" style="line-height:1.85">传承在地，是真诚的信任</div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--line);padding-top:16px;display:flex;gap:40px">
+      <div style="flex:1">
+        <div class="cap2" style="margin-bottom:8px"><b>表现方式</b><span>东方线描 · 不做卡通</span></div>
+        <div class="t-cap" style="line-height:1.9">以东方线描的克制与笔意，呈现自然、雅致、有人间烟火的岭南院落意境。</div>
+      </div>
+      <div style="flex:1">
+        <div class="cap2" style="margin-bottom:8px"><b>字体基调</b><span>思源宋体 / 思源黑体</span></div>
+        <div class="t-cap" style="line-height:1.9">标题字用书法笔触、东方气韵；正文字体优雅雅致、可读性强。</div>
+      </div>
+      <div style="flex:1">
+        <div class="cap2" style="margin-bottom:8px"><b>版式原则</b><span>留白呼吸 · 对称均衡</span></div>
+        <div class="t-cap" style="line-height:1.9">适度留白突出主体，对称均衡营造东方意蕴与高级感。</div>
+      </div>
+    </div>
+  </div>
+  <footer class="ft">
+    <span class="badge">GRAPHIC ELEMENTS</span>
+    <span class="note">以画入墙，让品牌故事在空间中自然流淌</span>
+  </footer>
+  <div class="pg">17</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P18 · 章节页 肆 · 空间与器物
+     ══════════════════════════════════════════════════════════ -->
+
+############################################################################
+### P18   class="section"   imgs=[]
+############################################################################
+<section class="slide section">
+  <div class="em-side"><span>人间有味</span><span>一席鲜味</span></div>
+  <div class="bd center">
+    <div class="emblem">
+      <div class="em-ring"><span>器</span><span>物</span></div>
+      <div class="em-pill">空间与器物</div>
+    </div>
+    <div class="t-kicker" style="margin-top:34px;color:rgba(255,255,255,.62)">Space &amp; Objects</div>
+  </div>
+  <div class="cap">食在山水间，心归小院里</div>
+  <div class="pg">18</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P19 · 客用器物与餐具
+     ══════════════════════════════════════════════════════════ -->
+
+############################################################################
+### P19   class=""   imgs=['app-tableware.webp']
+############################################################################
+<section class="slide">
+  <header class="hd">
+    <div class="brand">土蚝小院<em>TUHAO XIAOYUAN</em></div>
+    <i></i>
+    <div class="chap"><b>肆</b>空间与器物</div>
+  </header>
+  <div class="bd" style="justify-content:center">
+    <div class="c-split w46" style="align-items:center;gap:40px">
+      <div class="side">
+        <div>
+          <div class="sec-h">客用器物与餐具</div>
+          <div class="sec-en">Tableware &amp; Dining Utensils</div>
+        </div>
+        <p class="t-p" style="font-size:14.5px">
+          骨瓷餐具以暖米白为底，印标志与山水线描，
+          一圈墨绿描边收口；配以深绿釉色的水杯与勺箸。
+          一桌之上，山水与鲜味同时上席。
+        </p>
+        <div class="ov-list">
+          <div><b>餐盘 / 餐碗</b><span>山水线描 · 暖米白底 · 墨绿描边</span></div>
+          <div><b>水杯 / 小碟</b><span>深绿釉色 · 标志暗纹</span></div>
+          <div><b>勺 / 筷</b><span>白瓷勺 + 墨绿筷身 · 筷套</span></div>
+          <div><b>牙签套 / 湿巾</b><span>深绿底 · 反白标志</span></div>
+        </div>
+      </div>
+      <div class="side" style="align-items:center">
+        <img src="assets/app-tableware.webp" style="max-height:520px" alt="客用餐具应用">
+      </div>
+    </div>
+  </div>
+  <footer class="ft">
+    <span class="badge">TABLEWARE</span>
+    <span class="note">一院烟火味，岭南土蚝鲜</span>
+  </footer>
+  <div class="pg">19</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P20 · 打包与礼品包装
+     ══════════════════════════════════════════════════════════ -->
+
+############################################################################
+### P20   class=""   imgs=['app-takeaway.webp']
+############################################################################
+<section class="slide">
+  <header class="hd">
+    <div class="brand">土蚝小院<em>TUHAO XIAOYUAN</em></div>
+    <i></i>
+    <div class="chap"><b>肆</b>空间与器物</div>
+  </header>
+  <div class="bd" style="justify-content:center">
+    <div class="c-split w46" style="align-items:center;gap:40px">
+      <div class="side">
+        <div>
+          <div class="sec-h">打包与礼品包装</div>
+          <div class="sec-en">Takeaway &amp; Gift Packaging</div>
+        </div>
+        <p class="t-p" style="font-size:14.5px">
+          牛皮纸与深绿双材质并行：外带用牛皮纸的质朴承载「一份土地味」，
+          礼品则用深绿的雅致传递「一份心意」。
+          从打包盒、打包袋到礼品袋、筷套包，形成一套完整的离店体验。
+        </p>
+        <div class="ov-list">
+          <div><b>打包盒</b><span>牛皮纸 / 深绿 · 大中小号 + 汤品盒</span></div>
+          <div><b>打包袋</b><span>牛皮纸 · 把岭南的好味道带回家</span></div>
+          <div><b>礼品袋</b><span>深绿工艺 · 食在岭南，相聚小院</span></div>
+          <div><b>打包标签</b><span>圆形封口贴 · 长条封口贴 · 牛皮贴纸</span></div>
+        </div>
+      </div>
+      <div class="side" style="align-items:center">
+        <img src="assets/app-takeaway.webp" style="max-height:520px" alt="打包与礼品包装应用">
+      </div>
+    </div>
+  </div>
+  <footer class="ft">
+    <span class="badge">PACKAGING</span>
+    <span class="note">一份心意，一院风味</span>
+  </footer>
+  <div class="pg">20</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P21 · 档口与客流物料
+     ══════════════════════════════════════════════════════════ -->
+
+############################################################################
+### P21   class=""   imgs=['app-order.webp']
+############################################################################
+<section class="slide">
+  <header class="hd">
+    <div class="brand">土蚝小院<em>TUHAO XIAOYUAN</em></div>
+    <i></i>
+    <div class="chap"><b>肆</b>空间与器物</div>
+  </header>
+  <div class="bd" style="justify-content:center">
+    <div class="c-split w46" style="align-items:center;gap:40px">
+      <div class="side">
+        <div>
+          <div class="sec-h">档口与客流物料</div>
+          <div class="sec-en">Service &amp; Guest Touchpoints</div>
+        </div>
+        <p class="t-p" style="font-size:14.5px">
+          从台号牌、桌面立牌到员工工牌，以统一的墨绿／暖米双色体系贯穿，
+          胡桃木与亚克力材质呼应庭院温度。
+          员工工牌以姓名 + 岗位编号呈现，服务身份清晰可辨。
+        </p>
+        <div class="ov-list">
+          <div><b>台号牌</b><span>四款形态 · 深绿 / 米白 / 圆形 / 异形</span></div>
+          <div><b>桌面立牌</b><span>双面印刷 · 品牌宣传 + 扫码引导</span></div>
+          <div><b>员工工牌</b><span>姓名 + 岗位编号 · 统一规范</span></div>
+          <div><b>服饰配置</b><span>服务员 / 厨师 · 中式盘扣 + 刺绣标志</span></div>
+        </div>
+      </div>
+      <div class="side" style="align-items:center">
+        <img src="assets/app-order.webp" style="max-height:520px" alt="台号牌桌面立牌与工牌应用">
+      </div>
+    </div>
+  </div>
+  <footer class="ft">
+    <span class="badge">TOUCHPOINTS</span>
+    <span class="note">东方意境，清晰雅致，提升用餐体验</span>
+  </footer>
+  <div class="pg">21</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P22 · 会员与卡券体系
+     ══════════════════════════════════════════════════════════ -->
+
+############################################################################
+### P22   class=""   imgs=['app-membership.webp']
+############################################################################
+<section class="slide">
+  <header class="hd">
+    <div class="brand">土蚝小院<em>TUHAO XIAOYUAN</em></div>
+    <i></i>
+    <div class="chap"><b>肆</b>空间与器物</div>
+  </header>
+  <div class="bd" style="justify-content:center">
+    <div class="c-split w46" style="align-items:center;gap:40px">
+      <div class="side">
+        <div>
+          <div class="sec-h">会员与卡券体系</div>
+          <div class="sec-en">Membership &amp; Vouchers</div>
+        </div>
+        <p class="t-p" style="font-size:14.5px">
+          会员卡、优惠券、订餐卡三类卡券以深绿与米白双面呈现。
+          正面承载品牌标识与「岭南风味，人间小院，鲜在当下」，
+          背面承载会员权益、联系方式与关注入口。
+        </p>
+        <div class="ov-list">
+          <div><b>会员卡</b><span>充值卡 · 双面（深绿 / 米白）</span></div>
+          <div><b>优惠券</b><span>满减券 · 赠品券 · 消费满额可用</span></div>
+          <div><b>订餐卡</b><span>美味提前约，小院等您来</span></div>
+          <div><b>权益模块</b><span>充值优惠 · 专属折扣 · 生日礼遇 · 积分兑换</span></div>
+        </div>
+      </div>
+      <div class="side" style="align-items:center">
+        <img src="assets/app-membership.webp" style="max-height:520px" alt="会员卡与优惠券应用">
+      </div>
+    </div>
+  </div>
+  <footer class="ft">
+    <span class="badge">MEMBERSHIP</span>
+    <span class="note">尊享美味，会员专属，更多权益</span>
+  </footer>
+  <div class="pg">22</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P23 · 门店入口与导视
+     ══════════════════════════════════════════════════════════ -->
+
+############################################################################
+### P23   class=""   imgs=['app-entrance.webp']
+############################################################################
+<section class="slide">
+  <header class="hd">
+    <div class="brand">土蚝小院<em>TUHAO XIAOYUAN</em></div>
+    <i></i>
+    <div class="chap"><b>伍</b>空间应用</div>
+  </header>
+  <div class="bd" style="justify-content:center">
+    <div class="c-split w46" style="align-items:center;gap:40px">
+      <div class="side">
+        <div>
+          <div class="sec-h">门店入口与导视</div>
+          <div class="sec-en">Entrance &amp; Signage</div>
+        </div>
+        <p class="t-p" style="font-size:14.5px">
+          入口是品牌的第一句话。名片、门店招牌、玻璃防撞贴与门帘，
+          以统一的墨绿／暖米色体系覆盖宾客动线的每一个接触点，
+          山水线描与标志在此反复出现，形成稳定的品牌印象。
+        </p>
+        <div class="ov-list">
+          <div><b>名片</b><span>质感纸张 · 东方美学 · 双面</span></div>
+          <div><b>门店招牌</b><span>金属质地 · 胡桃木边框 · 立体字</span></div>
+          <div><b>玻璃防撞贴</b><span>大厅门贴 · 隔断贴 · 门口贴</span></div>
+          <div><b>门帘</b><span>布艺配版 · 山水线描 · 东方意境</span></div>
+        </div>
+      </div>
+      <div class="side" style="align-items:center">
+        <img src="assets/app-entrance.webp" style="max-height:520px" alt="门店入口与名片应用">
+      </div>
+    </div>
+  </div>
+  <footer class="ft">
+    <span class="badge">ENTRANCE</span>
+    <span class="note">匠心工艺 · 东方韵味 · 品牌气质呈现</span>
+  </footer>
+  <div class="pg">23</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P24 · 营业与功能提示牌
+     ══════════════════════════════════════════════════════════ -->
+
+############################################################################
+### P24   class=""   imgs=['app-signage.webp']
+############################################################################
+<section class="slide">
+  <header class="hd">
+    <div class="brand">土蚝小院<em>TUHAO XIAOYUAN</em></div>
+    <i></i>
+    <div class="chap"><b>伍</b>空间应用</div>
+  </header>
+  <div class="bd" style="justify-content:center">
+    <div class="c-split w46" style="align-items:center;gap:40px">
+      <div class="side">
+        <div>
+          <div class="sec-h">营业与功能提示牌</div>
+          <div class="sec-en">Operating &amp; Function Signage</div>
+        </div>
+        <p class="t-p" style="font-size:14.5px">
+          木质挂牌、亚克力台牌与金属悬挂牌三种材质并行，
+          承载营业时间与包间名；区域牌与温馨提示牌则统一为墨绿底反白标志，
+          让功能信息也保持雅致观感。
+        </p>
+        <div class="ov-list">
+          <div><b>营业时间牌</b><span>实木挂牌 / 台牌 / 悬挂式门牌</span></div>
+          <div><b>包间门牌</b><span>春山 · 听竹 · 观澜 · 映月</span></div>
+          <div><b>区域牌</b><span>自助小吃 · 厨房 · 收银台 · 就餐区 · 洗手间</span></div>
+          <div><b>温馨提示牌</b><span>免费 WiFi · 保管财物 · 请勿吸烟 · 小心地滑</span></div>
+        </div>
+      </div>
+      <div class="side" style="align-items:center">
+        <img src="assets/app-signage.webp" style="max-height:520px" alt="营业时间与功能提示牌应用">
+      </div>
+    </div>
+  </div>
+  <footer class="ft">
+    <span class="badge">SIGNAGE</span>
+    <span class="note">一院烟火味，岭南好滋味</span>
+  </footer>
+  <div class="pg">24</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P25 · 品牌文化墙规划
+     ══════════════════════════════════════════════════════════ -->
+
+############################################################################
+### P25   class=""   imgs=['app-culturewall.webp']
+############################################################################
+<section class="slide">
+  <header class="hd">
+    <div class="brand">土蚝小院<em>TUHAO XIAOYUAN</em></div>
+    <i></i>
+    <div class="chap"><b>伍</b>空间应用</div>
+  </header>
+  <div class="bd" style="justify-content:center">
+    <div class="c-split w46" style="align-items:center;gap:40px">
+      <div class="side">
+        <div>
+          <div class="sec-h">品牌文化墙规划</div>
+          <div class="sec-en">Brand Culture Wall</div>
+        </div>
+        <p class="t-p" style="font-size:14.5px">
+          以「鲜蚝入院，人间有味」为核心，将品牌故事、岭南文化与烟火生活融入空间。
+          文化墙不仅是展示，更是一次关于食材、地域、人文与生活方式的叙事，
+          让顾客在步入小院的瞬间，感受岭南的风土与鲜蚝的温度。
+        </p>
+        <div class="ov-list">
+          <div><b>01 品牌故事墙</b><span>山海相遇，一颗鲜蚝的初心</span></div>
+          <div><b>02 品牌精神墙</b><span>守土本真，鲜味传承</span></div>
+          <div><b>03 主视觉墙</b><span>来土蚝，吃生蚝，做土豪</span></div>
+          <div><b>04 鲜蚝食材墙</b><span>当季鲜蚝，自然馈赠</span></div>
+          <div><b>05 岭南院落墙</b><span>一院一景，三五知己</span></div>
+        </div>
+      </div>
+      <div class="side" style="align-items:center">
+        <img src="assets/app-culturewall.webp" style="max-height:520px" alt="品牌文化墙规划与展示">
+      </div>
+    </div>
+  </div>
+  <footer class="ft">
+    <span class="badge">CULTURE WALL</span>
+    <span class="note">以文化入院，以鲜味待客，让每一面墙都会讲故事</span>
+  </footer>
+  <div class="pg">25</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P26 · 文化墙规范（实测稿）
+     ══════════════════════════════════════════════════════════ -->
+
+############################################################################
+### P26   class=""   imgs=['std-wallculture.webp']
+############################################################################
+<section class="slide">
+  <header class="hd">
+    <div class="brand">土蚝小院<em>TUHAO XIAOYUAN</em></div>
+    <i></i>
+    <div class="chap"><b>伍</b>空间应用</div>
+  </header>
+  <div class="bd top" style="justify-content:center">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px">
+      <div>
+        <div class="sec-h">品牌文化墙规范</div>
+        <div class="sec-en">Brand Culture Wall Guidelines</div>
+      </div>
+      <div class="t-cap" style="letter-spacing:var(--ls-wide)">鲜蚝入院 · 人间有味</div>
+    </div>
+    <img src="assets/std-wallculture.webp" style="width:100%;max-height:520px;object-fit:contain;border:1px solid var(--line)" alt="品牌文化墙规范">
+  </div>
+  <footer class="ft">
+    <span class="badge">WALL GUIDELINES</span>
+    <span class="note">让文化墙成为餐饮空间的精神核心</span>
+  </footer>
+  <div class="pg">26</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P27 · 插画 IP 元素库
+     ══════════════════════════════════════════════════════════ -->
+
+############################################################################
+### P27   class=""   imgs=['ip-wall.webp']
+############################################################################
+<section class="slide">
+  <header class="hd">
+    <div class="brand">土蚝小院<em>TUHAO XIAOYUAN</em></div>
+    <i></i>
+    <div class="chap"><b>伍</b>空间应用</div>
+  </header>
+  <div class="bd top" style="justify-content:center">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:14px">
+      <div>
+        <div class="sec-h">插画 IP 规划与墙面展示</div>
+        <div class="sec-en">Illustration IP &amp; Wall Display</div>
+      </div>
+      <div class="t-cap" style="letter-spacing:var(--ls-wide)">东方线描 · 克制写意 · 非卡通化</div>
+    </div>
+    <img src="assets/ip-wall.webp" style="width:100%;height:auto;max-height:555px;object-fit:contain;object-position:center;border:1px solid var(--line)" alt="插画IP规划与墙面展示">
+  </div>
+  <footer class="ft">
+    <span class="badge">ILLUSTRATION IP</span>
+    <span class="note">以画入墙，让品牌故事在空间中自然流淌</span>
+  </footer>
+  <div class="pg">27</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P28 · 章节页 陆 · 门头与灯箱
+     ══════════════════════════════════════════════════════════ -->
+
+############################################################################
+### P28   class="section"   imgs=[]
+############################################################################
+<section class="slide section">
+  <div class="em-side"><span>山野至鲜</span><span>烟火入院</span></div>
+  <div class="bd center">
+    <div class="emblem">
+      <div class="em-ring"><span>灯</span><span>火</span></div>
+      <div class="em-pill">门头与灯箱</div>
+    </div>
+    <div class="t-kicker" style="margin-top:34px;color:rgba(255,255,255,.62)">Storefront &amp; Lightbox</div>
+  </div>
+  <div class="cap">打造岭南鲜味地标</div>
+  <div class="pg">28</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P29 · KV 灯箱规范
+     ══════════════════════════════════════════════════════════ -->

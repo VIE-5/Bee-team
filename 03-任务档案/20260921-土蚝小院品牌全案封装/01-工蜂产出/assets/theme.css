@@ -1,0 +1,642 @@
+/* ============================================================
+   土蚝小院 · 品牌全案封装 — 主题
+   ------------------------------------------------------------
+   母版几何：VI-Proposal-Master（1360×850 · 16:10 · 边距 11% · 页眉带 15%）
+   色彩：严格取自 BrandLock v2（主人已拍板 D1–D10 的唯一品牌事实源）
+
+     Logo 内部色（不进色板）  墨色 #2D301B ｜ 印章红 #DE1C19
+     物料色板（本册对象）     松柏绿 #58685A · 岩石米 #E7DCC7 · 黛青黑 #35464A
+                              朱砂红 #A34435 · 胡桃 #76563C · 铜金 #B28A52
+
+   调性：高级雅致 —— 大留白、细线、衬线标题、朱砂仅作点。
+
+   ── 排版铁律（都是踩坑换来的）──
+   R1  满幅层写死 height:100%，不靠 inset:0
+   R2  内容容器显式 left/right:var(--mx)
+   R3  不给 .slide 写 padding:0
+   R4  @page 锁尺寸
+   R7  固定画布下尺寸一律硬编码 px
+   R8  print 里补 overflow:hidden（否则页数 +1）
+   ============================================================ */
+
+:root{
+  /* —— BrandLock v2 色板 —— */
+  --pine:      #58685A;   /* 岭南松柏绿 · 品牌主色 */
+  --rock:      #E7DCC7;   /* 暖米岩石色 · 基底留白 */
+  --walnut:    #76563C;   /* 深木胡桃色 · 器物木料 */
+  --darkblue:  #35464A;   /* 黛青黑 · 深底 / 正文 */
+  --cinnabar:  #A34435;   /* 朱砂红 · 点睛，面积 ≤5% */
+  --bronze:    #B28A52;   /* 铜金色 · 烫金 */
+
+  /* Logo 内部色（仅标志资产内） */
+  --logoink:   #2D301B;
+  --logored:   #DE1C19;
+
+  /* —— 深底主色（实测自资产横幅：#1A200B 系）—— */
+  --deep:      #1A200B;   /* 资产主体深墨绿 */
+  --deep-2:    #16221E;   /* 备选深绿（会员卡系 #113127） */
+
+  /* —— 派生面 —— */
+  --paper:     #FBF8F1;   /* 内容页纸底（比岩石米更亮，留白更雅） */
+  --paper-2:   #F3EFE4;
+  --surface:   #EFE6D4;
+  --bg:        var(--rock);
+  --text-1:    #35464A;
+  --text-2:    #5A6660;
+  --text-3:    #8B9188;
+  --line:      rgba(53,70,74,.16);
+  --line-2:    rgba(53,70,74,.09);
+  --rule:      rgba(53,70,74,.28);
+
+  /* —— 版心几何（母版实测常量，锁死）—— */
+  --pw: 1360px;
+  --ph: 850px;
+  --mx: 11%;              /* 149.6px */
+  --hdr: 15%;             /* 127.5px */
+  --ft:  3.6%;            /* 页脚下沿 */
+  --cw: 78%;              /* 版心宽 1060.8px */
+
+  /* ── 字体族（统一优化 · 2026-09-21）────────────────────────────
+     分工铁律：
+       标题 / 章节 / 衬线强调  → --font-display（宋体系）
+       正文 / 说明 / 界面文字  → --font-body（黑体系）
+       英文小标 / 徽章 / 尾注  → --font-en（Garamond 系，**单一主选 + Georgia 兜底**）
+       数字 / HEX / 页码       → --font-num（无衬线等宽系，锁 lining-nums）
+     ⚠️ 坑：Georgia 系衬线体默认老式数字（o1/o3），所有数字元素必须锁 lnum，
+            详见 .num 工具类与 --font-num 的用法。
+     ⚠️ 不保留 Playfair Display —— 与 Garamond 字形气质冲突且常不可用，
+            回退不一致会让英文粗细忽粗忽细。
+     ──────────────────────────────────────────────────────────── */
+  --font-display: "Source Han Serif SC","Noto Serif SC","Songti SC","STSong","SimSun",serif;
+  --font-body:    "Source Han Sans SC","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --font-en:      "EB Garamond",Georgia,"Times New Roman",serif;
+  --font-num:     "Inter","Helvetica Neue",Arial,sans-serif;
+
+  /* ── 字距刻度（统一优化：取消随意的 .06~.44em）──
+     一律用这四个变量，不再手写数值 */
+  --ls-tight:  .02em;   /* 正文 / 长段中文 */
+  --ls-base:   .06em;   /* 小标题 / 中文标签 */
+  --ls-wide:   .14em;   /* 中文大标题 / 按钮 */
+  --ls-en:     .28em;   /* 英文小标 / 徽章（大写字母专用）*/
+
+  /* ── 行高刻度 ── */
+  --lh-tight:  1.28;    /* 大标题 */
+  --lh-mid:    1.62;    /* 中标题 / 短段 */
+  --lh-body:   1.95;    /* 正文长段 */
+  --lh-cap:    1.72;    /* 图注 / 说明 */
+}
+
+/* 数字统一：任何承载数字的元素都锁 lining-nums，杜绝 Georgia 老式数字 */
+.num, .c-swatch .hex, .ratio div, .hd .brand em{
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+body{
+  background:#6E6E6E;
+  font-family:var(--font-body);
+  display:flex; flex-direction:column; align-items:center;
+  gap:24px; padding:32px 0 56px;
+  -webkit-font-smoothing:antialiased;
+  color:var(--text-1);
+  /* 全局锁直体数字 —— 衬线体默认老式数字会让 01 变 o1（踩坑库 2026-09-19） */
+  font-variant-numeric:lining-nums;
+  font-feature-settings:"lnum" 1;
+  /* 文字渲染优化：小字号（12–15px）在 PDF 里最容易发虚 */
+  text-rendering:geometricPrecision;
+}
+
+/* ============================================================
+   画布（R7：固定尺寸硬编码）
+   ============================================================ */
+.slide{
+  position:relative;
+  width:var(--pw); height:var(--ph);
+  background:var(--paper); color:var(--text-1);
+  overflow:hidden; flex:none;
+  box-shadow:0 8px 30px rgba(0,0,0,.30);
+}
+
+/* ============================================================
+   页眉（母版核心件 · 所有内容页统一）
+   结构：左品牌字标 ─ 细线 ─ 右章节名
+   ============================================================ */
+.hd{
+  position:absolute; left:var(--mx); right:var(--mx); top:0;
+  height:var(--hdr);
+  display:flex; align-items:center; gap:26px;
+  z-index:6;
+}
+.hd .brand{
+  font-family:var(--font-display);
+  font-size:22px; font-weight:700; letter-spacing:var(--ls-wide);
+  white-space:nowrap; color:var(--darkblue);
+}
+.hd .brand em{
+  font-style:normal; font-family:var(--font-en);
+  font-size:11.5px; letter-spacing:var(--ls-en); opacity:.62;
+  display:block; margin-top:2px;
+  font-feature-settings:"lnum" 1,"kern" 1;
+}
+.hd i{
+  flex:1; height:1px; background:currentColor; opacity:.30;
+}
+.hd .chap{
+  white-space:nowrap; font-size:15px; font-weight:600;
+  letter-spacing:var(--ls-wide); color:var(--text-2);
+}
+.hd .chap b{ font-weight:800; color:var(--cinnabar); margin-right:8px; letter-spacing:var(--ls-base); }
+
+/* 深底页的页眉 —— 自动切浅字（由 .on-dark 类控制） */
+.slide.on-dark{ background:var(--deep); color:#fff; }
+.slide.on-dark .hd{ color:#fff; }
+.slide.on-dark .hd .brand{ color:#fff; }
+.slide.on-dark .hd .chap{ color:rgba(255,255,255,.78); }
+.slide.on-dark .hd .brand em{ opacity:.65; }
+
+/* 浅底图片页的页眉（图片亮度高时） */
+.slide.on-light .hd .brand{ color:var(--darkblue); }
+.slide.on-light .hd .chap{ color:var(--text-2); }
+
+/* ============================================================
+   页脚（母版核心件）
+   结构：左徽章 ─ 右注释 ；中间页码独立绝对定位
+   ============================================================ */
+.ft{
+  position:absolute; left:var(--mx); right:var(--mx); bottom:var(--ft);
+  display:flex; align-items:flex-end; justify-content:space-between;
+  font-size:12.5px; letter-spacing:var(--ls-base); color:var(--text-3);
+  z-index:6;
+}
+.ft .badge{
+  border:1.2px solid currentColor; border-radius:50%/50%;
+  padding:4px 13px; font-weight:700; letter-spacing:var(--ls-en); font-size:11px;
+  font-family:var(--font-en);
+  font-feature-settings:"lnum" 1,"kern" 1;
+}
+.ft .note{
+  text-align:right; line-height:1.6; font-style:italic;
+  font-family:var(--font-display); letter-spacing:var(--ls-base);
+  max-width:56%;
+}
+.slide.on-dark .ft{ color:rgba(255,255,255,.60); }
+
+/* 页码（右缘竖排小字，全册统一） */
+.pg{
+  position:absolute; right:calc(var(--mx) - 62px); top:50%;
+  transform:translateY(-50%);
+  font-family:var(--font-num); font-size:13px; font-weight:600;
+  letter-spacing:var(--ls-base); color:var(--text-3);
+  writing-mode:vertical-rl; z-index:6;
+  font-variant-numeric:lining-nums;
+  font-feature-settings:"lnum" 1,"kern" 1;
+}
+.slide.on-dark .pg{ color:rgba(255,255,255,.55); }
+
+/* ============================================================
+   内容区（页眉以下）
+   ⚠️ 版心需与页脚留出安全距：bottom:9% 是页脚带的高度
+   ============================================================ */
+.bd{
+  position:absolute; left:var(--mx); right:var(--mx);
+  top:var(--hdr); bottom:10%;
+  display:flex; flex-direction:column; justify-content:center;
+  z-index:4; min-height:0;
+}
+.bd.top{ justify-content:flex-start; padding-top:6px; }
+
+/* ============================================================
+   通用文字件（字距/行高一律走刻度变量，不再手写数值）
+   ============================================================ */
+.t-kicker{
+  font-family:var(--font-en); font-size:13px; font-weight:600;
+  letter-spacing:var(--ls-en); color:var(--cinnabar); text-transform:uppercase;
+  font-feature-settings:"lnum" 1,"kern" 1;
+}
+.t-h1{ font-family:var(--font-display); font-size:56px; font-weight:700;
+       line-height:var(--lh-tight); letter-spacing:var(--ls-wide); }
+.t-h2{ font-family:var(--font-display); font-size:34px; font-weight:700;
+       line-height:1.30; letter-spacing:var(--ls-base); }
+.t-h3{ font-family:var(--font-display); font-size:22px; font-weight:700; letter-spacing:var(--ls-base); }
+.t-p{ font-size:15px; line-height:var(--lh-body); color:var(--text-2); letter-spacing:var(--ls-tight); }
+.t-cap{ font-size:13px; line-height:var(--lh-cap); color:var(--text-3); letter-spacing:var(--ls-tight); }
+.center{ text-align:center; }
+
+/* 英文小字统一件：所有英文标签/副标走它，保证字距与字族一致 */
+.t-en{
+  font-family:var(--font-en); letter-spacing:var(--ls-en);
+  text-transform:uppercase; font-feature-settings:"lnum" 1,"kern" 1;
+}
+
+/* 细线分隔（朱砂仅此一处点缀） */
+.rule{ width:46px; height:2px; background:var(--cinnabar); flex:none; }
+.rule.c{ margin:0 auto; }
+
+/* 小节标题（衬线 + 前置朱砂短线） */
+.sec-h{
+  display:flex; align-items:center; gap:14px;
+  font-family:var(--font-display); font-size:25px; font-weight:700;
+  letter-spacing:var(--ls-base); color:var(--darkblue);
+}
+.sec-h::before{ content:""; width:26px; height:2px; background:var(--cinnabar); flex:none; }
+.sec-en{
+  font-family:var(--font-en); font-size:11.5px; letter-spacing:var(--ls-en);
+  color:var(--text-3); text-transform:uppercase; margin-top:7px;
+  font-feature-settings:"lnum" 1,"kern" 1;
+}
+
+/* 标签条 */
+.tag{
+  display:inline-block; background:var(--cinnabar); color:#fff;
+  font-size:12.5px; font-weight:600; letter-spacing:.12em;
+  padding:5px 13px;
+}
+.tag.o{ background:transparent; color:var(--cinnabar); border:1px solid var(--cinnabar); }
+.tag.g{ background:var(--pine); }
+
+/* ============================================================
+   页型 1 · 封面
+   ============================================================ */
+.slide.cover{ background:var(--deep); color:#fff; }
+.cover .bgimg{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; opacity:.26; z-index:1;
+}
+/* 封面压底：左半压得实（承载 logo 与标题），右半渐透（露出庭院氛围） */
+.cover .veil{
+  position:absolute; inset:0; z-index:2;
+  background:
+    radial-gradient(120% 90% at 14% 50%, rgba(14,19,9,.93) 0%, rgba(14,19,9,.72) 42%, rgba(14,19,9,0) 78%),
+    linear-gradient(95deg, rgba(14,19,9,.86) 0%, rgba(14,19,9,.62) 46%, rgba(14,19,9,.30) 100%);
+}
+.cover .in{
+  position:absolute; inset:0; z-index:4;
+  padding:0 var(--mx);
+  display:flex; flex-direction:column; justify-content:center;
+}
+.cover .logo{
+  height:auto; width:250px; display:block; margin-bottom:38px;
+}
+.cover .kicker{
+  font-family:var(--font-en); font-size:13px; letter-spacing:var(--ls-en);
+  color:var(--bronze); text-transform:uppercase; margin-bottom:20px;
+  font-feature-settings:"lnum" 1,"kern" 1;
+}
+.cover .cn{
+  font-family:var(--font-display);
+  font-size:74px; font-weight:700; letter-spacing:var(--ls-wide); line-height:var(--lh-tight);
+}
+.cover .sub{
+  font-family:var(--font-display);
+  font-size:26px; font-weight:400; letter-spacing:var(--ls-wide);
+  color:rgba(255,255,255,.88); margin-top:22px;
+}
+.cover .en{
+  font-family:var(--font-en); font-size:13px; letter-spacing:var(--ls-en);
+  color:rgba(255,255,255,.62); margin-top:14px; text-transform:uppercase;
+  font-feature-settings:"lnum" 1,"kern" 1;
+}
+.cover .meta{
+  position:absolute; left:var(--mx); right:var(--mx); bottom:6.4%;
+  display:flex; justify-content:space-between; align-items:flex-end;
+  font-size:12.5px; letter-spacing:var(--ls-wide); color:rgba(255,255,255,.92);
+  border-top:1px solid rgba(255,255,255,.28); padding-top:16px;
+  z-index:5;
+}
+.cover .meta .r{ text-align:right; line-height:1.75; }
+
+/* ============================================================
+   页型 2 · 章节隔断（母版双线圆徽章）
+   ============================================================ */
+.slide.section{ background:var(--deep); color:#fff; }
+.emblem{ position:relative; display:flex; align-items:center; justify-content:center; }
+.em-ring{
+  width:270px; height:270px; border:1px solid rgba(255,255,255,.85);
+  border-radius:50%;
+  display:flex; flex-direction:column; align-items:center; justify-content:space-between;
+  padding:42px 0;
+}
+.em-ring span{
+  font-family:var(--font-display); font-size:18px; font-weight:400;
+  letter-spacing:.42em; text-indent:.42em;
+}
+.em-pill{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  background:#fff; color:var(--pine);
+  font-family:var(--font-display);
+  font-size:33px; font-weight:700; letter-spacing:var(--ls-wide);
+  padding:12px 28px; white-space:nowrap;
+}
+.em-side{
+  position:absolute; left:var(--mx); right:var(--mx); top:50%;
+  transform:translateY(-50%);
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:var(--font-display); font-style:italic; font-size:17px;
+  color:rgba(255,255,255,.66); letter-spacing:var(--ls-base); pointer-events:none;
+}
+.em-side span{ width:calc(50% - 172px); }
+.em-side span:first-child{ text-align:right; padding-right:32px; }
+.em-side span:last-child{ padding-left:32px; }
+.section .cap{
+  position:absolute; left:var(--mx); right:var(--mx); bottom:5.4%;
+  text-align:center; font-size:13px; letter-spacing:.22em;
+  color:rgba(255,255,255,.55);
+}
+
+/* ============================================================
+   页型 3 · 序言
+   ============================================================ */
+.pre-hz{
+  width:58px; height:58px; border:1px solid var(--cinnabar); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-size:26px; font-weight:700;
+  color:var(--cinnabar);
+}
+.pre-body{
+  max-width:74%; font-size:16px; line-height:2.20; color:var(--text-2);
+  text-align:justify; letter-spacing:var(--ls-tight);
+}
+.pre-foot{
+  position:absolute; left:var(--mx); right:var(--mx); bottom:8.4%;
+  border-top:1px solid var(--line); padding-top:15px;
+  display:flex; justify-content:space-between;
+  font-size:13px; color:var(--text-3); letter-spacing:var(--ls-base);
+}
+
+/* ============================================================
+   页型 4 · 品牌速览（左标 + 右信息表）
+   ============================================================ */
+.ov-list{ width:100%; display:flex; flex-direction:column; }
+.ov-list div{
+  display:flex; gap:18px; padding:11px 0;
+  border-bottom:1px solid var(--line-2);
+  font-size:14.5px; line-height:1.55;
+}
+.ov-list div:last-child{ border-bottom:none; }
+.ov-list b{
+  min-width:92px; font-weight:700; letter-spacing:.06em;
+  color:var(--darkblue); flex:none;
+}
+.ov-list span{ color:var(--text-2); }
+
+/* ============================================================
+   页型 5 · 单件居中
+   ============================================================ */
+.c-single{ display:flex; flex-direction:column; align-items:center; gap:18px; min-height:0; }
+.c-single img{ display:block; max-width:100%; max-height:100%; object-fit:contain; }
+
+/* ============================================================
+   页型 6 · 网格
+   ============================================================ */
+.c-grid{ display:grid; gap:20px; width:100%; align-items:start; min-height:0; }
+.c-grid.c2{ grid-template-columns:repeat(2,1fr); }
+.c-grid.c3{ grid-template-columns:repeat(3,1fr); }
+.c-grid.c4{ grid-template-columns:repeat(4,1fr); }
+.c-grid .cell{ display:flex; flex-direction:column; gap:9px; min-width:0; }
+.c-grid .cell img{
+  width:100%; height:auto; display:block; object-fit:contain;
+  background:var(--paper-2);
+}
+.c-grid.tall .cell img{ max-height:520px; }
+.c-grid.short .cell img{ max-height:150px; }
+
+/* 图注（卡片下标注） */
+.cap2{
+  display:flex; align-items:baseline; gap:9px;
+  font-size:12px; color:var(--text-3); letter-spacing:.04em; line-height:1.55;
+}
+.cap2 b{
+  font-size:12.5px; font-weight:700; color:var(--darkblue);
+  letter-spacing:.06em; flex:none;
+}
+
+/* ============================================================
+   页型 7 · 左右分栏
+   ============================================================ */
+.c-split{ display:grid; grid-template-columns:1fr 1fr; gap:44px; width:100%; align-items:center; min-height:0; }
+.c-split.w64{ grid-template-columns:1.5fr 1fr; }
+.c-split.w46{ grid-template-columns:1fr 1.5fr; }
+.c-split .side{ display:flex; flex-direction:column; gap:16px; min-width:0; }
+.c-split img{ display:block; max-width:100%; max-height:100%; object-fit:contain; }
+
+/* ============================================================
+   页型 8 · 满幅大图（图片自带内容，页眉页脚浮于图上）
+   ============================================================ */
+.slide.bleed-slide{ background:var(--deep); color:#fff; }
+.bleed-slide .bgimg{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:contain; z-index:1;
+}
+
+/* ── 8b · 纯净满幅（主人 2026-09-21 要求：门头与灯箱板块「不要景深效果，直接原图展示」）
+   与前者的唯一区别：**彻底取消上下渐变遮罩（scrim）**。
+   原图按 contain 等比完整呈现，四周空带用与素材同系的纯深色铺满。
+
+   ⚠️ 关键几何（2026-09-21 实测修正）：
+      最初把图片直接铺满整张画布（inset:0），结果 16:9 素材在 16:10 画布上
+      contain 后上下仅各留 ~85px，而页眉带高 127.5px → **页眉必然压在图上**，
+      与素材自带的书法字糊成一团（P30 实测翻车）。
+      → 正解：图片**限制在内容区内**（top:--hdr / bottom:9% / 左右 --mx），
+        页眉页脚因此永远落在纯深底色上，不需要任何遮罩也清晰可读。
+      竖版素材（1080×1920）本来就左右留白，此约束对它无副作用。
+
+   ⚠️ 实现用 flex + object-fit:contain（**不用 margin:auto + max-width 那套**，
+      绝对定位元素上百分比/auto 尺寸解析不可靠 —— 见踩坑库 R7）。
+   ⚠️ 无任何 blur / 渐变 / 描边 / 投影 —— 原图即原图。 */
+.slide.bleed-clean{ background:var(--deep); color:#fff; }
+.bleed-clean .stage{
+  position:absolute; left:var(--mx); right:var(--mx);
+  top:var(--hdr); bottom:9%;
+  display:flex; align-items:center; justify-content:center;
+  z-index:1;
+}
+.bleed-clean .bgimg{
+  display:block;
+  width:100%; height:100%;
+  object-fit:contain;
+  /* 原图直出：不放大插值、不加滤镜 */
+  image-rendering:auto;
+}
+.bleed-clean .hd{ color:#fff; }
+.bleed-clean .hd .brand{ color:#fff; }
+.bleed-clean .hd .chap{ color:rgba(255,255,255,.82); }
+.bleed-clean .ft{ color:rgba(255,255,255,.62); }
+
+/* 上下渐隐条：保证页眉页脚永远读得清（不遮图片中部）
+   ⚠️ 深底图的页眉区必须压够黑，否则浅色艺术字与页眉叠在一起读不出 */
+.bleed-slide .scrim{
+  position:absolute; inset:0; z-index:2; pointer-events:none;
+  background:linear-gradient(180deg,
+    rgba(8,12,5,.98) 0%,
+    rgba(8,12,5,.94) 13%,
+    rgba(8,12,5,.86) 16.5%,
+    rgba(8,12,5,0) 24%,
+    rgba(8,12,5,0) 74%,
+    rgba(8,12,5,.88) 84%,
+    rgba(8,12,5,.97) 90%,
+    rgba(8,12,5,.98) 100%);
+}
+.bleed-slide.light-scrim{ color:var(--darkblue); }
+.bleed-slide.light-scrim .scrim{
+  background:linear-gradient(180deg,
+    rgba(248,245,238,.99) 0%,
+    rgba(248,245,238,.97) 13%,
+    rgba(248,245,238,.90) 16.5%,
+    rgba(248,245,238,0) 25%,
+    rgba(248,245,238,0) 74%,
+    rgba(248,245,238,.92) 84%,
+    rgba(248,245,238,.99) 90%,
+    rgba(248,245,238,.99) 100%);
+}
+.bleed-slide.light-scrim .hd{ color:var(--darkblue); }
+.bleed-slide.light-scrim .hd .brand{ color:var(--darkblue); }
+.bleed-slide.light-scrim .hd .chap{ color:var(--text-2); }
+.bleed-slide.light-scrim .ft{ color:var(--text-3); }
+.bleed-slide.light-scrim .ft .badge{ border-color:var(--text-3); }
+/* 图上内容（仅在需要时用） */
+.bleed-slide .bd{ z-index:5; align-items:flex-start; }
+.bleed-slide .ov{
+  font-size:15px; line-height:2.05; color:rgba(255,255,255,.9);
+  letter-spacing:.03em; max-width:44%;
+}
+
+/* ============================================================
+   页型 9 · 色彩规范
+   ============================================================ */
+.c-swatch{
+  display:grid; grid-template-columns:repeat(5,1fr);
+  width:100%; border:1px solid var(--line);
+}
+.c-swatch .sw{
+  min-height:228px; display:flex; flex-direction:column; justify-content:flex-end;
+  padding:16px 15px; border-right:1px solid var(--line);
+}
+.c-swatch .sw:last-child{ border-right:none; }
+.c-swatch .nm{ font-size:15px; font-weight:700; letter-spacing:var(--ls-base); }
+.c-swatch .hex{
+  font-family:var(--font-num); font-size:12.5px; opacity:.92; margin-top:4px;
+  letter-spacing:var(--ls-tight);
+  font-variant-numeric:lining-nums; font-feature-settings:"lnum" 1;
+}
+.c-swatch .role{ font-size:11.5px; opacity:.74; margin-top:9px; line-height:var(--lh-cap); }
+
+/* 配比条 */
+.ratio{ display:flex; width:100%; height:34px; border:1px solid var(--line); }
+.ratio div{
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-num); font-size:12px; font-weight:600; letter-spacing:var(--ls-tight);
+  font-variant-numeric:lining-nums; font-feature-settings:"lnum" 1;
+}
+
+/* ============================================================
+   页型 10 · 尾页
+   ============================================================ */
+.slide.end{ background:var(--deep); color:#fff; }
+.end .sign{
+  position:absolute; left:var(--mx); top:7%;
+  font-size:12.5px; font-weight:600; letter-spacing:var(--ls-en); line-height:1.75;
+  color:rgba(255,255,255,.76);
+}
+.end .thanks{
+  position:absolute; left:var(--mx); bottom:26%;
+  font-family:var(--font-display); font-size:84px; font-weight:400;
+  letter-spacing:var(--ls-wide); line-height:1.15;
+}
+.end .thanks em{
+  display:block; font-style:normal;
+  font-size:22px; letter-spacing:var(--ls-en); color:rgba(255,255,255,.72);
+  margin-top:22px;
+}
+.end .logo{
+  position:absolute; right:var(--mx); bottom:26%; height:120px;
+}
+.end .meta{
+  position:absolute; left:var(--mx); right:var(--mx); bottom:6.4%;
+  border-top:1px solid rgba(255,255,255,.20); padding-top:16px;
+  display:flex; justify-content:space-between;
+  font-size:12.5px; letter-spacing:var(--ls-wide); color:rgba(255,255,255,.66);
+}
+
+/* ============================================================
+   物料独立展示页型（.mat-pair）—— 已弃用
+   2026-09-22 主人纠正为「单种物料单张展示」→ 改用下方 .mat-single。
+   本段保留仅为回退参考，册内已无引用。
+   ============================================================ */
+
+   几何（固定画布 1360×850，硬编码 px · R7）：
+     内容区 = left/right --mx(149.6) · top --hdr(127.5) · bottom 10%(85)
+            → 1060.8 × 637.5
+     2 列 gap 18 → 列宽 (1060.8-18)/2 = 521.4
+     4:3 素材 → 图高 521.4 × 0.75 = 391.05 → 取 391px（恰好铺满，零留白）
+     竖向占用 ≈ 6 + 62 + 391 + 10 + 45 = 514px，余 123px 交 justify-content:center 均分
+   ============================================================ */
+.mat-head{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  margin-bottom:16px;
+}
+.mat-pair{
+  display:grid; grid-template-columns:1fr 1fr; gap:18px;
+  width:100%; min-height:0;
+}
+/* 3 张一页的变体（素材数为奇数时收尾用）
+   列宽 (1060.8-2×16)/3 = 342.93 → 4:3 图高 257.2 → 取 257px */
+.mat-pair.c3{ grid-template-columns:repeat(3,1fr); gap:16px; }
+.mat-pair.c3 .mat-cell .ph{ height:257px; }
+.mat-cell{
+  margin:0;                      /* figure 必须 reset，否则网格静默掉列 */
+  display:flex; flex-direction:column; gap:10px; min-width:0;
+}
+.mat-cell .ph{
+  width:100%; height:391px;      /* 固定 px，不用百分比（R7） */
+  display:flex; align-items:center; justify-content:center;
+  background:var(--paper-2); border:1px solid var(--line);
+  overflow:hidden;
+}
+.mat-cell .ph img{
+  display:block; width:100%; height:100%; object-fit:contain;
+}
+.mat-cell figcaption{ display:flex; flex-direction:column; gap:4px; }
+.mat-cell figcaption b{
+  font-family:var(--font-display); font-size:15px; font-weight:700;
+  letter-spacing:var(--ls-base); color:var(--darkblue);
+  font-feature-settings:"lnum" 1,"kern" 1;
+}
+.mat-cell figcaption span{
+  font-size:11.5px; line-height:1.7; letter-spacing:var(--ls-tight);
+  color:var(--text-3);
+}
+
+/* ------------------------------------------------------------
+   单张展示变体（.mat-single）
+   —— 主人 2026-09-22 纠正决策：「单种物料单张展示，不用组合展示」。
+   29 张物料 → 29 页，每页仅 1 张，独立成页（弃用 .mat-pair 组合）。
+
+   几何（固定画布 1360×850，硬编码 px · R7）：
+     内容区 1060.8 × 637.5
+       mat-head 62 + margin-bottom 16 = 78 → 余 559.5
+       图框 498 + gap 10 + 题注 45 = 553 ≤ 559.5 ✓
+     4:3 素材 → 框宽 498 × 4/3 = 664，水平居中，两侧留白 198.4
+   零遮罩 / 零渐变 / 不触页眉页脚。
+   ------------------------------------------------------------ */
+.mat-single{ width:100%; min-height:0; }
+.mat-single .mat-cell{ align-items:center; }
+.mat-single .mat-cell .ph{ width:664px; height:498px; margin:0 auto; }
+.mat-single .mat-cell figcaption{
+  align-items:center; text-align:center; max-width:664px;
+}
+.mat-single .mat-cell figcaption span{ font-size:12.5px; }
+
+/* ============================================================
+   打印（R4 锁尺寸 · R8 补 overflow）
+   ============================================================ */
+@page{ size:1360px 850px; margin:0; }
+@media print{
+  html,body{ background:#fff; gap:0; padding:0; }
+  .slide{
+    box-shadow:none; break-after:page; page-break-after:always;
+    overflow:hidden !important;
+  }
+  .slide:last-child{ break-after:auto; page-break-after:auto; }
+}

@@ -1,0 +1,138 @@
+==============================================================================
+### P05   (assets/app-brandstory.webp)
+==============================================================================
+<section class="slide">
+  <header class="hd">
+    <div class="brand">土蚝小院<em>TUHAO XIAOYUAN</em></div>
+    <i></i>
+    <div class="chap"><b>壹</b>品牌溯源</div>
+  </header>
+  <div class="bd" style="justify-content:center">
+    <div class="c-split w64" style="align-items:center">
+      <div class="side">
+        <div>
+          <div class="sec-h">品牌故事</div>
+          <div class="sec-en">Brand Story</div>
+        </div>
+        <p class="t-p">
+          土蚝小院，源自粤北始兴这片山水丰饶的土地。
+          这里山清水秀，水系丰沛，孕育出肉质肥美、鲜甜爽口的优质蚝。
+          我们以家乡的山野食材与岭南饮食智慧为根，
+          在城市与自然之间，营造一座可安放味觉与心灵的中式院子，
+          让更多人品尝到始兴的山水鲜味，感受到岭南人热情真挚的人间烟火。
+        </p>
+        <div style="border-left:2px solid var(--cinnabar);padding-left:18px;margin-top:4px">
+          <div style="font-family:var(--font-display);font-size:19px;letter-spacing:var(--ls-base);color:var(--darkblue)">
+            一句话定位
+          </div>
+          <div style="font-size:14px;line-height:2.0;color:var(--text-2);margin-top:8px">
+            一座藏在岭南山野里的新中式院子餐厅，<br>
+            以一席鲜蚝土菜，呈现始兴的人情与鲜味。
+          </div>
+        </div>
+      </div>
+      <div class="side" style="align-items:center">
+        <img src="assets/app-brandstory.webp" style="max-height:512px" alt="品牌故事呈现">
+      </div>
+    </div>
+  </div>
+  <footer class="ft">
+    <span class="badge">BRAND STORY</span>
+    <span class="note">鲜在小院，人间有味</span>
+  </footer>
+  <div class="pg">05</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P06 · 品牌人格与关键词
+     ══════════════════════════════════════════════════════════ -->
+
+==============================================================================
+### P27   (assets/ip-wall.webp)
+==============================================================================
+<section class="slide">
+  <header class="hd">
+    <div class="brand">土蚝小院<em>TUHAO XIAOYUAN</em></div>
+    <i></i>
+    <div class="chap"><b>伍</b>空间应用</div>
+  </header>
+  <div class="bd top" style="justify-content:center">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px">
+      <div>
+        <div class="sec-h">插画 IP 规划与墙面展示</div>
+        <div class="sec-en">Illustration IP &amp; Wall Display</div>
+      </div>
+      <div class="t-cap" style="letter-spacing:var(--ls-wide)">东方线描 · 克制写意 · 非卡通化</div>
+    </div>
+    <img src="assets/ip-wall.webp" style="width:100%;max-height:530px;object-fit:contain;border:1px solid var(--line)" alt="插画IP规划与墙面展示">
+  </div>
+  <footer class="ft">
+    <span class="badge">ILLUSTRATION IP</span>
+    <span class="note">以画入墙，让品牌故事在空间中自然流淌</span>
+  </footer>
+  <div class="pg">27</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P28 · 章节页 陆 · 门头与灯箱
+     ══════════════════════════════════════════════════════════ -->
+
+==============================================================================
+### P29   (assets/std-lightbox.webp)
+==============================================================================
+<section class="slide">
+  <header class="hd">
+    <div class="brand">土蚝小院<em>TUHAO XIAOYUAN</em></div>
+    <i></i>
+    <div class="chap"><b>陆</b>门头与灯箱</div>
+  </header>
+  <div class="bd top" style="justify-content:center">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px">
+      <div>
+        <div class="sec-h">KV 灯箱规范</div>
+        <div class="sec-en">Key Visual Lightbox Guidelines</div>
+      </div>
+      <div class="t-cap" style="letter-spacing:var(--ls-wide)">统一形象 · 传递品牌温度</div>
+    </div>
+    <img src="assets/std-lightbox.webp" style="width:100%;max-height:520px;object-fit:contain;border:1px solid var(--line)" alt="KV灯箱规范">
+  </div>
+  <footer class="ft">
+    <span class="badge">LIGHTBOX SPEC</span>
+    <span class="note">品牌灯箱视觉标准，打造岭南鲜味地标</span>
+  </footer>
+  <div class="pg">29</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P30 · 横版门头灯箱（满幅 · 原图直出，无景深/无遮罩）
+     ══════════════════════════════════════════════════════════ -->
+
+==============================================================================
+### P34   (assets/app-slogan.webp)
+==============================================================================
+<section class="slide">
+  <header class="hd">
+    <div class="brand">土蚝小院<em>TUHAO XIAOYUAN</em></div>
+    <i></i>
+    <div class="chap"><b>柒</b>传播应用</div>
+  </header>
+  <div class="bd top" style="justify-content:center">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px">
+      <div>
+        <div class="sec-h">广告语呈现</div>
+        <div class="sec-en">Brand Slogan Presentation</div>
+      </div>
+      <div class="t-cap" style="letter-spacing:var(--ls-wide)">梗是入口，雅是留客</div>
+    </div>
+    <img src="assets/app-slogan.webp" style="width:100%;max-height:520px;object-fit:contain;border:1px solid var(--line)" alt="Slogan广告语呈现">
+  </div>
+  <footer class="ft">
+    <span class="badge">BRAND SLOGAN</span>
+    <span class="note">以食为媒，邀你入院</span>
+  </footer>
+  <div class="pg">34</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     P35 · 主口号与辅助文案体系
+     ══════════════════════════════════════════════════════════ -->
