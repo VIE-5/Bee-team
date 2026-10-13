@@ -1,0 +1,120 @@
+{
+  "rock": {
+    "logo-ink": {
+      "ratio": 9.97,
+      "verdict": "OK"
+    },
+    "logo-red": {
+      "ratio": 3.61,
+      "verdict": "OK"
+    },
+    "cinnabar": {
+      "ratio": 4.5,
+      "verdict": "OK"
+    },
+    "bronze": {
+      "ratio": 2.32,
+      "verdict": "EDGE"
+    },
+    "walnut": {
+      "ratio": 4.88,
+      "verdict": "OK"
+    },
+    "pine": {
+      "ratio": 4.36,
+      "verdict": "OK"
+    }
+  },
+  "pine": {
+    "logo-ink": {
+      "ratio": 2.29,
+      "verdict": "EDGE"
+    },
+    "logo-red": {
+      "ratio": 1.21,
+      "verdict": "NO"
+    },
+    "cinnabar": {
+      "ratio": 1.03,
+      "verdict": "NO"
+    },
+    "bronze": {
+      "ratio": 1.88,
+      "verdict": "NO"
+    },
+    "walnut": {
+      "ratio": 1.12,
+      "verdict": "NO"
+    }
+  },
+  "darkblue": {
+    "logo-ink": {
+      "ratio": 1.37,
+      "verdict": "NO"
+    },
+    "logo-red": {
+      "ratio": 2.02,
+      "verdict": "NO"
+    },
+    "cinnabar": {
+      "ratio": 1.62,
+      "verdict": "NO"
+    },
+    "bronze": {
+      "ratio": 3.13,
+      "verdict": "OK"
+    },
+    "walnut": {
+      "ratio": 1.49,
+      "verdict": "NO"
+    },
+    "pine": {
+      "ratio": 1.67,
+      "verdict": "NO"
+    }
+  },
+  "walnut": {
+    "logo-ink": {
+      "ratio": 2.04,
+      "verdict": "NO"
+    },
+    "logo-red": {
+      "ratio": 1.35,
+      "verdict": "NO"
+    },
+    "cinnabar": {
+      "ratio": 1.08,
+      "verdict": "NO"
+    },
+    "bronze": {
+      "ratio": 2.1,
+      "verdict": "NO"
+    },
+    "pine": {
+      "ratio": 1.12,
+      "verdict": "NO"
+    }
+  },
+  "logo-ink": {
+    "logo-red": {
+      "ratio": 2.76,
+      "verdict": "EDGE"
+    },
+    "cinnabar": {
+      "ratio": 2.22,
+      "verdict": "EDGE"
+    },
+    "bronze": {
+      "ratio": 4.29,
+      "verdict": "OK"
+    },
+    "walnut": {
+      "ratio": 2.04,
+      "verdict": "NO"
+    },
+    "pine": {
+      "ratio": 2.29,
+      "verdict": "EDGE"
+    }
+  }
+}

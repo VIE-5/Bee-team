@@ -1,0 +1,3 @@
+w=320  整标 320x294  朱印 36x56 px  放大7x -> minsize-seal-320x.png
+w=240  整标 240x220  朱印 26x43 px  放大9x -> minsize-seal-240x.png
+w=160  整标 160x147  朱印 18x29 px  放大12x -> minsize-seal-160x.png

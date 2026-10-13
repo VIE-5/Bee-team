@@ -1,0 +1,86 @@
+{
+  "cream": {
+    "正稿主体 墨绿": {
+      "ratio": 12.4,
+      "verdict": "OK"
+    },
+    "反白主体 米白": {
+      "ratio": 1.0,
+      "verdict": "NO"
+    },
+    "印章红": {
+      "ratio": 4.44,
+      "verdict": "OK"
+    }
+  },
+  "white": {
+    "正稿主体 墨绿": {
+      "ratio": 13.55,
+      "verdict": "OK"
+    },
+    "反白主体 米白": {
+      "ratio": 1.09,
+      "verdict": "NO"
+    },
+    "印章红": {
+      "ratio": 4.85,
+      "verdict": "OK"
+    }
+  },
+  "paper": {
+    "正稿主体 墨绿": {
+      "ratio": 10.36,
+      "verdict": "OK"
+    },
+    "反白主体 米白": {
+      "ratio": 1.2,
+      "verdict": "NO"
+    },
+    "印章红": {
+      "ratio": 3.71,
+      "verdict": "OK"
+    }
+  },
+  "pine": {
+    "正稿主体 墨绿": {
+      "ratio": 2.29,
+      "verdict": "EDGE"
+    },
+    "反白主体 米白": {
+      "ratio": 5.43,
+      "verdict": "OK"
+    },
+    "印章红": {
+      "ratio": 1.22,
+      "verdict": "NO"
+    }
+  },
+  "ink": {
+    "正稿主体 墨绿": {
+      "ratio": 1.0,
+      "verdict": "NO"
+    },
+    "反白主体 米白": {
+      "ratio": 12.4,
+      "verdict": "OK"
+    },
+    "印章红": {
+      "ratio": 2.79,
+      "verdict": "EDGE"
+    }
+  },
+  "deep": {
+    "正稿主体 墨绿": {
+      "ratio": 1.25,
+      "verdict": "NO"
+    },
+    "反白主体 米白": {
+      "ratio": 15.45,
+      "verdict": "OK"
+    },
+    "印章红": {
+      "ratio": 3.48,
+      "verdict": "OK"
+    }
+  }
+}

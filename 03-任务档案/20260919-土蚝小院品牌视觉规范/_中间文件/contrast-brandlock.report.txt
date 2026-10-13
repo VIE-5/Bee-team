@@ -1,0 +1,30 @@
+=== 各色相对亮度（决定一切搭配）
+  rock        #E7DCC7  L=0.7230   基底留白 暖米岩石色
+  bronze      #B28A52  L=0.2825   工艺金 铜金色
+  logo-red    #DE1C19  L=0.1643   Logo 印章红（标识内部色，不作色板色）
+  pine        #58685A  L=0.1271   品牌主色 岭南松柏绿
+  cinnabar    #A34435  L=0.1218   点睛色 朱砂红（物料统一红）
+  walnut      #76563C  L=0.1083   器物木料 深木胡桃色
+  darkblue    #35464A  L=0.0563   深底夜色 黛青黑
+  logo-ink    #2D301B  L=0.0275   Logo 专用墨色（仅 Logo 内部）
+
+=== 底色 x 主体（>=3.0 可用 / 2.2-3.0 边缘 / <2.2 禁止）
+底色              logo-ink              logo-red              cinnabar              bronze                walnut                pine                
+rock #E7DCC7    9.97 OK               3.61 OK               4.50 OK               2.32 EDGE             4.88 OK               4.36 OK             
+pine #58685A    2.29 EDGE             1.21 NO               1.03 NO               1.88 NO               1.12 NO             
+darkblue #35464A  1.37 NO               2.02 NO               1.62 NO               3.13 OK               1.49 NO               1.67 NO             
+walnut #76563C  2.04 NO               1.35 NO               1.08 NO               2.10 NO               1.12 NO             
+logo-ink #2D301B  2.76 EDGE             2.22 EDGE             4.29 OK               2.04 NO               2.29 EDGE           
+
+=== 标志反白稿（主体转岩石米 #E7DCC7）落在各底
+  on rock      #E7DCC7   主体 1.00:1 NO   朱印 3.61:1 OK
+  on pine      #58685A   主体 4.36:1 OK   朱印 1.21:1 NO
+  on darkblue  #35464A   主体 7.27:1 OK   朱印 2.02:1 NO
+  on walnut    #76563C   主体 4.88:1 OK   朱印 1.35:1 NO
+  on logo-ink  #2D301B   主体 9.97:1 OK   朱印 2.76:1 EDGE
+
+=== 关键结论
+  松柏绿(主色) 作标志承底 -> 墨绿主体 2.29:1 / 朱印 1.21:1
+  黛青黑(深底) 作标志承底 -> 墨绿主体 1.37:1 / 朱印 2.02:1
+  岩石米(基底) 作标志承底 -> 墨绿主体 9.97:1 / 朱印 3.61:1
+  朱砂红 vs 松柏绿 1.03:1 / vs 岩石米 4.50:1 / vs 黛青黑 1.62:1

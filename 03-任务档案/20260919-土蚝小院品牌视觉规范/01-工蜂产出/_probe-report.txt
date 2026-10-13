@@ -1,0 +1,10 @@
+slides=17
+deck=1920.0x1080.0
+problems=0
+P5 cell1 stage=360.4x216.0 img=191.9x176.0 ar=1.0903 nat=785x720 overflowH=-20.0
+P5 cell2 stage=360.4x216.0 img=191.9x176.0 ar=1.0903 nat=785x720 overflowH=-20.0
+P5 cell3 stage=360.4x216.0 img=191.9x176.0 ar=1.0903 nat=785x720 overflowH=-20.0
+P5 cell4 stage=360.4x216.0 img=191.9x176.0 ar=1.0903 nat=785x720 overflowH=-20.0
+draft1 stage=751.1x386.0 svg=420.0x386.0
+draft2 stage=751.1x386.0 svg=420.0x386.0
+fontsReady=loading

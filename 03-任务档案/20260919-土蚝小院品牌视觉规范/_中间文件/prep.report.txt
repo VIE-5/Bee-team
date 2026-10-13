@@ -1,0 +1,30 @@
+mark crop : 785x720  ratio 1.0903
+seal crop : 88x138
+
+thin-stroke runs (<25px, alpha>200, H+V), n=4267  (H=2030 V=2237)
+  p1   = 1 px
+  p2   = 1 px
+  p5   = 1 px
+  p10  = 2 px
+  p25  = 6 px
+  p2   = 1 px  -> 占标志宽 0.13%  -> 印刷下限(0.20mm) 须 >= 157 mm
+  p5   = 1 px  -> 占标志宽 0.13%  -> 印刷下限(0.20mm) 须 >= 157 mm
+  p10  = 2 px  -> 占标志宽 0.25%  -> 印刷下限(0.20mm) 须 >= 78 mm
+
+=== 色值表（BrandLock v2 口径 · CMYK 为网式换算参考值，非 ICC 分色，印前须打样校准）
+  松柏绿 PINE               #58685A  rgb(88, 104, 90)      C15  M0   Y13  K59 
+  暖米岩石色 ROCK             #E7DCC7  rgb(231, 220, 199)    C0   M5   Y14  K9  
+  朱砂红 CINNABAR           #A34435  rgb(163, 68, 53)      C0   M58  Y67  K36 
+  黛青黑 DARKBLUE           #35464A  rgb(53, 70, 74)       C28  M5   Y0   K71 
+  深木胡桃色 WALNUT           #76563C  rgb(118, 86, 60)      C0   M27  Y49  K54 
+  铜金色 BRONZE             #B28A52  rgb(178, 138, 82)     C0   M22  Y54  K30 
+  [内部] Logo 墨色 INK       #2D301B  rgb(45, 48, 27)       C6   M0   Y44  K81 
+  [内部] 印章红 SEAL-RED      #DE1C19  rgb(222, 28, 25)      C0   M87  Y89  K13 
+  参考 纯白 WHITE            #FFFFFF  rgb(255, 255, 255)    C0   M0   Y0   K0  
+
+assets ->
+  logo-mono-cream.png         180.8 KB  785x720
+  logo-mono-green.png         168.8 KB  785x720
+  logo-primary.png            304.7 KB  785x720
+  logo-reverse.png            175.5 KB  785x720
+  logo-seal.png                25.4 KB  88x138
