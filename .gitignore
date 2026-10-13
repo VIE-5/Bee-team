@@ -47,3 +47,10 @@ build/
 /_p.txt
 /_r.txt
 /_probe_wx.py
+
+# Chrome 无头探针的用户数据目录（缓存 / leveldb / LOCK，零价值，且每次重跑都会重生）
+# 命名约定：<任务目录>/_work/chrome-probe（probe_fit.py / probe_overflow.py）、
+#           <任务目录>/_work/chrome-measure（run_measure.py）
+# 下方不带斜杠前缀，可匹配任意层级
+chrome-probe/
+chrome-measure/
