@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>蜂群体系 · 全景关系分析 V1</title>
+<style>
+  :root{
+    --bg:#080B0D; --bg2:#0C1215; --panel:#101A1F; --panel2:#0E161A;
+    --line:#1D2B32; --line2:#2A3C44;
+    --ink:#E8F2F6; --dim:#8496A0; --faint:#5B6C75;
+    --cyan:#39E1F0; --mag:#FF41BE; --yel:#F9F871; --grn:#4BE38A; --red:#FF5C5C; --org:#FFA24B;
+    --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"PingFang SC","Microsoft YaHei","Segoe UI",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:1180px;margin:0 auto;padding:44px 30px 90px}
+  a{color:var(--cyan);text-decoration:none}
+
+  /* ---------- hero ---------- */
+  .hero{border:1px solid var(--line);border-radius:16px;padding:34px 34px 30px;
+    background:linear-gradient(150deg,#0D161A 0%,#0A1013 60%);position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;inset:0;
+    background:radial-gradient(600px 220px at 12% -10%,rgba(57,225,240,.14),transparent 70%),
+               radial-gradient(500px 200px at 92% 0%,rgba(255,65,190,.10),transparent 70%)}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:3px;color:var(--cyan);
+    text-transform:uppercase;position:relative}
+  h1{font-size:32px;margin:12px 0 6px;position:relative;letter-spacing:1px}
+  h1 em{color:var(--cyan);font-style:normal}
+  .sub{color:var(--dim);font-size:14.5px;position:relative;max-width:820px}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px;position:relative}
+  .kpi{border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;background:var(--panel2)}
+  .kpi b{display:block;font-family:var(--mono);font-size:30px;line-height:1;color:var(--cyan)}
+  .kpi.m b{color:var(--mag)} .kpi.y b{color:var(--yel)} .kpi.g b{color:var(--grn)}
+  .kpi span{font-size:12.5px;color:var(--dim)}
+
+  h2{font-size:20px;margin:52px 0 6px;display:flex;align-items:center;gap:12px}
+  h2:before{content:"";width:8px;height:8px;background:var(--cyan);border-radius:2px;
+    box-shadow:0 0 12px var(--cyan)}
+  .lead{color:var(--dim);font-size:14px;margin:0 0 20px;padding-left:20px}
+
+  /* ---------- chart panel ---------- */
+  .panel{border:1px solid var(--line);border-radius:14px;background:var(--panel2);padding:22px}
+  .cap{font-family:var(--mono);font-size:11.5px;letter-spacing:2px;color:var(--faint);
+    text-transform:uppercase;margin-bottom:14px}
+
+  /* ---------- bars ---------- */
+  .bars{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .brow{display:grid;grid-template-columns:132px 1fr 34px;align-items:center;gap:10px;
+    font-size:12.5px;margin:7px 0}
+  .bname{color:var(--dim);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .btrack{display:block;background:#0A1215;border-radius:5px;height:16px;overflow:hidden;border:1px solid var(--line)}
+  .bfill{display:block;height:100%;border-radius:5px}
+  .bval{font-family:var(--mono);font-size:12px;color:var(--ink);text-align:right}
+  .bhub .bfill{background:linear-gradient(90deg,#1E7A8C,var(--cyan))}
+  .bagg .bfill{background:linear-gradient(90deg,#8C1E63,var(--mag))}
+
+  /* ---------- table ---------- */
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line)}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--faint);
+    text-transform:uppercase;font-weight:500}
+  td.n{font-family:var(--mono);color:var(--cyan)}
+  tr:hover td{background:rgba(57,225,240,.04)}
+  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;
+    border:1px solid var(--line2);color:var(--dim);font-family:var(--mono)}
+  .tag.hub{border-color:#1E7A8C;color:var(--cyan)}
+  .tag.agg{border-color:#8C1E63;color:var(--mag)}
+  .tag.iso{border-color:#5A4A1E;color:var(--yel)}
+  .tag.ok{border-color:#1E6B3E;color:var(--grn)}
+
+  /* ---------- findings ---------- */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{border:1px solid var(--line);border-radius:12px;padding:18px 18px 16px;background:var(--panel2)}
+  .card h3{margin:0 0 8px;font-size:15px;display:flex;gap:9px;align-items:baseline}
+  .card h3 .no{font-family:var(--mono);font-size:12px;color:var(--cyan);opacity:.8}
+  .card p{margin:0;font-size:13px;color:var(--dim)}
+  .card p b{color:var(--ink);font-weight:600}
+  .card.warn{border-color:#5A2230;background:linear-gradient(160deg,#170D10,#0E161A)}
+  .card.warn h3 .no{color:var(--mag)}
+  .card.good{border-color:#1B4531}
+  .card.good h3 .no{color:var(--grn)}
+
+  .layers{display:grid;gap:10px;margin-top:6px}
+  .lrow{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:center;
+    border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--panel2)}
+  .lname{font-family:var(--mono);font-size:12px;color:var(--cyan)}
+  .lname small{display:block;color:var(--faint);font-size:10.5px;letter-spacing:1px}
+  .lchips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{font-size:12px;padding:4px 10px;border-radius:7px;background:#0B1418;
+    border:1px solid var(--line2);color:var(--dim)}
+  .chip.hot{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 10px rgba(57,225,240,.2)}
+  .chip.warn{border-color:var(--mag);color:var(--mag)}
+  .chip.dim{opacity:.55}
+
+  .foot{margin-top:56px;border-top:1px solid var(--line);padding-top:20px;
+    color:var(--faint);font-size:12px;font-family:var(--mono);display:flex;
+    justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <div class="kicker">Hive Cluster · Relational Survey</div>
+    <h1>蜂群体系 · <em>全景关系分析</em></h1>
+    <p class="sub">不描述「长什么样」，而是拆「谁依赖谁」。以 27 个体系文件为节点、逐文档扫描引用关系，
+      构建有向引用网络，识别枢纽、契约、聚合器与孤岛——所有数字均以磁盘文件实扫为准。</p>
+    <div class="kpis">
+      <div class="kpi"><b>27</b><span>体系节点（文档 / 脚本 / 规范）</span></div>
+      <div class="kpi m"><b>≈144</b><span>有向引用边</span></div>
+      <div class="kpi y"><b>5</b><span>结构分层</span></div>
+      <div class="kpi g"><b>12</b><span>产物层任务档案（外部）</span></div>
+    </div>
+  </div>
+
+  <!-- ============ §1 图谱 ============ -->
+  <h2>关系图谱：出度 × 入度四象限</h2>
+  <p class="lead">横轴＝出度（该文件引用了多少其他实体），纵轴＝入度（被多少文件引用）。
+    四象限直接映射四种角色：<b style="color:var(--cyan)">双枢纽</b>、
+    <b style="color:var(--cyel,#F9F871)">契约/设施</b>、
+    <b style="color:var(--mag)">聚合器/索引</b>、
+    <b style="color:var(--yel)">孤岛/叶子</b>。</p>
+  <div class="panel">
+    <div class="cap">Figure 1 · Reference Topology (bubble = node)</div>
+    <svg viewBox="0 0 900 600" width="100%" style="display:block">
+      <defs>
+        <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="3.2" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <!-- 网格 -->
+      <g stroke="#152329" stroke-width="1">
+        <line x1="70" y1="40" x2="70" y2="520"/>
+        <line x1="70" y1="520" x2="852" y2="520"/>
+      </g>
+      <!-- 象限分割 -->
+      <line x1="312" y1="40" x2="312" y2="520" stroke="#2A3C44" stroke-dasharray="5 6"/>
+      <line x1="70" y1="246" x2="852" y2="246" stroke="#2A3C44" stroke-dasharray="5 6"/>
+
+      <!-- 轴标 -->
+      <g fill="#5B6C75" font-size="11" font-family="monospace">
+        <text x="70"  y="546" text-anchor="middle">0</text>
+        <text x="312" y="546" text-anchor="middle">6</text>
+        <text x="596" y="546" text-anchor="middle">13</text>
+        <text x="852" y="546" text-anchor="middle">19</text>
+        <text x="460" y="576" text-anchor="middle" fill="#8496A0">出度 OUT-DEGREE →</text>
+        <text x="30" y="44"  text-anchor="middle">13</text>
+        <text x="30" y="246" text-anchor="middle">6</text>
+        <text x="30" y="524" text-anchor="middle">0</text>
+        <text x="18" y="280" text-anchor="middle" fill="#8496A0" transform="rotate(-90 18 280)">入度 IN-DEGREE →</text>
+      </g>
+
+      <!-- 象限标签 -->
+      <g font-size="11.5" font-family="monospace" opacity=".75">
+        <text x="82"  y="60"  fill="#F9F871">契约 · 设施（低出高入）</text>
+        <text x="322" y="60"  fill="#39E1F0">双枢纽（高出高入）</text>
+        <text x="322" y="512" fill="#FF41BE">聚合器 · 索引（高出低入）</text>
+        <text x="82"  y="512" fill="#8C7A3A">孤岛 · 叶子（低出低入）</text>
+      </g>
+
+      <!-- ===== 节点 ===== -->
+      <!-- 双枢纽 -->
+      <g filter="url(#glow)">
+        <circle cx="596" cy="40"  r="15" fill="#39E1F0" opacity=".92"/>
+        <circle cx="596" cy="262" r="12" fill="#39E1F0" opacity=".8"/>
+        <circle cx="394" cy="188" r="12" fill="#39E1F0" opacity=".8"/>
+        <circle cx="272" cy="262" r="10" fill="#39E1F0" opacity=".72"/>
+      </g>
+      <!-- 契约/设施 -->
+      <g fill="#F9F871">
+        <circle cx="70"  cy="77"  r="14" opacity=".92"/>
+        <circle cx="151" cy="151" r="12" opacity=".8"/>
+        <circle cx="191" cy="188" r="11" opacity=".8"/>
+        <circle cx="70"  cy="188" r="11" opacity=".8"/>
+        <circle cx="272" cy="225" r="10" opacity=".72"/>
+        <circle cx="110" cy="262" r="9"  opacity=".7"/>
+        <circle cx="110" cy="299" r="8"  opacity=".7"/>
+        <circle cx="70"  cy="299" r="8"  opacity=".6"/>
+        <circle cx="232" cy="262" r="9"  opacity=".7"/>
+        <circle cx="110" cy="336" r="8"  opacity=".6"/>
+        <circle cx="110" cy="373" r="7"  opacity=".55"/>
+      </g>
+      <!-- 聚合器 -->
+      <g fill="#FF41BE">
+        <circle cx="799" cy="483" r="13" opacity=".9"/>
+        <circle cx="718" cy="446" r="12" opacity=".85"/>
+        <circle cx="637" cy="520" r="11" opacity=".8"/>
+        <circle cx="515" cy="483" r="9"  opacity=".7"/>
+        <circle cx="475" cy="483" r="9"  opacity=".7"/>
+        <circle cx="272" cy="446" r="9"  opacity=".7"/>
+      </g>
+      <!-- 孤岛 -->
+      <g fill="#8C7A3A" opacity=".85">
+        <circle cx="70"  cy="483" r="7"/>
+        <circle cx="70"  cy="410" r="6"/>
+        <circle cx="110" cy="520" r="5"/>
+        <circle cx="191" cy="483" r="6"/>
+      </g>
+
+      <!-- ===== 标注 ===== -->
+      <g font-size="11.5" font-family="monospace">
+        <text x="616" y="44"  fill="#39E1F0">踩坑库 ◆</text>
+        <text x="612" y="258" fill="#E8F2F6">能力注册表</text>
+        <text x="410" y="184" fill="#E8F2F6">图片施工蜂</text>
+        <text x="288" y="258" fill="#E8F2F6">PPTX规范</text>
+
+        <text x="88"  y="74"  fill="#F9F871">派工单模板 ★</text>
+        <text x="167" y="148" fill="#E8F2F6">验收清单</text>
+        <text x="205" y="185" fill="#E8F2F6">守卫蜂</text>
+        <text x="86"  y="185" fill="#E8F2F6">render-deck</text>
+        <text x="288" y="222" fill="#E8F2F6">设计提词蜂</text>
+
+        <text x="812" y="480" fill="#FF41BE">全景图 V2</text>
+        <text x="700" y="440" fill="#E8F2F6">制度总纲</text>
+        <text x="640" y="536" fill="#E8F2F6">README</text>
+        <text x="524" y="480" fill="#E8F2F6">架构理解V1</text>
+
+        <text x="82"  y="500" fill="#8C7A3A">社媒KV手册</text>
+        <text x="82"  y="406" fill="#8C7A3A">VI-Proposal</text>
+        <text x="120" y="524" fill="#8C7A3A">deck-benchmark</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ============ §2 双榜 ============ -->
+  <h2>双榜：谁在聚合，谁被依赖</h2>
+  <p class="lead">左＝「聚合器」（引用别人最多，越靠上是索引/总纲）；右＝「枢纽」（被引用最多，越靠上是全体系的依赖地基）。</p>
+  <div class="panel">
+    <div class="cap">Figure 2 · Out-Degree (aggregators) vs In-Degree (hubs)</div>
+    <div class="bars">
+      <div class="bagg">
+        <div class="brow"><span class="bname">全景图 V2</span><span class="btrack"><span class="bfill" style="width:100%"></span></span><span class="bval">18</span></div>
+        <div class="brow"><span class="bname">制度总纲</span><span class="btrack"><span class="bfill" style="width:89%"></span></span><span class="bval">16</span></div>
+        <div class="brow"><span class="bname">README</span><span class="btrack"><span class="bfill" style="width:78%"></span></span><span class="bval">14</span></div>
+        <div class="brow"><span class="bname">能力注册表</span><span class="btrack"><span class="bfill" style="width:72%"></span></span><span class="bval">13</span></div>
+        <div class="brow"><span class="bname">踩坑库</span><span class="btrack"><span class="bfill" style="width:72%"></span></span><span class="bval">13</span></div>
+        <div class="brow"><span class="bname">架构理解 V1</span><span class="btrack"><span class="bfill" style="width:61%"></span></span><span class="bval">11</span></div>
+        <div class="brow"><span class="bname">全景图 V1</span><span class="btrack"><span class="bfill" style="width:56%"></span></span><span class="bval">10</span></div>
+        <div class="brow"><span class="bname">图片施工蜂</span><span class="btrack"><span class="bfill" style="width:44%"></span></span><span class="bval">8</span></div>
+      </div>
+      <div class="bhub">
+        <div class="brow"><span class="bname">踩坑库</span><span class="btrack"><span class="bfill" style="width:100%"></span></span><span class="bval">13</span></div>
+        <div class="brow"><span class="bname">派工单模板</span><span class="btrack"><span class="bfill" style="width:92%"></span></span><span class="bval">12</span></div>
+        <div class="brow"><span class="bname">验收清单</span><span class="btrack"><span class="bfill" style="width:77%"></span></span><span class="bval">10</span></div>
+        <div class="brow"><span class="bname">图片施工蜂</span><span class="btrack"><span class="bfill" style="width:69%"></span></span><span class="bval">9</span></div>
+        <div class="brow"><span class="bname">守卫蜂</span><span class="btrack"><span class="bfill" style="width:69%"></span></span><span class="bval">9</span></div>
+        <div class="brow"><span class="bname">render-deck</span><span class="btrack"><span class="bfill" style="width:69%"></span></span><span class="bval">9</span></div>
+        <div class="brow"><span class="bname">设计提词蜂</span><span class="btrack"><span class="bfill" style="width:61%"></span></span><span class="bval">8</span></div>
+        <div class="brow"><span class="bname">能力注册表 / PPTX规范</span><span class="btrack"><span class="bfill" style="width:54%"></span></span><span class="bval">7</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ §3 分层 ============ -->
+  <h2>结构分层：五层与各自的连接强度</h2>
+  <p class="lead">按职责把 27 个节点归入五层。<b style="color:var(--cyan)">高亮</b>＝该层枢纽，<b style="color:var(--mag)">品红</b>＝该层薄弱/孤岛，<b>灰淡</b>＝展示层（不参与运转）。</p>
+  <div class="panel">
+    <div class="layers">
+      <div class="lrow"><div class="lname">L0 规范·展示<small>00-蜂巢规范</small></div>
+        <div class="lchips">
+          <span class="chip hot">蜂巢Git工作流</span>
+          <span class="chip dim">架构理解 V1</span>
+          <span class="chip dim">全景图 V1</span>
+          <span class="chip dim">全景图 V2</span>
+        </div></div>
+      <div class="lrow"><div class="lname">L1 指挥层<small>01-蜂王</small></div>
+        <div class="lchips">
+          <span class="chip">角色卡·蜂王</span>
+          <span class="chip hot">派工单模板</span>
+          <span class="chip hot">验收清单</span>
+        </div></div>
+      <div class="lrow"><div class="lname">L2 执行层<small>02-工蜂</small></div>
+        <div class="lchips">
+          <span class="chip">资料侦查蜂</span>
+          <span class="chip">提案筑巢蜂</span>
+          <span class="chip hot">图片施工蜂</span>
+          <span class="chip hot">守卫蜂</span>
+          <span class="chip">设计提词蜂</span>
+        </div></div>
+      <div class="lrow"><div class="lname">L3 知识层<small>04-知识沉淀</small></div>
+        <div class="lchips">
+          <span class="chip hot">制度总纲</span>
+          <span class="chip hot">能力注册表</span>
+          <span class="chip hot">踩坑库 ◆</span>
+          <span class="chip warn">设计提词库</span>
+          <span class="chip">VI 母版规范</span>
+          <span class="chip hot">PPTX 规范</span>
+          <span class="chip">render-deck</span>
+          <span class="chip">deck2pptx</span>
+          <span class="chip">html-ppt 手册</span>
+          <span class="chip warn">社媒KV 手册</span>
+          <span class="chip">矢量Logo工具链</span>
+          <span class="chip warn">deck-benchmark</span>
+          <span class="chip">VI 母版 / Logo 母版</span>
+        </div></div>
+      <div class="lrow"><div class="lname">L4 产物层<small>03-任务档案</small></div>
+        <div class="lchips">
+          <span class="chip dim">12 个任务档案（土蚝 / 碗香 / 蒸馏册 …）— 体系外部，单向落盘</span>
+        </div></div>
+    </div>
+  </div>
+
+  <!-- ============ §4 发现 ============ -->
+  <h2>八大发现</h2>
+  <p class="lead">从引用网络里读出的结构特征——前四条是<b>健康设计</b>，后四条是<b>待处理的结构缺口</b>。</p>
+  <div class="grid2">
+    <div class="card good"><h3><span class="no">01</span>双枢纽：踩坑库 + 能力注册表</h3>
+      <p>踩坑库出度 13、入度 13（<b>总度数 26，全体系第一</b>）——既是知识输出源，又是被引用最多的一环。能力注册表（13/7）紧随其后。<b>知识层是这张网的重心</b>。</p></div>
+    <div class="card good"><h3><span class="no">02</span>纯契约：派工单模板（出 0 / 入 12）</h3>
+      <p>它<b>零出度</b>——不依赖任何其他文档，却被 12 处引用。这是教科书式的"契约"设计：协议层本身不含依赖，脆性最低。验收清单（2/10）同理。</p></div>
+    <div class="card good"><h3><span class="no">03</span>最重的执行者：图片施工蜂（8/9）</h3>
+      <p>依赖最多工具与规范（render-deck / deck2pptx / PPTX规范 / 矢量Logo链 / 母版），同时被引用最多。<b>它是执行层的主承重墙</b>——它一停，全案出图链路即断。</p></div>
+    <div class="card good"><h3><span class="no">04</span>质量闸门:守卫蜂的"轻依赖、重被引"（3/9）</h3>
+      <p>只依赖 render-deck + 验收清单 + 派工单，却被 9 处引用。质量检查者<b>只锚定少量稳定接口</b>，不绑定生产细节——分工干净。</p></div>
+
+    <div class="card warn"><h3><span class="no">05</span>单向俯瞰：制度总纲（出 16 / 入 2）</h3>
+      <p>制度总纲俯瞰所有人，却<b>几乎不被回头引用</b>（仅全景图 V2 与踩坑库）。<b>规则层→执行层是单向边</b>：改了制度，工蜂卡不会收到失效提醒。</p></div>
+    <div class="card warn"><h3><span class="no">06</span>反向引用缺口：工蜂卡不锚规则</h3>
+      <p>五张工蜂卡普遍只引用「派工单」，<b>均未回链「制度总纲 / 能力注册表」</b>。执行者的"我该守什么"只写在知识层一侧，工蜂卡自身不声明所循规则。</p></div>
+    <div class="card warn"><h3><span class="no">07</span>孤岛：社媒KV手册 / 两个工具 README</h3>
+      <p><b>社媒KV确定性合成手册入度仅 1</b>（只被制度总纲提及一次）；deck-benchmark、矢量Logo链的 README 各仅被踩坑库引用 1 次。它们有内容，却几乎没接进运转链。</p></div>
+    <div class="card warn"><h3><span class="no">08</span>展示层脱节：全景图 / 架构理解的入度均为 1</h3>
+      <p>V1、V2、架构理解 V1 <b>入度全部只有 1</b>（且仅来自 README 索引）。它们是"给人看的"，与工蜂的运转链零耦合——<b>必然不会自动跟随体系演进</b>（本次 main→master 修正即为实例）。</p></div>
+  </div>
+
+  <!-- ============ §5 风险与建议 ============ -->
+  <h2>风险清单与处置建议</h2>
+  <p class="lead">按影响面排序。前两项涉及全体系稳定性，建议优先。</p>
+  <div class="panel">
+    <table>
+      <thead><tr><th style="width:34px">#</th><th>结构风险</th><th style="width:150px">性质</th><th>建议处置</th></tr></thead>
+      <tbody>
+        <tr><td class="n">R1</td><td><b>踩坑库单点依赖</b>：26 度数的超级枢纽，它一乱则全线受损</td>
+          <td><span class="tag iso">单点</span></td>
+          <td>加"分类索引/分册"（按产线切分），保留总库做导航；高价值条目回写对应规范</td></tr>
+        <tr><td class="n">R2</td><td><b>规则→执行反向缺口</b>：工蜂卡不锚制度总纲/能力注册表</td>
+          <td><span class="tag iso">断链</span></td>
+          <td>每张工蜂卡增设"遵循：制度总纲 §X / 能力注册表 · 条目"回链，补齐反向边</td></tr>
+        <tr><td class="n">R3</td><td><b>孤岛文档</b>：社媒KV手册、deck-benchmark 与矢量Logo链 README</td>
+          <td><span class="tag iso">孤岛</span></td>
+          <td>在能力注册表/制度总纲的工具清单里挂上这三个入口，纳入索引</td></tr>
+        <tr><td class="n">R4</td><td><b>展示层与运转解耦</b>：全景图/架构理解入度≈1，演进不同步</td>
+          <td><span class="tag">边界</span></td>
+          <td>反之是可接受的设计——建议在文档头明确标注"展示层，随体系变更手动同步"</td></tr>
+        <tr><td class="n">R5</td><td><b>双渲染出口</b>：render-deck(入9) 与 deck2pptx(入6) 并存</td>
+          <td><span class="tag">口径</span></td>
+          <td>确认二者分工（PNG/PDF 渲染 vs PPTX 原生构建），在能力注册表写清边界，避免误用</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="foot">
+    <span>蜂群体系关系分析 V1 · 数据源 = 仓库文件实扫（引用计数）</span>
+    <span>27 节点 / ≈144 边 / 5 层 · 2026-10-13</span>
+  </div>
+</div>
+</body>
+</html>
